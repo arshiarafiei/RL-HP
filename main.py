@@ -1,75 +1,78 @@
 import numpy as np
 from env0 import SimpleMDPEnv
 from reward import reward_env0
+from model import MultiAgentDQN
 
 
-    
-    
-    
+
 if __name__ == "__main__":
+    
 
-
-    env = SimpleMDPEnv()
     env1 = SimpleMDPEnv()
-
-    trajectory  = list()
-
-    trajectory1 = list()
-
-    
-    
-    state = env.reset()
-    state1 = env1.reset()
-
-
-    trajectory.append(state)
-    trajectory1.append(state1)
-
-    print(f"Agent 0: Initial State: {state}, AP: {env.atomic_propositions[state]}")
-    print(f"Agent 1: Initial State: {state1}, AP: {env1.atomic_propositions[state1]}")
-
-
-    done = False
-    done1 = False 
-
-
-    total_reward = 0
-    total_reward1 = 0
+    env2 = SimpleMDPEnv()
 
     
 
-    step = 0
+    state_size = 1  
+    action_size = len(env1.action_space)
 
-    while (done == False or done1 == False):
-        # action = np.random.choice(env.action_space)
-        # action1 = np.random.choice(env1.action_space)
+    agent = MultiAgentDQN(state_size, action_size)
 
-        action = 0
-        action1 = 1
+    episodes = 100
+    batch_size = 32
 
-        if done == False:
+
+    for e in range(episodes):
+
+
+
+        state1 = env1.reset()
+        state2 = env2.reset()
+
+        trajectory1  = list()
+
+        trajectory2 = list()
+
+        combined_state = np.reshape([state1, state2], [1, state_size * 2])
+
+        total_reward = 0
+
+        done1 = False
+        done2 = False
+
+        for time in range(50):
             
-            next_state, done = env.step(action,"b")
-            trajectory.append(next_state)
+            actions = agent.act(combined_state)
 
-            # print("agent 0")
-            # env.render()
+            action1, action2 = actions[0], actions[1]
 
-        if done1 == False:
-            next_state1, done1 = env1.step(action1,"c")
 
-            trajectory1.append(next_state1)
-            # print("agent 1")
-            # env1.render()
+            if done1 == False:
+            
+                next_state1, done1 = env1.step(action1,"b")
+                trajectory1.append(next_state1)
 
-        
-        print(reward_env0(trajectory, trajectory1, env, env1, step))
+            
+            if done2 == False:
+
+                next_state2, done2 = env2.step(action2,"c")
+                trajectory2.append(next_state2)
+
+
+            total_reward += reward_env0(trajectory1, trajectory2, env1, env2, time)
             
 
-        step += 1
+            combined_next_state = np.reshape([next_state1, next_state2], [1, state_size * 2])
 
-    # print(trajectory)
-    # print(trajectory1)
+            agent.remember(combined_state, actions, total_reward, combined_next_state, done1 and done2)
+            combined_state = combined_next_state
 
-    # print(f"Reward agent 0: {total_reward}")
-    # print(f"Reward agent 1: {total_reward1}")
+            print("done1:", done1)
+            print("done2:", done2)
+
+            if done1 and done2:
+                print(f"Episode {e+1}/{episodes} - Reward {total_reward}, Epsilon: {agent.epsilon:.2f}")
+                break
+
+        if len(agent.memory) > batch_size:
+            agent.replay(batch_size)

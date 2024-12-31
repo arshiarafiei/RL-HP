@@ -23,12 +23,14 @@ def reward_env0(tr, tr1, env, env1, step):
             )
             temp_values.append(temp)
 
-        print(temp_values)
+        # print(temp_values)
         return max(temp_values)
 
     
     phi1 = calculate_phi(tr, tr1, env, env1, "b", "c")
     phi2 = calculate_phi(tr, tr1, env, env1, "c", "b")
+
+    print(max(phi1, phi2))
 
     
     return max(phi1, phi2)
