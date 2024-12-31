@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 class SimpleMDPEnv:
     def __init__(self):
@@ -10,12 +11,16 @@ class SimpleMDPEnv:
         self.transitions = [
             (0, 0, 2),
             (2, 0, 3),
+            (2, 1, 2),
             (3, 0, 4),
+            (3, 1, 3),
             (0, 1, 1),
-            (1, 1, 5)
-            
+            (1, 1, 5),
+            (1, 0, 1),
+            (5, 0, 5),
+            (5, 1, 5)            
         ]
-        self.atomic_propositions = {0: "a", 1: "a", 2: "a", 3: "b", 4: "b", 5: "c"}  
+        self.atomic_propositions = {0: "a", 1: "a", 2: "a", 3: "a", 4: "b", 5: "c"}  
 
     def reset(self):
         return self.initial_state
@@ -27,6 +32,7 @@ class SimpleMDPEnv:
                 return next_state
         raise ValueError(f"Invalid transition for state {current_state} and action {action}.")
 
+
     def step(self, action, target):
         
         if action not in self.action_space:
@@ -35,16 +41,37 @@ class SimpleMDPEnv:
         # Transition
         next_state = self.transition_function(self.state, action)
 
-        # Reward function
-        reward = 1 if next_state == len(self.state_space) - 1 else -0.1
+        
 
         # terminal condition
         done = self.atomic_propositions[next_state] == target
 
         self.state = next_state
-        return next_state, reward, done
+        return next_state , done
+
 
     def render(self):
         
         print(f"Current State: {self.state}, Atomic Proposition: {self.atomic_propositions[self.state]}")
 
+
+
+
+    def distance_to_target(self, start_state, target_ap):
+        
+        visited = set()
+        queue = [(start_state, 0)]  # (current_state, distance)
+
+        while queue:
+            current_state, distance = queue.pop(0)
+
+            if self.atomic_propositions[current_state] == target_ap:
+                return distance
+
+            visited.add(current_state)
+
+            for (cur_state, act, next_state) in self.transitions:
+                if cur_state == current_state and next_state not in visited:
+                    queue.append((next_state, distance + 1))
+
+        return math.inf
