@@ -150,7 +150,7 @@ def reward_pcp_old(trajectory, trajectory1, domino, domino1, step):
 
     return reward
 
-def reward_pcp(trajectory, trajectory1, domino, domino1, step):
+def reward_pcp(domino, step):
 
     ##############Semimatch############## 
 
@@ -164,13 +164,20 @@ def reward_pcp(trajectory, trajectory1, domino, domino1, step):
 
     phi_1 = 1
 
+    flag = 0
+
 
     for index in range(min(len(domino_1_top), len(domino_1_bottom))-1):
 
         if domino_1_top[index] ==  domino_1_bottom[index]:
             continue
         else:
+            flag = 1
             phi_1 = phi_1 - 1 
+    
+    if flag ==0:
+        phi_1 = 10
+
 
     # phi_1 = min(phi_1_list)
 
@@ -188,9 +195,9 @@ def reward_pcp(trajectory, trajectory1, domino, domino1, step):
 
     #################Match##################
 
-    domino_2_top = domino1[0] + "#"
+    domino_2_top = domino[0] + "#"
 
-    domino_2_bottom = domino1[1] + "#"
+    domino_2_bottom = domino[1] + "#"
 
     max_length = max(len(domino_2_top), len(domino_2_bottom))
 
@@ -206,37 +213,21 @@ def reward_pcp(trajectory, trajectory1, domino, domino1, step):
     match_list = list()
 
     match = 1
+    flag1 = 0
 
-    for index in range(min(len(domino_2_top), len(domino_2_bottom))-1):
+    for index in range(max_length):
 
         if domino_2_top[index] ==  domino_2_bottom[index]:
             continue
         else:
+            flag1 = 1
             match = match -1 
 
-    # match = min(match_list)
+    if flag1 == 0:
+        match = 50
 
-    ##################Extend##################
+    reward = max(semimatch , match)
 
-    # print(trajectory,trajectory1)
-    extend_list= list()
-
-    extend = 1
-
-    for index in range(min(len(trajectory), len(trajectory1))):
-
-        if trajectory[index] ==  trajectory1[index]:
-            continue
-        else:
-            extend = extend -1 
-    
-    # extend = min(extend_list)
-
-   
-
-    reward = min (semimatch , extend, match)
-
-    # print(semimatch, match, extend)
 
     return reward
 
@@ -259,122 +250,89 @@ class MultiAgentRQN:
         model.add(Embedding(input_dim=6, output_dim=self.state_embedding_size, input_length=None))  # Embedding for state sequences
         model.add(LSTM(32, return_sequences=False))  # LSTM for processing variable-length sequences
         model.add(Dense(24, activation='relu'))
-        model.add(Dense(len(self.action_space) * 2, activation='linear'))  # Output size for two agents
+        model.add(Dense(len(self.action_space) , activation='linear'))  # Output size for two agents
         model.compile(loss='mse', optimizer=Adam(learning_rate=self.learning_rate))
         return model
 
-    def remember(self, combined_state, actions, rewards, next_combined_state, done):
-        self.memory.append((combined_state, actions, rewards, next_combined_state, done))
+    def remember(self, state, action, reward, next_state, done):
+        self.memory.append((state, action, reward, next_state, done))
 
-    def act(self, combined_state):
+
+    def act(self, state):
         if np.random.rand() <= self.epsilon:
-            return [random.choice(self.action_space), random.choice(self.action_space)]  # Random valid actions
-        
-        # Handle empty combined_state
-        if len(combined_state) == 0:
-            combined_state = [0]  # Placeholder for empty sequences
+            return random.choice(self.action_space)  # Random valid action
 
-        print("1",combined_state)
-        combined_state = pad_sequences([combined_state], maxlen=100, padding='post')  # Pad state
-        print("2",combined_state)
-        act_values = self.model.predict(combined_state, verbose=0)
-        action1_index = np.argmax(act_values[0][:len(self.action_space)])  # First agent
-        action2_index = np.argmax(act_values[0][len(self.action_space):])  # Second agent
-        return [self.action_space[action1_index], self.action_space[action2_index]]
+        # Handle empty state
+        if len(state) == 0:
+            state = [0]  # Provide a placeholder for empty sequences
+
+        # Ensure state is a NumPy array, padded, and reshaped
+        state = pad_sequences([state], maxlen=10, padding='post')  # Pad state to ensure consistent input length
+        state = np.array(state)  # Convert to NumPy array if not already
+
+        # Make prediction
+        act_values = self.model.predict(state, verbose=0)
+        action_index = np.argmax(act_values[0])  # Get the best action based on predicted Q-values
+        if action_index >= len(self.action_space):
+            raise ValueError(f"Invalid action index: {action_index}. Model output: {act_values[0]}")
+        
+        return self.action_space[action_index]
+
+
 
 
 
 
     def replay(self, batch_size):
         minibatch = random.sample(self.memory, batch_size)
-        for combined_state, actions, rewards, next_combined_state, done in minibatch:
-            combined_state = np.array(combined_state).reshape(1, -1)
-            next_combined_state = np.array(next_combined_state).reshape(1, -1)
-            targets = rewards
+        for state, action, reward, next_state, done in minibatch:
+            state = pad_sequences([state], maxlen=10, padding='post')
+            next_state = pad_sequences([next_state], maxlen=10, padding='post')
+            
+            target = reward
             if not done:
-                targets += self.gamma * np.amax(self.model.predict(next_combined_state, verbose=0)[0])
-            target_f = self.model.predict(combined_state, verbose=0)
-            target_f[0][self.action_space.index(actions[0])] = targets
-            target_f[0][len(self.action_space) + self.action_space.index(actions[1])] = targets
-            self.model.fit(combined_state, target_f, epochs=1, verbose=0)
+                target += self.gamma * np.amax(self.model.predict(next_state, verbose=0)[0])
+            
+            target_f = self.model.predict(state, verbose=0)
+            target_f[0][self.action_space.index(action)] = target  # Update the specific action's Q-value
+            
+            self.model.fit(state, target_f, epochs=1, verbose=0)
+        
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
 
 
-# Example Usage
+
 if __name__ == "__main__":
-    env1 = PCPMDPEnv()
-    env2 = PCPMDPEnv()
-    agent = MultiAgentRQN(state_embedding_size=100, action_space=env1.action_space)
+    env = PCPMDPEnv()  # Single environment
+    agent = MultiAgentRQN(state_embedding_size=100, action_space=env.action_space)
 
     episodes = 1000
-    step_size = 500
+    step_size = 10
     batch_size = 32
 
     for e in range(episodes):
-        state1 = env1.reset()
-        state2 = env2.reset()
-        combined_state = state1 + state2
+        state = env.reset()
         total_reward = 0
-        done = False
         step = 0
-        done1 = False
+        done = False
 
         while step < step_size:
-            # env1.render()
-            # env2.render()
-
-            ########Policy#########
-
-
-            actions = agent.act(combined_state)
-
-
-            ########First Agent#########
-
+            action = agent.act(state)  # Get action for the current state
+            next_state, domino = env.step(action)  # Take action in the environment
+            total_reward = reward_pcp(domino, step)  # Compute reward
+            print("step:", step, "  reward:",reward_pcp(domino, step))
             
-
-            if done1 == False:
-                next_state1, domino1 = env1.step(actions[0])
-
-            domino_1_top = domino1[0]
-
-            domino_1_bottom = domino1[1]
-
-            done1 = domino_1_top[:min(len(domino_1_top),len(domino_1_bottom))] == domino_1_bottom[:min(len(domino_1_top),len(domino_1_bottom))]
-
-
-            ########Second Agent#########
-
-
-            next_state2, domino2 = env2.step(actions[1])
-
-
-            ########Reward#########
-
-
-            total_reward += reward_pcp(next_state1, next_state2, domino1, domino2, step)
-
-
-            ########Learning#########
-
             
-            next_combined_state = next_state1 + next_state2
-
-            done = domino2[0] == domino2[1]
-
+            done = domino[0] == domino[1]  # Check if the episode is done
             
-            agent.remember(combined_state, actions, total_reward, next_combined_state, done)
-            combined_state = next_combined_state
+            agent.remember(state, action, total_reward, next_state, done)  # Store in memory
+            state = next_state  # Update state
             step += 1
 
             if done or step == step_size:
-                # print(domino1)
-                # print(domino2)
-                print(f"Episode {e+1}/{episodes} - Total Reward: {total_reward}")
-
-
-        
+                print(domino)
+                print(f"Episode {e + 1}/{episodes} - Total Reward: {total_reward}")
 
         if len(agent.memory) > batch_size:
             agent.replay(batch_size)
