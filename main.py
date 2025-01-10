@@ -1,9 +1,9 @@
 import numpy as np
 from env0 import SimpleMDPEnv
-from reward import reward_env0, reward_pcp
+from reward import reward_env0, reward_pcp, reward_pcp_new
 from model import MultiAgentDQN
 from pcpenv import PCPMDPEnv
-from model import MultiAgentRQN
+from model import MultiAgentRQN, MultiAgentRQN_NEW
 import time 
 
 
@@ -137,12 +137,50 @@ def pcp_env():
         if len(agent.memory) > batch_size:
             agent.replay(batch_size)
 
+    
+def pcp_env_new():
+    env = PCPMDPEnv()  # Single environment
+    agent = MultiAgentRQN_NEW(state_embedding_size=100, action_space=env.action_space)
+
+    episodes = 1000
+    step_size = 10
+    batch_size = 32
+
+    for e in range(episodes):
+        state = env.reset()
+        total_reward = 0
+        step = 0
+        done = False
+
+        while step < step_size:
+            action = agent.act(state)  # Get action for the current state
+            next_state, domino = env.step(action)  # Take action in the environment
+            total_reward = reward_pcp_new(domino)  # Compute reward
+            print("step:", step, "  reward:",reward_pcp_new(domino))
+            
+            
+            done = domino[0] == domino[1]  # Check if the episode is done
+            
+            agent.remember(state, action, total_reward, next_state, done)  # Store in memory
+            state = next_state  # Update state
+            step += 1
+
+            if done or step == step_size:
+                print(domino)
+                print(f"Episode {e + 1}/{episodes} - Total Reward: {total_reward}")
+
+        if len(agent.memory) > batch_size:
+            agent.replay(batch_size)
+
+
 
 
 if __name__ == "__main__":
 
     # simple_env()
-    pcp_env()
+    #pcp_env()
+    pcp_env_new()
+
     
 
     

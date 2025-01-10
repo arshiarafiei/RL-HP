@@ -115,3 +115,84 @@ def reward_pcp(trajectory, trajectory1, domino, domino1, step):
     reward = max (-1*semimatch , min(extend, match))
 
     return reward
+
+def reward_pcp_new(domino):
+
+    ##############Semimatch############## 
+
+    ### phi1
+
+    phi_1_list = list()
+
+    domino_1_top = domino[0] + "#"
+
+    domino_1_bottom = domino[1] + "#"
+
+    phi_1 = 1
+
+    flag = 0
+
+
+    for index in range(min(len(domino_1_top), len(domino_1_bottom))-1):
+
+        if domino_1_top[index] ==  domino_1_bottom[index]:
+            continue
+        else:
+            flag = 1
+            phi_1 = phi_1 - 1 
+    
+    if flag ==0:
+        phi_1 = 10
+
+
+    # phi_1 = min(phi_1_list)
+
+    #######phi_2
+
+    # index = min(len(domino_1_top), len(domino_1_bottom)) - 1
+
+    # phi_2_list = [min(-1*int(domino_1_top[index]== "#"), int(domino_1_bottom[index]== "#")), min(int(domino_1_top[index]== "#"), -1 * int(domino_1_bottom[index]== "#"))]
+
+    # phi_2 = max(phi_2_list)
+
+    # semimatch = max(phi_1,phi_2)
+
+    semimatch = phi_1
+
+    #################Match##################
+
+    domino_2_top = domino[0] + "#"
+
+    domino_2_bottom = domino[1] + "#"
+
+    max_length = max(len(domino_2_top), len(domino_2_bottom))
+
+    # Padding 
+
+    # print(domino_2_top, domino_2_bottom)
+
+    domino_2_top = domino_2_top.ljust(max_length, '#')
+    domino_2_bottom = domino_2_bottom.ljust(max_length, '#')
+
+    # print(domino_2_top,domino_2_bottom)
+
+    # match_list = list()
+
+    match = 1
+    flag1 = 0
+
+    for index in range(max_length):
+
+        if domino_2_top[index] ==  domino_2_bottom[index]:
+            continue
+        else:
+            flag1 = 1
+            match = match -1 
+
+    if flag1 == 0:
+        match = 50
+
+    reward = max(semimatch , match)
+
+
+    return reward
