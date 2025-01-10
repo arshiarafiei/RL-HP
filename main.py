@@ -159,10 +159,10 @@ def pcp_env_new():
             print("step:", step, "  reward:",reward_pcp_new(domino))
             
             
-            done = domino[0] == domino[1]  # Check if the episode is done
+            done = domino[0] == domino[1] 
             
-            agent.remember(state, action, total_reward, next_state, done)  # Store in memory
-            state = next_state  # Update state
+            agent.remember(state, action, total_reward, next_state, done)  # Store 
+            state = next_state 
             step += 1
 
             if done or step == step_size:

@@ -233,6 +233,189 @@ def reward_pcp(domino, step):
 
 
 
+
+
+
+
+
+
+
+
+
+def reward_pcp(domino, step):
+
+    ##############Semimatch############## 
+
+    ### phi1
+
+    phi_1_list = list()
+
+    domino_1_top = domino[0] + "#"
+
+    domino_1_bottom = domino[1] + "#"
+
+    phi_1 = 1
+
+    flag = 0
+
+
+    for index in range(min(len(domino_1_top), len(domino_1_bottom))-1):
+
+        if domino_1_top[index] ==  domino_1_bottom[index]:
+            continue
+        else:
+            flag = 1
+            phi_1 = phi_1 - 1 
+    
+    if flag ==0:
+        phi_1 = 10
+
+
+    # phi_1 = min(phi_1_list)
+
+    #######phi_2
+
+    index = min(len(domino_1_top), len(domino_1_bottom)) - 1
+
+    phi_2_list = [min(-1*int(domino_1_top[index]== "#"), int(domino_1_bottom[index]== "#")), min(int(domino_1_top[index]== "#"), -1 * int(domino_1_bottom[index]== "#"))]
+
+    phi_2 = max(phi_2_list)
+
+    # semimatch = max(phi_1,phi_2)
+
+    semimatch = phi_1
+
+    #################Match##################
+
+    domino_2_top = domino[0] + "#"
+
+    domino_2_bottom = domino[1] + "#"
+
+    max_length = max(len(domino_2_top), len(domino_2_bottom))
+
+    # Padding 
+
+    # print(domino_2_top, domino_2_bottom)
+
+    domino_2_top = domino_2_top.ljust(max_length, '#')
+    domino_2_bottom = domino_2_bottom.ljust(max_length, '#')
+
+    # print(domino_2_top,domino_2_bottom)
+
+    match_list = list()
+
+    match = 1
+    flag1 = 0
+
+    for index in range(max_length):
+
+        if domino_2_top[index] ==  domino_2_bottom[index]:
+            continue
+        else:
+            flag1 = 1
+            match = match -1 
+
+    if flag1 == 0:
+        match = 50
+
+    reward = max(semimatch , match)
+
+
+    return reward
+
+
+
+
+
+
+
+
+
+
+
+
+def reward_pcp_new(state):
+
+    def domino_cont(state):
+        dominos_context = {
+                1: ("ab", "a"),
+                2: ("aba", "ba"),
+                3: ("c", "ba"),
+                4: ("bb", "cb"),
+                5: ("c", "bc")
+            } 
+        final_domino = ("", "")
+        for key in state:
+            start, end = dominos_context[key]
+            final_domino = (final_domino[0] + start, final_domino[1] + end)
+        return final_domino
+    
+    def count_diff(str1, str2):
+
+        if len(str1) != len(str2):
+            raise ValueError("Strings must be of the same length.")
+        
+        differences = sum(1 for a, b in zip(str1, str2) if a != b)
+        return differences
+
+    match_list = list()
+    semimatch_list = list()
+
+
+    for t in range( len(state)):
+        temp = state[:t+1].copy()
+        domino = domino_cont(temp)
+
+        domino_top = domino[0] + "#"
+
+        domino_bottom = domino[1] + "#"
+
+        ###############Match################################
+
+        max_length = max(len(domino_top), len(domino_bottom))
+
+        domino_top = domino_top.ljust(max_length, '#')
+        domino_bottom = domino_bottom.ljust(max_length, '#')
+
+        # print(domino_bottom, domino_top)
+
+        diff = count_diff(domino_bottom, domino_top)
+
+        match_list.append(1-diff)
+
+        ###############SemiMatch################################
+
+        domino_top = domino[0] + "#"
+
+        domino_bottom = domino[1] + "#"
+
+        diff = 0
+
+        for index in range(min(len(domino_top), len(domino_bottom))-1):
+
+            if domino_top[index] ==  domino_bottom[index]:
+                continue
+            else:
+                diff = diff + 1
+        
+        semimatch_list.append(1-diff)
+
+    ###############Formula################################
+
+    semimatch = min(semimatch_list)
+
+    matched = min(match_list)
+
+    # print(semimatch_list)
+    # print(match_list)
+
+    reward = max(semimatch, matched)
+
+    return reward
+
+
+
+
 class MultiAgentRQN:
     def __init__(self, state_embedding_size, action_space):
         self.state_embedding_size = state_embedding_size  # Embedding size for the variable-length state sequences
@@ -316,19 +499,27 @@ if __name__ == "__main__":
         total_reward = 0
         step = 0
         done = False
+        domino = ("", "")
 
         while step < step_size:
+            
             action = agent.act(state)  # Get action for the current state
-            next_state, domino = env.step(action)  # Take action in the environment
-            total_reward = reward_pcp(domino, step)  # Compute reward
-            print("step:", step, "  reward:",reward_pcp(domino, step))
+            next_state, next_domino = env.step(action)  # Take action in the environment
+            
+            
+            # total_reward = reward_pcp(next_domino, step)  # Compute reward
+            total_reward = reward_pcp_new(next_state) 
+            print("step:", step, "  reward:",total_reward)
             
             
             done = domino[0] == domino[1]  # Check if the episode is done
             
             agent.remember(state, action, total_reward, next_state, done)  # Store in memory
             state = next_state  # Update state
+            domino = next_domino
             step += 1
+
+            time.sleep(1)
 
             if done or step == step_size:
                 print(domino)
