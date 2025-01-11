@@ -404,7 +404,13 @@ def reward_pcp_new(state):
 
     semimatch = min(semimatch_list)
 
+
     matched = min(match_list)
+
+    if semimatch == 1:
+        semimatch = 5
+    if match_list[-1] == 1:
+        matched = 10
 
     # print(semimatch_list)
     # print(match_list)
@@ -425,7 +431,7 @@ class MultiAgentRQN:
         self.epsilon = 1.0  # Exploration rate
         self.epsilon_min = 0.01
         self.epsilon_decay = 0.995
-        self.learning_rate = 0.001
+        self.learning_rate = 0.005
         self.model = self._build_model()
 
     def _build_model(self):
@@ -490,7 +496,7 @@ if __name__ == "__main__":
     env = PCPMDPEnv()  # Single environment
     agent = MultiAgentRQN(state_embedding_size=100, action_space=env.action_space)
 
-    episodes = 1000
+    episodes = 10000
     step_size = 10
     batch_size = 32
 
@@ -512,7 +518,7 @@ if __name__ == "__main__":
             print("step:", step, "  reward:",total_reward)
             
             
-            done = domino[0] == domino[1]  # Check if the episode is done
+            done = next_domino[0] == next_domino[1]  # Check if the episode is done
             
             agent.remember(state, action, total_reward, next_state, done)  # Store in memory
             state = next_state  # Update state
@@ -522,8 +528,10 @@ if __name__ == "__main__":
             time.sleep(1)
 
             if done or step == step_size:
+                print(state)
                 print(domino)
                 print(f"Episode {e + 1}/{episodes} - Total Reward: {total_reward}")
+                break
 
         if len(agent.memory) > batch_size:
             agent.replay(batch_size)
