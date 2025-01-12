@@ -8,6 +8,6 @@ Status: mostly stable
 
 2- Baseline ???
 
-## planning :
+## planning
 
 Status: Working on it 
