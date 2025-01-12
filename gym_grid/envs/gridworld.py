@@ -49,6 +49,7 @@ class GridWorld:
 
         # read map
         cwd = os.getcwd()
+
         with open(cwd+'/gym_grid/envs/maps/' + map + ".txt") as textFile:
             self.map = [line.split() for line in textFile]
         self.map = [[int(e) for e in row] for row in self.map]
@@ -200,6 +201,7 @@ class GridWorld:
             elif self.distance:
                 self.targets = [[0, 2], [0, 2]]
                 self.init = [[2, 0], [2, 1]]
+            self.init = [[0,0], [0,1]] 
 
         elif map == "ISR":
             # ISR map

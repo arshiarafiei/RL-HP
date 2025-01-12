@@ -4,6 +4,8 @@ from gym.utils import seeding
 import numpy as np
 import time
 from copy import deepcopy
+from collections import deque
+
 
 terminal = False
 #
@@ -38,7 +40,7 @@ class GridEnv(gym.Env):
             self.pos = np.add(self.pos, self.gw.pads).astype(int)
             self.targets = np.add(self.targets, self.gw.pads).astype(int)
 
-        self.start_pos = deepcopy(self.pos)
+        self.start_pos = self.pos.copy()
         self.goal_flag = np.zeros(self.nagents, dtype=int)
         self.debug = debug
 
@@ -194,7 +196,7 @@ class GridEnv(gym.Env):
 
         done = np.all(self.goal_flag)
 
-        return self.pos, rewards, {'collisions': coll}, self.goal_flag
+        return self.pos, rewards, {'collisions': coll}, self.goal_flag, wall, oob
 
     def get_next_state(self, pos, action, goal_flag):
         new_p = pos.astype(int)
@@ -286,6 +288,49 @@ class GridEnv(gym.Env):
         # close any open log file or sth.
         plt.close('all')
 
+    def calculate_closest_distance(self, agent_id, target):
+        """
+        Calculate the closest distance from a single agent's position to a target.
+        
+        Args:
+        - agent_id: Integer representing the agent's index in `self.pos`.
+        - target: Tuple (x, y) representing the target position.
+
+        Returns:
+        - distance: Integer representing the shortest distance, or -1 if unreachable.
+        """
+        start = tuple(self.pos[agent_id])  # Current position of the agent
+
+        # If the target is in a blocked space, return -1
+        if self.gw.map[target[0]][target[1]] == 1:
+            return -1
+
+        # BFS setup
+        queue = deque([(start[0], start[1], 0)])  # (x, y, distance)
+        visited = set()
+        visited.add((start[0], start[1]))
+
+        directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]  # Right, Down, Left, Up
+
+        while queue:
+            x, y, dist = queue.popleft()
+
+            # If we reach the target, return the distance
+            if (x, y) == target:
+                return dist
+
+            # Explore neighbors
+            for dx, dy in directions:
+                nx, ny = x + dx, y + dy
+
+                # Check if within bounds, not visited, and not a blocked space
+                if 0 <= nx < self.nrows and 0 <= ny < self.ncols and (nx, ny) not in visited and self.gw.map[nx][ny] == 0:
+                    queue.append((nx, ny, dist + 1))
+                    visited.add((nx, ny))
+
+        # If we exhaust the queue without finding the target
+        return -1
+
 
 if __name__ == "__main__":
 
@@ -295,6 +340,7 @@ if __name__ == "__main__":
     # a = input('next:\n')
     env.pos = np.array([[0, 1], [1, 0]])
     obs, rew, x, y = env.step([1, 3])
+    env.reset(debug=True)
     # env.render()
     print("Obs: ", obs, "  rew: ", rew, x , y)
     print(type(obs))

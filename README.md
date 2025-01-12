@@ -10,4 +10,4 @@ Status: mostly stable
 
 ## planning
 
-Status: Working on it 
+Status: Env is added to repo, working on the reward function and learning phase for the benchmarks.
