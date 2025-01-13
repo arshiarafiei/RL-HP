@@ -10,4 +10,9 @@ Status: mostly stable
 
 ## planning
 
-Status: Env is added to repo, learning policy added to repo, working on the reward function.
+Status: mostly stable 
+
+### ToDos:
+1- Optimization
+
+2- Graphs and comparison
