@@ -30,7 +30,7 @@ class ReplayBuffer:
     def __init__(self, size):
         self.buffer = deque(maxlen=size)
 
-    def push(self, state, actions, rewards, next_state, done):
+    def remember(self, state, actions, rewards, next_state, done):
         self.buffer.append((state, actions, rewards, next_state, done))
 
     def sample(self, batch_size):
@@ -83,13 +83,66 @@ def train_network(replay_buffer, main_model, target_model):
         for agent in range(NUM_AGENTS):
             action_idx = agent * ACTION_SPACE + actions[i][agent]
             if dones[i]:
-                q_values[i][action_idx] = rewards[i][agent]
+                q_values[i][action_idx] = rewards[i]  # Scalar reward
             else:
                 max_next_q = np.max(next_q_values[i, agent * ACTION_SPACE:(agent + 1) * ACTION_SPACE])
-                q_values[i][action_idx] = rewards[i][agent] + GAMMA * max_next_q
+                q_values[i][action_idx] = rewards[i] + GAMMA * max_next_q  # Scalar reward
 
     # Train the main network
     main_model.fit(states, q_values, batch_size=BATCH_SIZE, verbose=0)
+
+
+
+
+
+
+def reward_grid_env(env, trajectory1, trajectory2):
+
+    target1 = tuple(env.targets[0])
+    target2 = tuple(env.targets[1])
+
+
+    phi3_list = list()
+
+    phi1_list = list()
+
+    phi2_list = list()
+
+
+
+    for index in range(len(trajectory1)):
+
+        phi3_list.append(-1 + env.calculate_distance(tuple(trajectory1[index]), tuple(trajectory2[index])))
+
+        # phi3_list.append([-1 + env.calculate_distance(tuple(trajectory1[index]), tuple(trajectory2[index])), tuple(trajectory1[index]), tuple(trajectory2[index])])
+
+        phi1_list.append(1 - env.calculate_distance(tuple(trajectory1[index]), target1))
+
+
+        phi2_list.append(1 - env.calculate_distance(tuple(trajectory2[index]), target2))
+
+    # print(phi3_list)
+    # print(phi2_list)
+    # print(phi1_list)
+
+    reward = min(min(phi3_list), max(phi1_list), max(phi2_list))
+
+    # print("Reward", reward)
+
+
+    return reward
+
+
+    
+    
+
+
+
+        
+
+
+
+
 
 # Main loop
 def main():
@@ -103,46 +156,66 @@ def main():
     epsilon = EPSILON
 
     for episode in range(NUM_EPISODES):
+
+
         states = env.reset(debug=True)  # Reset environment
         state_flat = np.concatenate(states)  # Flatten state [[x1, y1], [x2, y2]] -> [x1, y1, x2, y2]
         total_reward = 0
+
+        trajectory1 = list()
+        trajectory2 = list()
 
         for step in range(MAX_STEPS):
             # Select actions for all agents
             actions = select_actions(state_flat, epsilon, main_model)
 
-            # Take the actions in the environment
-            # print("actions",actions)
-            next_pos, rewards, collision, goal_flags, wall, oob = env.step(actions)
+            
+
+            next_pos, _, _, goal_flags, _, _ = env.step(actions)
+
+
+            trajectory1.append(next_pos[0].tolist())
+            trajectory2.append(next_pos[1].tolist())
+
+            reward = reward_grid_env(env, trajectory1, trajectory2)
+
+            next_state_flat = np.concatenate(next_pos)  
+
+
+            done = all(goal_flags)  
+
+
+            ############### logs #####################
+
+            # print(next_pos)
+            # print(reward)
+
+            # time.sleep(0.5)
+            # print("####################################################################", step, "####################################################################")
+
+            # print("actions", actions)
+
+            # print("positions", next_pos)
+            # print("rewards", reward)
 
             
 
+            # print("done", done)
+
+
+            ############## logs ######################
             
 
-            
-            
-            # print("pos",next_pos)
-            # print("rewards",rewards)
-
-            # print("info", collision)
-            # print("wall", wall)
-            # print("oob", oob)
-
-            
-            next_state_flat = np.concatenate(next_pos)  # Flatten next state
-
-
-            done = all(goal_flags)  # Done if all agents reached their goals
-            
-
-            # Store transition in replay buffer
-            replay_buffer.push(state_flat, actions, rewards, next_state_flat, done)
+            # Store transition 
+            replay_buffer.remember(state_flat, actions, reward, next_state_flat, done)
 
             # Update current state
             state_flat = next_state_flat
-            total_reward += sum(rewards)
+            total_reward += reward
 
             if done:
+            
+                # print(next_pos)
                 break
         
 
@@ -158,7 +231,6 @@ def main():
 
         print(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Epsilon: {epsilon:.2f}")
 
-    print("Training complete!")
 
 # Run the main loop
 if __name__ == "__main__":
@@ -196,22 +268,24 @@ if __name__ == "__main__":
 #     # env.final_render()
 
 
-#     env = GridEnv(map_name='SUNY', nagents=2, norender=True, padding=True)
+    # env = GridEnv(map_name='SUNY', nagents=2, norender=True, padding=True)
 
 
 #     print(env.action_space[0])
 
-#     # env.pos = np.array([[8, 22], [1, 1]])  # Example current positions
+    # env.pos = np.array([[8, 22], [1, 1]])  # Example current positions
 
-#     # # Calculate distance for agent 0 to a specific target
-#     # agent_id = 0
-#     # target_position = (9, 20)
-#     # print(tuple(env.targets[0]))
+    # # Calculate distance for agent 0 to a specific target
+    # agent_id = 0
+    # target_position = tuple((8, 22))
+    # print(tuple(env.targets[0]))
+
+    
 
 
 
-#     # distance = env.calculate_closest_distance(agent_id, tuple(env.targets[0]))
-#     # print(f"Agent {agent_id} closest distance to {tuple(env.targets[0])}: {distance}")
+    # distance = env.calculate_closest_distance(target_position,  tuple(env.targets[0]))
+    # print(f"Agent {agent_id} closest distance to {tuple(env.targets[0])}: {distance}")
 
 
 

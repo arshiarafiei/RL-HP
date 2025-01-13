@@ -288,20 +288,9 @@ class GridEnv(gym.Env):
         # close any open log file or sth.
         plt.close('all')
 
-    def calculate_closest_distance(self, agent_id, target):
-        """
-        Calculate the closest distance from a single agent's position to a target.
+    def calculate_distance(self,start, target):
         
-        Args:
-        - agent_id: Integer representing the agent's index in `self.pos`.
-        - target: Tuple (x, y) representing the target position.
-
-        Returns:
-        - distance: Integer representing the shortest distance, or -1 if unreachable.
-        """
-        start = tuple(self.pos[agent_id])  # Current position of the agent
-
-        # If the target is in a blocked space, return -1
+        
         if self.gw.map[target[0]][target[1]] == 1:
             return -1
 
