@@ -18,8 +18,8 @@ EPSILON_MIN = 0.01
 LR = 0.001
 BATCH_SIZE = 64
 REPLAY_BUFFER_SIZE = 10000
-NUM_EPISODES = 1000
-MAX_STEPS = 100
+NUM_EPISODES = 800
+MAX_STEPS = 300
 
 NUM_AGENTS = 2
 ACTION_SPACE = 5  # Number of actions per agent
@@ -47,6 +47,7 @@ def build_model():
         Input(shape=(STATE_DIM,)),
         Dense(64, activation='relu'),
         Dense(128, activation='relu'),
+        Dense(256, activation='relu'),
         Dense(128, activation='relu'),
         Dense(64, activation='relu'),
         Dense(NUM_AGENTS * ACTION_SPACE)  # Output Q-values for all actions of all agents
@@ -96,7 +97,7 @@ def train_network(replay_buffer, main_model, target_model):
 
 
 
-def reward_grid_env(env, trajectory1, trajectory2):
+def reward_grid_env(env, trajectory1, trajectory2, step, episode):
 
     target1 = tuple(env.targets[0])
     target2 = tuple(env.targets[1])
@@ -108,24 +109,37 @@ def reward_grid_env(env, trajectory1, trajectory2):
 
     phi2_list = list()
 
+    value = env.calculate_distance(target1, target2)
+
 
 
     for index in range(len(trajectory1)):
 
-        phi3_list.append(-1 + env.calculate_distance(tuple(trajectory1[index]), tuple(trajectory2[index])))
+        phi3_list.append(-1 * int(value/2) + env.calculate_distance(tuple(trajectory1[index]), tuple(trajectory2[index])))
 
         # phi3_list.append([-1 + env.calculate_distance(tuple(trajectory1[index]), tuple(trajectory2[index])), tuple(trajectory1[index]), tuple(trajectory2[index])])
 
-        phi1_list.append(1 - env.calculate_distance(tuple(trajectory1[index]), target1))
+        phi1_list.append(int(value/2) - env.calculate_distance(tuple(trajectory1[index]), target1))
 
 
-        phi2_list.append(1 - env.calculate_distance(tuple(trajectory2[index]), target2))
+        phi2_list.append(int(value/2) - env.calculate_distance(tuple(trajectory2[index]), target2))
 
     # print(phi3_list)
     # print(phi2_list)
     # print(phi1_list)
 
-    reward = min(min(phi3_list), max(phi1_list), max(phi2_list))
+    reward = min(phi3_list[-1], max(phi1_list), max(phi2_list))
+
+    f = open("log.txt", "a")
+    f.write(f"Episode {episode}, step: {step}\n")
+    f.write("Phi_1:")
+    f.writelines([f"{line}  " for line in phi1_list])
+    f.write("\nPhi_2:")
+    f.writelines([f"{line}  " for line in phi2_list])
+    f.write("\nPhi_3:")
+    f.writelines([f"{line}  " for line in phi3_list])
+    f.write("\n#######################################\n\n")
+
 
     # print("Reward", reward)
 
@@ -164,6 +178,9 @@ def main():
 
         trajectory1 = list()
         trajectory2 = list()
+        reward_list = list()
+        collision = False
+        done = False
 
         for step in range(MAX_STEPS):
             # Select actions for all agents
@@ -171,13 +188,13 @@ def main():
 
             
 
-            next_pos, _, _, goal_flags, _, _ = env.step(actions)
+            next_pos, _, coll, goal_flags, _, _ = env.step(actions)
 
 
             trajectory1.append(next_pos[0].tolist())
             trajectory2.append(next_pos[1].tolist())
 
-            reward = reward_grid_env(env, trajectory1, trajectory2)
+            reward = reward_grid_env(env, trajectory1, trajectory2, step, episode + 1)
 
             next_state_flat = np.concatenate(next_pos)  
 
@@ -212,10 +229,12 @@ def main():
             # Update current state
             state_flat = next_state_flat
             total_reward += reward
+            reward_list.append(reward)
 
             if done:
-            
-                # print(next_pos)
+                break
+            if coll:
+                collision = True
                 break
         
 
@@ -223,14 +242,22 @@ def main():
             train_network(replay_buffer, main_model, target_model)
 
         # Decay epsilon
-        epsilon = max(epsilon * EPSILON_DECAY, EPSILON_MIN)
+        if done:
+            epsilon = max(epsilon * EPSILON_DECAY, EPSILON_MIN)
+        
 
         # Update target model periodically
         if episode % 10 == 0:
             target_model.set_weights(main_model.get_weights())
+        f = open("result_run.txt", "a")
+        f.write(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Collision: {collision} , Epsilon: {epsilon:.2f}\n")
+        f.writelines([f"{line}  " for line in reward_list])
+        f.write("\n#######################################\n\n\n\n#######################################\n")
 
-        print(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Epsilon: {epsilon:.2f}")
 
+
+        print(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Collision: {collision} ,Epsilon: {epsilon:.2f}")
+        print(reward_list)
 
 # Run the main loop
 if __name__ == "__main__":
