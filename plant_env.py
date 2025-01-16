@@ -2,7 +2,7 @@ import numpy as np
 import random
 
 class ManufacturingEnv:
-    def __init__(self, n_agents=5, n_resources=5, grid_size=8, max_gems=5, gem_limits={'y': 20, 'g': 20, 'b': 20}):
+    def __init__(self, n_agents=5, n_resources=5, grid_size=8, max_gems=5, gem_limits={'y': 50, 'g': 50, 'b': 50}):
         self.n_agents = n_agents
         self.n_resources = n_resources
         self.grid_size = grid_size
@@ -127,12 +127,28 @@ class ManufacturingEnv:
         print("Products Manufactured:", self.products)
         print("Gem Counts:", self.gem_counts)
 
+def main():
+    # Initialize the environment
+    env = ManufacturingEnv(n_agents=5, n_resources=5, grid_size=8, max_gems=10)
 
+    print(env.requirements)
+    env.render()
+
+    # Number of simulation steps
+    num_steps = 100000
+    
+
+    for step in range(num_steps):
+        print(f"\nStep {step + 1}:")
+
+        # Generate random actions for each agent
+        actions = [random.choice([0, 1, 2, 3, 4]) for _ in range(env.n_agents)]
+        
+        # Take a step in the environment
+        env_state, agents, resources, resource_types, rewards, products = env.step(actions)
+
+        # Render the environment
+        env.render()
 
 if __name__ == "__main__":
-    env = ManufacturingEnv(gem_limits={'y': 10, 'g': 15, 'b': 20})
-    env.render()
-
-    actions = [1,1,1,1,1]  
-    env.step(actions)
-    env.render()
+    main()
