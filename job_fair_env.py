@@ -13,15 +13,15 @@ class Job:
         self.n_agent = n_agent
         self.grid_size = grid_size
         self.env = np.zeros((grid_size, grid_size))
-        self.resource = resource_position if resource_position else (grid_size - 1, grid_size - 1)  # Fixed or default resource location
-        self.starting_positions = starting_positions if starting_positions else [(0, 0), (0, 2), (0, 4), (3, 3)]  # Fixed or default starting positions
+        self.resource = resource_position if resource_position else (grid_size - 1, grid_size - 1)  
+        self.starting_positions = starting_positions if starting_positions else [(0, 0), (0, 2), (0, 4), (3, 3)]  
         self.state = self.starting_positions[:n_agent]
 
         self.update_env()
 
     def reset(self):
         self.env = np.zeros((self.grid_size, self.grid_size))
-        self.state = self.starting_positions[:self.n_agent]  # Reset to fixed starting positions
+        self.state = self.starting_positions[:self.n_agent]  
         self.update_env()
         return self.env, self.state, self.resource
 
@@ -324,16 +324,15 @@ def train_dqn(env, agent, episodes=1000, batch_size=32,step_size = 1000):
 
 if __name__ == "__main__":
 
-    # Main parameters
+    
     n_agent = 5
     grid_size = 8
-    starting_positions = [(0, 0), (0, 7), (7,0), (7,7), (0,3)]  # Custom starting positions
-    resource_position = (3, 3)  # Custom resource position
+    starting_positions = [(0, 0), (0, 7), (7,0), (7,7), (0,3)]  
+    resource_position = (3, 3)  
 
-    action_size = 5  # [Stay, Up, Down, Left, Right]
+    action_size = 5  
     state_size = n_agent * 2  
 
-    
     env = Job(n_agent=n_agent, grid_size=grid_size, starting_positions=starting_positions, resource_position=resource_position)
     agent = DQNAgent(state_size, action_size, n_agent)
 
