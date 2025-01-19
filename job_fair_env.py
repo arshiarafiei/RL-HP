@@ -336,4 +336,4 @@ if __name__ == "__main__":
     env = Job(n_agent=n_agent, grid_size=grid_size, starting_positions=starting_positions, resource_position=resource_position)
     agent = DQNAgent(state_size, action_size, n_agent)
 
-    train_dqn(env, agent, 10000, step_size=2000)
+    train_dqn(env, agent, 10000, step_size=100)
