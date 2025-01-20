@@ -275,7 +275,7 @@ def train_ppo(env, agent, episodes=1000, step_size=1000, batch_size=64, update_e
 
             reward = reward_fairness(env, trajectories)
 
-            log(e,step,st, next_state,action, reward)
+            #log(e,step,st, next_state,action, reward)
 
 
 
@@ -308,7 +308,6 @@ def train_ppo(env, agent, episodes=1000, step_size=1000, batch_size=64, update_e
 
             if max(temp) < 0.1 and sum(allocation_total) > (step_size * 0.9):
                 done = True
-                break
 
         # Convert rewards, dones to NumPy arrays
         rewards = np.array(rewards, dtype=np.float32)
@@ -331,8 +330,9 @@ def train_ppo(env, agent, episodes=1000, step_size=1000, batch_size=64, update_e
 
         output(e, episodes, agent.epsilon_clip, allocation_total, done)
         df.loc[len(df)] = allocation_total
+    st = "data/fair_"+str(env.n_agent)+"_"+str(env.grid_size)+".csv"
     
-    df.to_csv("data/fair_ppo_1000_random.csv", index=False)
+    df.to_csv(st, index=False)
 
 
 
@@ -340,15 +340,20 @@ def train_ppo(env, agent, episodes=1000, step_size=1000, batch_size=64, update_e
 
 
 if __name__ == "__main__":
-    n_agent = 2
-    grid_size = 5
-    starting_positions = [(0, 0), (4, 4)]  
-    resource_position = (2, 2)  
+    n_ag = [2]
+    gr = [7,8]
+    for n in n_ag:
+        for g in gr:
 
-    action_size = 4
-    state_size = n_agent * 2  
+            n_agent = n
+            grid_size = g
+            starting_positions = [(0, 0), (4, 4), (3,2), (0,0)]  
+            resource_position = (2, 2)  
 
-    env = Job(n_agent=n_agent, grid_size=grid_size, starting_positions=starting_positions, resource_position=resource_position)
-    agent = PPOAgent(state_size, action_size, n_agent)
+            action_size = 4
+            state_size = n_agent * 2  
 
-    train_ppo(env, agent, episodes=1000, step_size=1000)
+            env = Job(n_agent=n_agent, grid_size=grid_size, starting_positions=starting_positions, resource_position=resource_position)
+            agent = PPOAgent(state_size, action_size, n_agent)
+
+            train_ppo(env, agent, episodes=500, step_size=1000)
