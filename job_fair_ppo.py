@@ -18,11 +18,29 @@ class Job:
 
         self.update_env()
 
-    def reset(self):
-        self.env = np.zeros((self.grid_size, self.grid_size))
-        self.state = self.starting_positions[:self.n_agent]  
-        self.update_env()
-        return self.env, self.state, self.resource
+    def reset(self, random = False):
+        if random :
+             
+            self.env = np.zeros((self.grid_size, self.grid_size))
+            
+            self.state = []
+            for _ in range(self.n_agent):
+                while True:
+                    random_position = (
+                        np.random.randint(0, self.grid_size),
+                        np.random.randint(0, self.grid_size)
+                    )
+                    if random_position not in self.state and random_position != self.resource:
+                        self.state.append(random_position)
+                        break
+            self.update_env()
+            return self.env, self.state, self.resource
+
+        else:
+            self.env = np.zeros((self.grid_size, self.grid_size))
+            self.state = self.starting_positions[:self.n_agent]  
+            self.update_env()
+            return self.env, self.state, self.resource
 
     def update_env(self):
         self.env.fill(0)
@@ -69,7 +87,7 @@ class Job:
 
 # PPO Agent
 class PPOAgent:
-    def __init__(self, state_size, action_size, n_agent, learning_rate=0.001, gamma=0.95, epsilon_clip=0.2, entropy_beta=0.01):
+    def __init__(self, state_size, action_size, n_agent, learning_rate=0.001, gamma=0.95, epsilon_clip=0.2, entropy_beta=0.05):
         self.state_size = state_size
         self.action_size = action_size
         self.n_agent = n_agent
@@ -230,7 +248,8 @@ def train_ppo(env, agent, episodes=1000, step_size=1000, batch_size=64, update_e
 
     for e in range(episodes):
         states, actions, rewards, old_policies = [], [], [], []
-        grid, state, resource = env.reset()
+        grid, state, resource = env.reset(random=True)
+        print("Starting From State: ", state)
         state_flat = np.array([coord for agent in state for coord in agent])
 
         trajectories = [[] for _ in range(env.n_agent)]
@@ -282,6 +301,10 @@ def train_ppo(env, agent, episodes=1000, step_size=1000, batch_size=64, update_e
                     i==1
                 temp.append(abs(max(allocation_total)-i)/(i+1))
 
+            
+            # if max(temp) < 0.1 and sum(allocation_total) > (step_size * 0.5):
+            #     done = True
+
 
             if max(temp) < 0.1 and sum(allocation_total) > (step_size * 0.9):
                 done = True
@@ -309,7 +332,7 @@ def train_ppo(env, agent, episodes=1000, step_size=1000, batch_size=64, update_e
         output(e, episodes, agent.epsilon_clip, allocation_total, done)
         df.loc[len(df)] = allocation_total
     
-    df.to_csv("fair_ppo.csv", index=False)
+    df.to_csv("data/fair_ppo_1000_random.csv", index=False)
 
 
 
