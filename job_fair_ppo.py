@@ -87,7 +87,7 @@ class Job:
 
 # PPO Agent
 class PPOAgent:
-    def __init__(self, state_size, action_size, n_agent, learning_rate=0.001, gamma=0.95, epsilon_clip=0.2, entropy_beta=0.05):
+    def __init__(self, state_size, action_size, n_agent, learning_rate=0.001, gamma=0.95, epsilon_clip=0.2, entropy_beta=0.1):
         self.state_size = state_size
         self.action_size = action_size
         self.n_agent = n_agent
@@ -105,7 +105,7 @@ class PPOAgent:
 
     def _build_policy_model(self):
         model = Sequential()
-        model.add(Dense(128, input_dim=self.state_size, activation='relu'))
+        model.add(Dense(256, input_dim=self.state_size, activation='relu'))
         model.add(Dense(256, activation='relu'))
         model.add(Dense(256, activation='relu'))
         model.add(Dense(self.n_agent * self.action_size, activation='softmax'))
@@ -113,8 +113,9 @@ class PPOAgent:
 
     def _build_value_model(self):
         model = Sequential()
-        model.add(Dense(128, input_dim=self.state_size, activation='relu'))
-        model.add(Dense(128, activation='relu'))
+        model.add(Dense(256, input_dim=self.state_size, activation='relu'))
+        model.add(Dense(256, activation='relu'))
+        model.add(Dense(256, activation='relu'))
         model.add(Dense(1, activation='linear'))
         return model
 
@@ -124,10 +125,15 @@ class PPOAgent:
 
         # Normalize probabilities to handle numerical instability
         for i in range(self.n_agent):
-            policy[i] /= np.sum(policy[i])
+            policy_sum = np.sum(policy[i])
+            if policy_sum == 0 or np.isnan(policy_sum):  # Handle division by zero or NaN
+                policy[i] = np.ones(self.action_size) / self.action_size  # Equal probabilities
+            else:
+                policy[i] /= policy_sum
 
         actions = [np.random.choice(self.action_size, p=policy[i]) for i in range(self.n_agent)]
         return actions, policy
+
 
 
     def train(self, states, actions, rewards, old_policies, advantages):
@@ -168,7 +174,7 @@ def reward_fairness(env,tarjectories):
     for ag in range(env.n_agent):
         temp = list()
         for tr in tarjectories[ag]:
-            temp.append(20 - (10* env.calculate_distance(tr)))
+            temp.append((int(env.grid_size/2))*10 - (10* env.calculate_distance(tr)))
         agent_dist[ag] = temp.copy()
     
 
@@ -237,7 +243,7 @@ def log(e,step,state, next_state, action ,reward):
 
 
 
-def train_ppo(env, agent, episodes=1000, step_size=1000, batch_size=64, update_epochs=50):
+def train_ppo(env, agent, tries,episodes=1000, step_size=1000, batch_size=64, update_epochs=50):
 
     column = list()
 
@@ -275,7 +281,7 @@ def train_ppo(env, agent, episodes=1000, step_size=1000, batch_size=64, update_e
 
             reward = reward_fairness(env, trajectories)
 
-            #log(e,step,st, next_state,action, reward)
+            log(e,step,st, next_state,action, reward)
 
 
 
@@ -306,7 +312,7 @@ def train_ppo(env, agent, episodes=1000, step_size=1000, batch_size=64, update_e
             #     done = True
 
 
-            if max(temp) < 0.1 and sum(allocation_total) > (step_size * 0.9):
+            if max(temp) < 0.15 and sum(allocation_total) > (step_size * 0.8):
                 done = True
 
         # Convert rewards, dones to NumPy arrays
@@ -330,9 +336,9 @@ def train_ppo(env, agent, episodes=1000, step_size=1000, batch_size=64, update_e
 
         output(e, episodes, agent.epsilon_clip, allocation_total, done)
         df.loc[len(df)] = allocation_total
-    st = "data/fair_"+str(env.n_agent)+"_"+str(env.grid_size)+".csv"
-    
-    df.to_csv(st, index=False)
+        st = "data/fair_"+str(env.n_agent)+"_"+str(env.grid_size)+"_"+str(tries)+".csv"
+        
+        df.to_csv(st, index=False)
 
 
 
@@ -341,14 +347,18 @@ def train_ppo(env, agent, episodes=1000, step_size=1000, batch_size=64, update_e
 
 if __name__ == "__main__":
     n_ag = [2]
-    gr = [7,8]
+    gr = [7]
     for n in n_ag:
         for g in gr:
 
             n_agent = n
             grid_size = g
-            starting_positions = [(0, 0), (4, 4), (3,2), (0,0)]  
-            resource_position = (2, 2)  
+            starting_positions = [(0, 0), (4, 4), (3,2), (0,0)]
+            if g%2 ==0:
+                resource_position = (int(g/2)-1, int(g/2)-1)  
+
+            else:
+                resource_position = (int(g/2), int(g/2))  
 
             action_size = 4
             state_size = n_agent * 2  
@@ -356,4 +366,6 @@ if __name__ == "__main__":
             env = Job(n_agent=n_agent, grid_size=grid_size, starting_positions=starting_positions, resource_position=resource_position)
             agent = PPOAgent(state_size, action_size, n_agent)
 
-            train_ppo(env, agent, episodes=500, step_size=1000)
+            for i in range(10):
+
+                train_ppo(env, agent, i,episodes=1000, step_size=1000, batch_size=64, update_epochs=50, )

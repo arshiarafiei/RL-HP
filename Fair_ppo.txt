@@ -1,0 +1,6 @@
+Episode 1/1000 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:3 
+Agent:1 -- Total Allocation:13 
+----------------------------------------
+----------------------------------------
+

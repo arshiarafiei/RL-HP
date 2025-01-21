@@ -1,0 +1,6732 @@
+Episode 0, step: 0, reward: -30
+State:(3, 4)  (1, 0)  
+Action:1  0  
+Next State:(4, 4)  (0, 0)  
+#######################################
+
+Episode 0, step: 1, reward: -20
+State:(4, 4)  (0, 0)  
+Action:0  3  
+Next State:(3, 4)  (0, 1)  
+#######################################
+
+Episode 0, step: 2, reward: -30
+State:(3, 4)  (0, 1)  
+Action:1  2  
+Next State:(4, 4)  (0, 0)  
+#######################################
+
+Episode 0, step: 3, reward: -30
+State:(4, 4)  (0, 0)  
+Action:3  0  
+Next State:(4, 5)  (0, 0)  
+#######################################
+
+Episode 0, step: 4, reward: -20
+State:(4, 5)  (0, 0)  
+Action:2  3  
+Next State:(4, 4)  (0, 1)  
+#######################################
+
+Episode 0, step: 5, reward: -10
+State:(4, 4)  (0, 1)  
+Action:2  3  
+Next State:(4, 3)  (0, 2)  
+#######################################
+
+Episode 0, step: 6, reward: -20
+State:(4, 3)  (0, 2)  
+Action:1  2  
+Next State:(5, 3)  (0, 1)  
+#######################################
+
+Episode 0, step: 7, reward: -10
+State:(5, 3)  (0, 1)  
+Action:0  3  
+Next State:(4, 3)  (0, 2)  
+#######################################
+
+Episode 0, step: 8, reward: 0
+State:(4, 3)  (0, 2)  
+Action:1  3  
+Next State:(5, 3)  (0, 3)  
+#######################################
+
+Episode 0, step: 9, reward: 0
+State:(5, 3)  (0, 3)  
+Action:2  1  
+Next State:(5, 2)  (1, 3)  
+#######################################
+
+Episode 0, step: 10, reward: 0
+State:(5, 2)  (1, 3)  
+Action:0  3  
+Next State:(4, 2)  (1, 4)  
+#######################################
+
+Episode 0, step: 11, reward: -10
+State:(4, 2)  (1, 4)  
+Action:2  3  
+Next State:(4, 1)  (1, 5)  
+#######################################
+
+Episode 0, step: 12, reward: -20
+State:(4, 1)  (1, 5)  
+Action:0  3  
+Next State:(3, 1)  (1, 6)  
+#######################################
+
+Episode 0, step: 13, reward: -10
+State:(3, 1)  (1, 6)  
+Action:3  2  
+Next State:(3, 2)  (1, 5)  
+#######################################
+
+Episode 0, step: 14, reward: -20
+State:(3, 2)  (1, 5)  
+Action:0  3  
+Next State:(2, 2)  (1, 6)  
+#######################################
+
+Episode 0, step: 15, reward: -10
+State:(2, 2)  (1, 6)  
+Action:0  2  
+Next State:(1, 2)  (1, 5)  
+#######################################
+
+Episode 0, step: 16, reward: -10
+State:(1, 2)  (1, 5)  
+Action:0  2  
+Next State:(0, 2)  (1, 4)  
+#######################################
+
+Episode 0, step: 17, reward: -10
+State:(0, 2)  (1, 4)  
+Action:0  3  
+Next State:(0, 2)  (1, 5)  
+#######################################
+
+Episode 0, step: 18, reward: -20
+State:(0, 2)  (1, 5)  
+Action:0  3  
+Next State:(0, 2)  (1, 6)  
+#######################################
+
+Episode 0, step: 19, reward: -10
+State:(0, 2)  (1, 6)  
+Action:3  1  
+Next State:(0, 3)  (2, 6)  
+#######################################
+
+Episode 0, step: 20, reward: -10
+State:(0, 3)  (2, 6)  
+Action:2  1  
+Next State:(0, 2)  (3, 6)  
+#######################################
+
+Episode 0, step: 21, reward: -20
+State:(0, 2)  (3, 6)  
+Action:2  3  
+Next State:(0, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 22, reward: -10
+State:(0, 1)  (3, 6)  
+Action:1  3  
+Next State:(1, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 23, reward: -20
+State:(1, 1)  (3, 6)  
+Action:2  3  
+Next State:(1, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 24, reward: -20
+State:(1, 0)  (3, 6)  
+Action:2  3  
+Next State:(1, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 25, reward: -30
+State:(1, 0)  (3, 6)  
+Action:0  2  
+Next State:(0, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 26, reward: -30
+State:(0, 0)  (3, 5)  
+Action:2  2  
+Next State:(0, 0)  (3, 4)  
+#######################################
+
+Episode 0, step: 27, reward: -30
+State:(0, 0)  (3, 4)  
+Action:2  2  
+Next State:(0, 0)  (3, 3)  
+#######################################
+
+Episode 0, step: 28, reward: -30
+State:(0, 0)  (3, 3)  
+Action:0  1  
+Next State:(0, 0)  (4, 3)  
+#######################################
+
+Episode 0, step: 29, reward: -30
+State:(0, 0)  (4, 3)  
+Action:0  1  
+Next State:(0, 0)  (5, 3)  
+#######################################
+
+Episode 0, step: 30, reward: -30
+State:(0, 0)  (5, 3)  
+Action:2  3  
+Next State:(0, 0)  (5, 4)  
+#######################################
+
+Episode 0, step: 31, reward: -30
+State:(0, 0)  (5, 4)  
+Action:2  0  
+Next State:(0, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 32, reward: -30
+State:(0, 0)  (4, 4)  
+Action:2  1  
+Next State:(0, 0)  (5, 4)  
+#######################################
+
+Episode 0, step: 33, reward: -30
+State:(0, 0)  (5, 4)  
+Action:0  3  
+Next State:(0, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 34, reward: -20
+State:(0, 0)  (5, 5)  
+Action:3  2  
+Next State:(0, 1)  (5, 4)  
+#######################################
+
+Episode 0, step: 35, reward: -10
+State:(0, 1)  (5, 4)  
+Action:1  3  
+Next State:(1, 1)  (5, 5)  
+#######################################
+
+Episode 0, step: 36, reward: -20
+State:(1, 1)  (5, 5)  
+Action:2  0  
+Next State:(1, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 37, reward: -10
+State:(1, 0)  (4, 5)  
+Action:3  2  
+Next State:(1, 1)  (4, 4)  
+#######################################
+
+Episode 0, step: 38, reward: -20
+State:(1, 1)  (4, 4)  
+Action:2  2  
+Next State:(1, 0)  (4, 3)  
+#######################################
+
+Episode 0, step: 39, reward: -20
+State:(1, 0)  (4, 3)  
+Action:2  1  
+Next State:(1, 0)  (5, 3)  
+#######################################
+
+Episode 0, step: 40, reward: -20
+State:(1, 0)  (5, 3)  
+Action:2  3  
+Next State:(1, 0)  (5, 4)  
+#######################################
+
+Episode 0, step: 41, reward: -20
+State:(1, 0)  (5, 4)  
+Action:2  1  
+Next State:(1, 0)  (6, 4)  
+#######################################
+
+Episode 0, step: 42, reward: -10
+State:(1, 0)  (6, 4)  
+Action:1  2  
+Next State:(2, 0)  (6, 3)  
+#######################################
+
+Episode 0, step: 43, reward: -10
+State:(2, 0)  (6, 3)  
+Action:1  3  
+Next State:(3, 0)  (6, 4)  
+#######################################
+
+Episode 0, step: 44, reward: 0
+State:(3, 0)  (6, 4)  
+Action:2  2  
+Next State:(3, 0)  (6, 3)  
+#######################################
+
+Episode 0, step: 45, reward: 0
+State:(3, 0)  (6, 3)  
+Action:2  1  
+Next State:(3, 0)  (6, 3)  
+#######################################
+
+Episode 0, step: 46, reward: 0
+State:(3, 0)  (6, 3)  
+Action:2  1  
+Next State:(3, 0)  (6, 3)  
+#######################################
+
+Episode 0, step: 47, reward: 0
+State:(3, 0)  (6, 3)  
+Action:2  0  
+Next State:(3, 0)  (5, 3)  
+#######################################
+
+Episode 0, step: 48, reward: -10
+State:(3, 0)  (5, 3)  
+Action:1  1  
+Next State:(4, 0)  (6, 3)  
+#######################################
+
+Episode 0, step: 49, reward: 0
+State:(4, 0)  (6, 3)  
+Action:0  0  
+Next State:(3, 0)  (5, 3)  
+#######################################
+
+Episode 0, step: 50, reward: 0
+State:(3, 0)  (5, 3)  
+Action:2  3  
+Next State:(3, 0)  (5, 4)  
+#######################################
+
+Episode 0, step: 51, reward: -10
+State:(3, 0)  (5, 4)  
+Action:1  3  
+Next State:(4, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 52, reward: -20
+State:(4, 0)  (5, 5)  
+Action:1  2  
+Next State:(5, 0)  (5, 4)  
+#######################################
+
+Episode 0, step: 53, reward: -20
+State:(5, 0)  (5, 4)  
+Action:2  0  
+Next State:(5, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 54, reward: -10
+State:(5, 0)  (4, 4)  
+Action:0  3  
+Next State:(4, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 55, reward: -10
+State:(4, 0)  (4, 5)  
+Action:2  3  
+Next State:(4, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 56, reward: -20
+State:(4, 0)  (4, 6)  
+Action:3  1  
+Next State:(4, 1)  (5, 6)  
+#######################################
+
+Episode 0, step: 57, reward: -10
+State:(4, 1)  (5, 6)  
+Action:0  2  
+Next State:(3, 1)  (5, 5)  
+#######################################
+
+Episode 0, step: 58, reward: 0
+State:(3, 1)  (5, 5)  
+Action:3  0  
+Next State:(3, 2)  (4, 5)  
+#######################################
+
+Episode 0, step: 59, reward: -10
+State:(3, 2)  (4, 5)  
+Action:2  3  
+Next State:(3, 1)  (4, 6)  
+#######################################
+
+Episode 0, step: 60, reward: 0
+State:(3, 1)  (4, 6)  
+Action:0  0  
+Next State:(2, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 61, reward: -10
+State:(2, 1)  (3, 6)  
+Action:2  3  
+Next State:(2, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 62, reward: -10
+State:(2, 0)  (3, 6)  
+Action:2  3  
+Next State:(2, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 63, reward: -10
+State:(2, 0)  (3, 6)  
+Action:2  1  
+Next State:(2, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 64, reward: 0
+State:(2, 0)  (4, 6)  
+Action:1  0  
+Next State:(3, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 65, reward: -10
+State:(3, 0)  (3, 6)  
+Action:0  1  
+Next State:(2, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 66, reward: -10
+State:(2, 0)  (4, 6)  
+Action:2  0  
+Next State:(2, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 67, reward: -10
+State:(2, 0)  (3, 6)  
+Action:1  1  
+Next State:(3, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 68, reward: -20
+State:(3, 0)  (4, 6)  
+Action:1  1  
+Next State:(4, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 69, reward: -30
+State:(4, 0)  (5, 6)  
+Action:2  1  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 70, reward: -30
+State:(4, 0)  (6, 6)  
+Action:3  3  
+Next State:(4, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 71, reward: -20
+State:(4, 1)  (6, 6)  
+Action:1  2  
+Next State:(5, 1)  (6, 5)  
+#######################################
+
+Episode 0, step: 72, reward: -30
+State:(5, 1)  (6, 5)  
+Action:0  3  
+Next State:(4, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 73, reward: -30
+State:(4, 1)  (6, 6)  
+Action:2  3  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 74, reward: -30
+State:(4, 0)  (6, 6)  
+Action:3  1  
+Next State:(4, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 75, reward: -30
+State:(4, 1)  (6, 6)  
+Action:0  3  
+Next State:(3, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 76, reward: -30
+State:(3, 1)  (6, 6)  
+Action:1  3  
+Next State:(4, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 77, reward: -30
+State:(4, 1)  (6, 6)  
+Action:2  1  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 78, reward: -20
+State:(4, 0)  (6, 6)  
+Action:2  0  
+Next State:(4, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 79, reward: -20
+State:(4, 0)  (5, 6)  
+Action:0  3  
+Next State:(3, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 80, reward: -30
+State:(3, 0)  (5, 6)  
+Action:3  1  
+Next State:(3, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 81, reward: -20
+State:(3, 1)  (6, 6)  
+Action:2  2  
+Next State:(3, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 82, reward: -30
+State:(3, 0)  (6, 5)  
+Action:2  3  
+Next State:(3, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 83, reward: -30
+State:(3, 0)  (6, 6)  
+Action:0  1  
+Next State:(2, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 84, reward: -30
+State:(2, 0)  (6, 6)  
+Action:2  3  
+Next State:(2, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 85, reward: -20
+State:(2, 0)  (6, 6)  
+Action:2  2  
+Next State:(2, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 86, reward: -10
+State:(2, 0)  (6, 5)  
+Action:1  0  
+Next State:(3, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 87, reward: -20
+State:(3, 0)  (5, 5)  
+Action:2  3  
+Next State:(3, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 88, reward: -30
+State:(3, 0)  (5, 6)  
+Action:1  1  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 89, reward: -20
+State:(4, 0)  (6, 6)  
+Action:2  2  
+Next State:(4, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 90, reward: -20
+State:(4, 0)  (6, 5)  
+Action:2  1  
+Next State:(4, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 91, reward: -30
+State:(4, 0)  (6, 5)  
+Action:0  3  
+Next State:(3, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 92, reward: -30
+State:(3, 0)  (6, 6)  
+Action:1  1  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 93, reward: -20
+State:(4, 0)  (6, 6)  
+Action:1  0  
+Next State:(5, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 94, reward: -20
+State:(5, 0)  (5, 6)  
+Action:2  3  
+Next State:(5, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 95, reward: -30
+State:(5, 0)  (5, 6)  
+Action:1  0  
+Next State:(6, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 96, reward: -30
+State:(6, 0)  (4, 6)  
+Action:1  3  
+Next State:(6, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 97, reward: -30
+State:(6, 0)  (4, 6)  
+Action:2  0  
+Next State:(6, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 98, reward: -30
+State:(6, 0)  (3, 6)  
+Action:1  3  
+Next State:(6, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 99, reward: -30
+State:(6, 0)  (3, 6)  
+Action:2  2  
+Next State:(6, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 100, reward: -30
+State:(6, 0)  (3, 5)  
+Action:2  3  
+Next State:(6, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 101, reward: -20
+State:(6, 0)  (3, 6)  
+Action:0  1  
+Next State:(5, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 102, reward: -30
+State:(5, 0)  (4, 6)  
+Action:1  3  
+Next State:(6, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 103, reward: -30
+State:(6, 0)  (4, 6)  
+Action:1  1  
+Next State:(6, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 104, reward: -20
+State:(6, 0)  (5, 6)  
+Action:3  0  
+Next State:(6, 1)  (4, 6)  
+#######################################
+
+Episode 0, step: 105, reward: -10
+State:(6, 1)  (4, 6)  
+Action:3  2  
+Next State:(6, 2)  (4, 5)  
+#######################################
+
+Episode 0, step: 106, reward: -10
+State:(6, 2)  (4, 5)  
+Action:3  3  
+Next State:(6, 3)  (4, 6)  
+#######################################
+
+Episode 0, step: 107, reward: -10
+State:(6, 3)  (4, 6)  
+Action:1  3  
+Next State:(6, 3)  (4, 6)  
+#######################################
+
+Episode 0, step: 108, reward: -10
+State:(6, 3)  (4, 6)  
+Action:2  3  
+Next State:(6, 2)  (4, 6)  
+#######################################
+
+Episode 0, step: 109, reward: -20
+State:(6, 2)  (4, 6)  
+Action:1  1  
+Next State:(6, 2)  (5, 6)  
+#######################################
+
+Episode 0, step: 110, reward: -20
+State:(6, 2)  (5, 6)  
+Action:2  3  
+Next State:(6, 1)  (5, 6)  
+#######################################
+
+Episode 0, step: 111, reward: -20
+State:(6, 1)  (5, 6)  
+Action:1  3  
+Next State:(6, 1)  (5, 6)  
+#######################################
+
+Episode 0, step: 112, reward: -30
+State:(6, 1)  (5, 6)  
+Action:2  2  
+Next State:(6, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 113, reward: -20
+State:(6, 0)  (5, 5)  
+Action:3  3  
+Next State:(6, 1)  (5, 6)  
+#######################################
+
+Episode 0, step: 114, reward: -30
+State:(6, 1)  (5, 6)  
+Action:2  0  
+Next State:(6, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 115, reward: -30
+State:(6, 0)  (4, 6)  
+Action:2  1  
+Next State:(6, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 116, reward: -30
+State:(6, 0)  (5, 6)  
+Action:1  3  
+Next State:(6, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 117, reward: -30
+State:(6, 0)  (5, 6)  
+Action:2  2  
+Next State:(6, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 118, reward: -20
+State:(6, 0)  (5, 5)  
+Action:3  0  
+Next State:(6, 1)  (4, 5)  
+#######################################
+
+Episode 0, step: 119, reward: -30
+State:(6, 1)  (4, 5)  
+Action:2  0  
+Next State:(6, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 120, reward: -20
+State:(6, 0)  (3, 5)  
+Action:3  2  
+Next State:(6, 1)  (3, 4)  
+#######################################
+
+Episode 0, step: 121, reward: -30
+State:(6, 1)  (3, 4)  
+Action:2  0  
+Next State:(6, 0)  (2, 4)  
+#######################################
+
+Episode 0, step: 122, reward: -30
+State:(6, 0)  (2, 4)  
+Action:2  2  
+Next State:(6, 0)  (2, 3)  
+#######################################
+
+Episode 0, step: 123, reward: -30
+State:(6, 0)  (2, 3)  
+Action:2  2  
+Next State:(6, 0)  (2, 2)  
+#######################################
+
+Episode 0, step: 124, reward: -20
+State:(6, 0)  (2, 2)  
+Action:3  2  
+Next State:(6, 1)  (2, 1)  
+#######################################
+
+Episode 0, step: 125, reward: -30
+State:(6, 1)  (2, 1)  
+Action:2  0  
+Next State:(6, 0)  (1, 1)  
+#######################################
+
+Episode 0, step: 126, reward: -30
+State:(6, 0)  (1, 1)  
+Action:2  3  
+Next State:(6, 0)  (1, 2)  
+#######################################
+
+Episode 0, step: 127, reward: -20
+State:(6, 0)  (1, 2)  
+Action:0  1  
+Next State:(5, 0)  (2, 2)  
+#######################################
+
+Episode 0, step: 128, reward: -20
+State:(5, 0)  (2, 2)  
+Action:2  2  
+Next State:(5, 0)  (2, 1)  
+#######################################
+
+Episode 0, step: 129, reward: -10
+State:(5, 0)  (2, 1)  
+Action:0  1  
+Next State:(4, 0)  (3, 1)  
+#######################################
+
+Episode 0, step: 130, reward: -20
+State:(4, 0)  (3, 1)  
+Action:1  3  
+Next State:(5, 0)  (3, 2)  
+#######################################
+
+Episode 0, step: 131, reward: -10
+State:(5, 0)  (3, 2)  
+Action:0  0  
+Next State:(4, 0)  (2, 2)  
+#######################################
+
+Episode 0, step: 132, reward: -20
+State:(4, 0)  (2, 2)  
+Action:1  2  
+Next State:(5, 0)  (2, 1)  
+#######################################
+
+Episode 0, step: 133, reward: -10
+State:(5, 0)  (2, 1)  
+Action:3  1  
+Next State:(5, 1)  (3, 1)  
+#######################################
+
+Episode 0, step: 134, reward: -20
+State:(5, 1)  (3, 1)  
+Action:1  3  
+Next State:(6, 1)  (3, 2)  
+#######################################
+
+Episode 0, step: 135, reward: -10
+State:(6, 1)  (3, 2)  
+Action:0  3  
+Next State:(5, 1)  (3, 3)  
+#######################################
+
+Episode 0, step: 136, reward: 0
+State:(5, 1)  (3, 3)  
+Action:3  1  
+Next State:(5, 2)  (4, 3)  
+#######################################
+
+Episode 0, step: 137, reward: -10
+State:(5, 2)  (4, 3)  
+Action:2  0  
+Next State:(5, 1)  (3, 3)  
+#######################################
+
+Episode 0, step: 138, reward: 0
+State:(5, 1)  (3, 3)  
+Action:0  2  
+Next State:(4, 1)  (3, 2)  
+#######################################
+
+Episode 0, step: 139, reward: -10
+State:(4, 1)  (3, 2)  
+Action:2  3  
+Next State:(4, 0)  (3, 3)  
+#######################################
+
+Episode 0, step: 140, reward: -10
+State:(4, 0)  (3, 3)  
+Action:2  1  
+Next State:(4, 0)  (4, 3)  
+#######################################
+
+Episode 0, step: 141, reward: -10
+State:(4, 0)  (4, 3)  
+Action:2  2  
+Next State:(4, 0)  (4, 2)  
+#######################################
+
+Episode 0, step: 142, reward: 0
+State:(4, 0)  (4, 2)  
+Action:0  1  
+Next State:(3, 0)  (5, 2)  
+#######################################
+
+Episode 0, step: 143, reward: -10
+State:(3, 0)  (5, 2)  
+Action:1  0  
+Next State:(4, 0)  (4, 2)  
+#######################################
+
+Episode 0, step: 144, reward: -20
+State:(4, 0)  (4, 2)  
+Action:1  3  
+Next State:(5, 0)  (4, 3)  
+#######################################
+
+Episode 0, step: 145, reward: -30
+State:(5, 0)  (4, 3)  
+Action:1  3  
+Next State:(6, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 146, reward: -30
+State:(6, 0)  (4, 4)  
+Action:1  1  
+Next State:(6, 0)  (5, 4)  
+#######################################
+
+Episode 0, step: 147, reward: -20
+State:(6, 0)  (5, 4)  
+Action:0  2  
+Next State:(5, 0)  (5, 3)  
+#######################################
+
+Episode 0, step: 148, reward: -10
+State:(5, 0)  (5, 3)  
+Action:3  3  
+Next State:(5, 1)  (5, 4)  
+#######################################
+
+Episode 0, step: 149, reward: 0
+State:(5, 1)  (5, 4)  
+Action:0  0  
+Next State:(4, 1)  (4, 4)  
+#######################################
+
+Episode 0, step: 150, reward: -10
+State:(4, 1)  (4, 4)  
+Action:1  3  
+Next State:(5, 1)  (4, 5)  
+#######################################
+
+Episode 0, step: 151, reward: -20
+State:(5, 1)  (4, 5)  
+Action:1  3  
+Next State:(6, 1)  (4, 6)  
+#######################################
+
+Episode 0, step: 152, reward: -30
+State:(6, 1)  (4, 6)  
+Action:2  2  
+Next State:(6, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 153, reward: -30
+State:(6, 0)  (4, 5)  
+Action:2  2  
+Next State:(6, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 154, reward: -20
+State:(6, 0)  (4, 4)  
+Action:0  2  
+Next State:(5, 0)  (4, 3)  
+#######################################
+
+Episode 0, step: 155, reward: -30
+State:(5, 0)  (4, 3)  
+Action:1  3  
+Next State:(6, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 156, reward: -30
+State:(6, 0)  (4, 4)  
+Action:2  3  
+Next State:(6, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 157, reward: -20
+State:(6, 0)  (4, 5)  
+Action:0  3  
+Next State:(5, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 158, reward: -10
+State:(5, 0)  (4, 6)  
+Action:3  3  
+Next State:(5, 1)  (4, 6)  
+#######################################
+
+Episode 0, step: 159, reward: -20
+State:(5, 1)  (4, 6)  
+Action:2  2  
+Next State:(5, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 160, reward: -10
+State:(5, 0)  (4, 5)  
+Action:0  3  
+Next State:(4, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 161, reward: -10
+State:(4, 0)  (4, 6)  
+Action:2  3  
+Next State:(4, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 162, reward: -20
+State:(4, 0)  (4, 6)  
+Action:0  1  
+Next State:(3, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 163, reward: -20
+State:(3, 0)  (5, 6)  
+Action:2  3  
+Next State:(3, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 164, reward: -30
+State:(3, 0)  (5, 6)  
+Action:2  1  
+Next State:(3, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 165, reward: -30
+State:(3, 0)  (6, 6)  
+Action:2  3  
+Next State:(3, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 166, reward: -20
+State:(3, 0)  (6, 6)  
+Action:0  2  
+Next State:(2, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 167, reward: -10
+State:(2, 0)  (6, 5)  
+Action:1  2  
+Next State:(3, 0)  (6, 4)  
+#######################################
+
+Episode 0, step: 168, reward: -10
+State:(3, 0)  (6, 4)  
+Action:0  2  
+Next State:(2, 0)  (6, 3)  
+#######################################
+
+Episode 0, step: 169, reward: -10
+State:(2, 0)  (6, 3)  
+Action:2  2  
+Next State:(2, 0)  (6, 2)  
+#######################################
+
+Episode 0, step: 170, reward: -20
+State:(2, 0)  (6, 2)  
+Action:0  3  
+Next State:(1, 0)  (6, 3)  
+#######################################
+
+Episode 0, step: 171, reward: -20
+State:(1, 0)  (6, 3)  
+Action:2  3  
+Next State:(1, 0)  (6, 4)  
+#######################################
+
+Episode 0, step: 172, reward: -30
+State:(1, 0)  (6, 4)  
+Action:0  3  
+Next State:(0, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 173, reward: -30
+State:(0, 0)  (6, 5)  
+Action:1  3  
+Next State:(1, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 174, reward: -20
+State:(1, 0)  (6, 6)  
+Action:2  0  
+Next State:(1, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 175, reward: -20
+State:(1, 0)  (5, 6)  
+Action:3  3  
+Next State:(1, 1)  (5, 6)  
+#######################################
+
+Episode 0, step: 176, reward: -30
+State:(1, 1)  (5, 6)  
+Action:2  1  
+Next State:(1, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 177, reward: -30
+State:(1, 0)  (6, 6)  
+Action:2  1  
+Next State:(1, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 178, reward: -20
+State:(1, 0)  (6, 6)  
+Action:1  0  
+Next State:(2, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 179, reward: -30
+State:(2, 0)  (5, 6)  
+Action:2  1  
+Next State:(2, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 180, reward: -30
+State:(2, 0)  (6, 6)  
+Action:2  3  
+Next State:(2, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 181, reward: -30
+State:(2, 0)  (6, 6)  
+Action:2  1  
+Next State:(2, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 182, reward: -20
+State:(2, 0)  (6, 6)  
+Action:1  0  
+Next State:(3, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 183, reward: -10
+State:(3, 0)  (5, 6)  
+Action:1  0  
+Next State:(4, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 184, reward: -20
+State:(4, 0)  (4, 6)  
+Action:2  1  
+Next State:(4, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 185, reward: -10
+State:(4, 0)  (5, 6)  
+Action:0  0  
+Next State:(3, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 186, reward: 0
+State:(3, 0)  (4, 6)  
+Action:2  0  
+Next State:(3, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 187, reward: 0
+State:(3, 0)  (3, 6)  
+Action:2  2  
+Next State:(3, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 188, reward: 0
+State:(3, 0)  (3, 5)  
+Action:2  3  
+Next State:(3, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 189, reward: -10
+State:(3, 0)  (3, 6)  
+Action:0  3  
+Next State:(2, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 190, reward: -10
+State:(2, 0)  (3, 6)  
+Action:2  2  
+Next State:(2, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 191, reward: -10
+State:(2, 0)  (3, 5)  
+Action:2  0  
+Next State:(2, 0)  (2, 5)  
+#######################################
+
+Episode 0, step: 192, reward: -10
+State:(2, 0)  (2, 5)  
+Action:2  3  
+Next State:(2, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 193, reward: -10
+State:(2, 0)  (2, 6)  
+Action:1  3  
+Next State:(3, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 194, reward: -10
+State:(3, 0)  (2, 6)  
+Action:0  2  
+Next State:(2, 0)  (2, 5)  
+#######################################
+
+Episode 0, step: 195, reward: -10
+State:(2, 0)  (2, 5)  
+Action:1  0  
+Next State:(3, 0)  (1, 5)  
+#######################################
+
+Episode 0, step: 196, reward: -20
+State:(3, 0)  (1, 5)  
+Action:0  0  
+Next State:(2, 0)  (0, 5)  
+#######################################
+
+Episode 0, step: 197, reward: -20
+State:(2, 0)  (0, 5)  
+Action:0  0  
+Next State:(1, 0)  (0, 5)  
+#######################################
+
+Episode 0, step: 198, reward: -30
+State:(1, 0)  (0, 5)  
+Action:0  0  
+Next State:(0, 0)  (0, 5)  
+#######################################
+
+Episode 0, step: 199, reward: -20
+State:(0, 0)  (0, 5)  
+Action:3  2  
+Next State:(0, 1)  (0, 4)  
+#######################################
+
+Episode 0, step: 200, reward: -30
+State:(0, 1)  (0, 4)  
+Action:2  2  
+Next State:(0, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 201, reward: -30
+State:(0, 0)  (0, 3)  
+Action:2  0  
+Next State:(0, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 202, reward: -30
+State:(0, 0)  (0, 3)  
+Action:0  1  
+Next State:(0, 0)  (1, 3)  
+#######################################
+
+Episode 0, step: 203, reward: -20
+State:(0, 0)  (1, 3)  
+Action:3  2  
+Next State:(0, 1)  (1, 2)  
+#######################################
+
+Episode 0, step: 204, reward: -10
+State:(0, 1)  (1, 2)  
+Action:1  0  
+Next State:(1, 1)  (0, 2)  
+#######################################
+
+Episode 0, step: 205, reward: -20
+State:(1, 1)  (0, 2)  
+Action:2  3  
+Next State:(1, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 206, reward: -10
+State:(1, 0)  (0, 3)  
+Action:1  1  
+Next State:(2, 0)  (1, 3)  
+#######################################
+
+Episode 0, step: 207, reward: 0
+State:(2, 0)  (1, 3)  
+Action:3  2  
+Next State:(2, 1)  (1, 2)  
+#######################################
+
+Episode 0, step: 208, reward: -10
+State:(2, 1)  (1, 2)  
+Action:2  3  
+Next State:(2, 0)  (1, 3)  
+#######################################
+
+Episode 0, step: 209, reward: -10
+State:(2, 0)  (1, 3)  
+Action:2  1  
+Next State:(2, 0)  (2, 3)  
+#######################################
+
+Episode 0, step: 210, reward: 0
+State:(2, 0)  (2, 3)  
+Action:3  0  
+Next State:(2, 1)  (1, 3)  
+#######################################
+
+Episode 0, step: 211, reward: -10
+State:(2, 1)  (1, 3)  
+Action:2  3  
+Next State:(2, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 212, reward: -10
+State:(2, 0)  (1, 4)  
+Action:2  3  
+Next State:(2, 0)  (1, 5)  
+#######################################
+
+Episode 0, step: 213, reward: -20
+State:(2, 0)  (1, 5)  
+Action:2  3  
+Next State:(2, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 214, reward: -20
+State:(2, 0)  (1, 6)  
+Action:2  3  
+Next State:(2, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 215, reward: -30
+State:(2, 0)  (1, 6)  
+Action:1  0  
+Next State:(3, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 216, reward: -30
+State:(3, 0)  (0, 6)  
+Action:3  0  
+Next State:(3, 1)  (0, 6)  
+#######################################
+
+Episode 0, step: 217, reward: -30
+State:(3, 1)  (0, 6)  
+Action:2  3  
+Next State:(3, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 218, reward: -30
+State:(3, 0)  (0, 6)  
+Action:2  3  
+Next State:(3, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 219, reward: -30
+State:(3, 0)  (0, 6)  
+Action:3  0  
+Next State:(3, 1)  (0, 6)  
+#######################################
+
+Episode 0, step: 220, reward: -30
+State:(3, 1)  (0, 6)  
+Action:2  3  
+Next State:(3, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 221, reward: -30
+State:(3, 0)  (0, 6)  
+Action:0  3  
+Next State:(2, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 222, reward: -30
+State:(2, 0)  (0, 6)  
+Action:2  3  
+Next State:(2, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 223, reward: -30
+State:(2, 0)  (0, 6)  
+Action:3  0  
+Next State:(2, 1)  (0, 6)  
+#######################################
+
+Episode 0, step: 224, reward: -20
+State:(2, 1)  (0, 6)  
+Action:1  1  
+Next State:(3, 1)  (1, 6)  
+#######################################
+
+Episode 0, step: 225, reward: -10
+State:(3, 1)  (1, 6)  
+Action:2  1  
+Next State:(3, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 226, reward: -10
+State:(3, 0)  (2, 6)  
+Action:2  3  
+Next State:(3, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 227, reward: -10
+State:(3, 0)  (2, 6)  
+Action:3  3  
+Next State:(3, 1)  (2, 6)  
+#######################################
+
+Episode 0, step: 228, reward: -10
+State:(3, 1)  (2, 6)  
+Action:2  3  
+Next State:(3, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 229, reward: -20
+State:(3, 0)  (2, 6)  
+Action:1  0  
+Next State:(4, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 230, reward: -20
+State:(4, 0)  (1, 6)  
+Action:0  3  
+Next State:(3, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 231, reward: -20
+State:(3, 0)  (1, 6)  
+Action:0  3  
+Next State:(2, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 232, reward: -10
+State:(2, 0)  (1, 6)  
+Action:3  1  
+Next State:(2, 1)  (2, 6)  
+#######################################
+
+Episode 0, step: 233, reward: 0
+State:(2, 1)  (2, 6)  
+Action:3  2  
+Next State:(2, 2)  (2, 5)  
+#######################################
+
+Episode 0, step: 234, reward: 0
+State:(2, 2)  (2, 5)  
+Action:2  1  
+Next State:(2, 1)  (3, 5)  
+#######################################
+
+Episode 0, step: 235, reward: -10
+State:(2, 1)  (3, 5)  
+Action:0  1  
+Next State:(1, 1)  (4, 5)  
+#######################################
+
+Episode 0, step: 236, reward: -10
+State:(1, 1)  (4, 5)  
+Action:3  3  
+Next State:(1, 2)  (4, 6)  
+#######################################
+
+Episode 0, step: 237, reward: -10
+State:(1, 2)  (4, 6)  
+Action:2  0  
+Next State:(1, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 238, reward: -20
+State:(1, 1)  (3, 6)  
+Action:0  3  
+Next State:(0, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 239, reward: -20
+State:(0, 1)  (3, 6)  
+Action:0  3  
+Next State:(0, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 240, reward: -20
+State:(0, 1)  (3, 6)  
+Action:0  0  
+Next State:(0, 1)  (2, 6)  
+#######################################
+
+Episode 0, step: 241, reward: -10
+State:(0, 1)  (2, 6)  
+Action:1  3  
+Next State:(1, 1)  (2, 6)  
+#######################################
+
+Episode 0, step: 242, reward: -10
+State:(1, 1)  (2, 6)  
+Action:3  3  
+Next State:(1, 2)  (2, 6)  
+#######################################
+
+Episode 0, step: 243, reward: -10
+State:(1, 2)  (2, 6)  
+Action:0  3  
+Next State:(0, 2)  (2, 6)  
+#######################################
+
+Episode 0, step: 244, reward: -20
+State:(0, 2)  (2, 6)  
+Action:3  0  
+Next State:(0, 3)  (1, 6)  
+#######################################
+
+Episode 0, step: 245, reward: -10
+State:(0, 3)  (1, 6)  
+Action:0  2  
+Next State:(0, 3)  (1, 5)  
+#######################################
+
+Episode 0, step: 246, reward: -10
+State:(0, 3)  (1, 5)  
+Action:2  1  
+Next State:(0, 2)  (2, 5)  
+#######################################
+
+Episode 0, step: 247, reward: -10
+State:(0, 2)  (2, 5)  
+Action:0  0  
+Next State:(0, 2)  (1, 5)  
+#######################################
+
+Episode 0, step: 248, reward: -20
+State:(0, 2)  (1, 5)  
+Action:2  2  
+Next State:(0, 1)  (1, 4)  
+#######################################
+
+Episode 0, step: 249, reward: -30
+State:(0, 1)  (1, 4)  
+Action:2  3  
+Next State:(0, 0)  (1, 5)  
+#######################################
+
+Episode 0, step: 250, reward: -30
+State:(0, 0)  (1, 5)  
+Action:2  3  
+Next State:(0, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 251, reward: -30
+State:(0, 0)  (1, 6)  
+Action:2  3  
+Next State:(0, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 252, reward: -30
+State:(0, 0)  (1, 6)  
+Action:2  3  
+Next State:(0, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 253, reward: -30
+State:(0, 0)  (1, 6)  
+Action:0  1  
+Next State:(0, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 254, reward: -30
+State:(0, 0)  (2, 6)  
+Action:0  2  
+Next State:(0, 0)  (2, 5)  
+#######################################
+
+Episode 0, step: 255, reward: -30
+State:(0, 0)  (2, 5)  
+Action:0  1  
+Next State:(0, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 256, reward: -20
+State:(0, 0)  (3, 5)  
+Action:3  3  
+Next State:(0, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 257, reward: -20
+State:(0, 1)  (3, 6)  
+Action:0  3  
+Next State:(0, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 258, reward: -20
+State:(0, 1)  (3, 6)  
+Action:0  3  
+Next State:(0, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 259, reward: -30
+State:(0, 1)  (3, 6)  
+Action:2  1  
+Next State:(0, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 260, reward: -30
+State:(0, 0)  (4, 6)  
+Action:2  2  
+Next State:(0, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 261, reward: -30
+State:(0, 0)  (4, 5)  
+Action:2  1  
+Next State:(0, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 262, reward: -30
+State:(0, 0)  (5, 5)  
+Action:0  0  
+Next State:(0, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 263, reward: -20
+State:(0, 0)  (4, 5)  
+Action:3  0  
+Next State:(0, 1)  (3, 5)  
+#######################################
+
+Episode 0, step: 264, reward: -20
+State:(0, 1)  (3, 5)  
+Action:0  0  
+Next State:(0, 1)  (2, 5)  
+#######################################
+
+Episode 0, step: 265, reward: -20
+State:(0, 1)  (2, 5)  
+Action:0  3  
+Next State:(0, 1)  (2, 6)  
+#######################################
+
+Episode 0, step: 266, reward: -30
+State:(0, 1)  (2, 6)  
+Action:2  3  
+Next State:(0, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 267, reward: -30
+State:(0, 0)  (2, 6)  
+Action:0  0  
+Next State:(0, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 268, reward: -20
+State:(0, 0)  (1, 6)  
+Action:3  1  
+Next State:(0, 1)  (2, 6)  
+#######################################
+
+Episode 0, step: 269, reward: -10
+State:(0, 1)  (2, 6)  
+Action:1  1  
+Next State:(1, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 270, reward: -20
+State:(1, 1)  (3, 6)  
+Action:0  2  
+Next State:(0, 1)  (3, 5)  
+#######################################
+
+Episode 0, step: 271, reward: -30
+State:(0, 1)  (3, 5)  
+Action:2  1  
+Next State:(0, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 272, reward: -30
+State:(0, 0)  (4, 5)  
+Action:2  3  
+Next State:(0, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 273, reward: -20
+State:(0, 0)  (4, 6)  
+Action:1  3  
+Next State:(1, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 274, reward: -10
+State:(1, 0)  (4, 6)  
+Action:1  0  
+Next State:(2, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 275, reward: 0
+State:(2, 0)  (3, 6)  
+Action:3  3  
+Next State:(2, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 276, reward: -10
+State:(2, 1)  (3, 6)  
+Action:0  1  
+Next State:(1, 1)  (4, 6)  
+#######################################
+
+Episode 0, step: 277, reward: -20
+State:(1, 1)  (4, 6)  
+Action:0  3  
+Next State:(0, 1)  (4, 6)  
+#######################################
+
+Episode 0, step: 278, reward: -30
+State:(0, 1)  (4, 6)  
+Action:2  2  
+Next State:(0, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 279, reward: -20
+State:(0, 0)  (4, 5)  
+Action:1  2  
+Next State:(1, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 280, reward: -30
+State:(1, 0)  (4, 4)  
+Action:0  3  
+Next State:(0, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 281, reward: -20
+State:(0, 0)  (4, 5)  
+Action:1  3  
+Next State:(1, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 282, reward: -30
+State:(1, 0)  (4, 6)  
+Action:0  3  
+Next State:(0, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 283, reward: -20
+State:(0, 0)  (4, 6)  
+Action:1  3  
+Next State:(1, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 284, reward: -20
+State:(1, 0)  (4, 6)  
+Action:2  3  
+Next State:(1, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 285, reward: -30
+State:(1, 0)  (4, 6)  
+Action:0  1  
+Next State:(0, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 286, reward: -30
+State:(0, 0)  (5, 6)  
+Action:2  1  
+Next State:(0, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 287, reward: -30
+State:(0, 0)  (6, 6)  
+Action:2  3  
+Next State:(0, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 288, reward: -30
+State:(0, 0)  (6, 6)  
+Action:0  1  
+Next State:(0, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 289, reward: -30
+State:(0, 0)  (6, 6)  
+Action:0  3  
+Next State:(0, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 290, reward: -30
+State:(0, 0)  (6, 6)  
+Action:2  2  
+Next State:(0, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 291, reward: -30
+State:(0, 0)  (6, 5)  
+Action:2  0  
+Next State:(0, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 292, reward: -20
+State:(0, 0)  (5, 5)  
+Action:1  2  
+Next State:(1, 0)  (5, 4)  
+#######################################
+
+Episode 0, step: 293, reward: -20
+State:(1, 0)  (5, 4)  
+Action:2  3  
+Next State:(1, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 294, reward: -20
+State:(1, 0)  (5, 5)  
+Action:3  1  
+Next State:(1, 1)  (6, 5)  
+#######################################
+
+Episode 0, step: 295, reward: -30
+State:(1, 1)  (6, 5)  
+Action:2  3  
+Next State:(1, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 296, reward: -30
+State:(1, 0)  (6, 6)  
+Action:1  3  
+Next State:(2, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 297, reward: -20
+State:(2, 0)  (6, 6)  
+Action:0  2  
+Next State:(1, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 298, reward: -20
+State:(1, 0)  (6, 5)  
+Action:2  1  
+Next State:(1, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 299, reward: -30
+State:(1, 0)  (6, 5)  
+Action:0  3  
+Next State:(0, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 300, reward: -30
+State:(0, 0)  (6, 6)  
+Action:0  2  
+Next State:(0, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 301, reward: -20
+State:(0, 0)  (6, 5)  
+Action:1  1  
+Next State:(1, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 302, reward: -30
+State:(1, 0)  (6, 5)  
+Action:2  3  
+Next State:(1, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 303, reward: -30
+State:(1, 0)  (6, 6)  
+Action:0  1  
+Next State:(0, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 304, reward: -30
+State:(0, 0)  (6, 6)  
+Action:1  1  
+Next State:(1, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 305, reward: -30
+State:(1, 0)  (6, 6)  
+Action:3  3  
+Next State:(1, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 306, reward: -30
+State:(1, 1)  (6, 6)  
+Action:0  1  
+Next State:(0, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 307, reward: -20
+State:(0, 1)  (6, 6)  
+Action:0  0  
+Next State:(0, 1)  (5, 6)  
+#######################################
+
+Episode 0, step: 308, reward: -10
+State:(0, 1)  (5, 6)  
+Action:1  2  
+Next State:(1, 1)  (5, 5)  
+#######################################
+
+Episode 0, step: 309, reward: -20
+State:(1, 1)  (5, 5)  
+Action:2  3  
+Next State:(1, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 310, reward: -20
+State:(1, 0)  (5, 6)  
+Action:2  2  
+Next State:(1, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 311, reward: -30
+State:(1, 0)  (5, 5)  
+Action:0  3  
+Next State:(0, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 312, reward: -20
+State:(0, 0)  (5, 6)  
+Action:3  3  
+Next State:(0, 1)  (5, 6)  
+#######################################
+
+Episode 0, step: 313, reward: -30
+State:(0, 1)  (5, 6)  
+Action:2  3  
+Next State:(0, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 314, reward: -20
+State:(0, 0)  (5, 6)  
+Action:1  3  
+Next State:(1, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 315, reward: -20
+State:(1, 0)  (5, 6)  
+Action:3  3  
+Next State:(1, 1)  (5, 6)  
+#######################################
+
+Episode 0, step: 316, reward: -10
+State:(1, 1)  (5, 6)  
+Action:3  2  
+Next State:(1, 2)  (5, 5)  
+#######################################
+
+Episode 0, step: 317, reward: -20
+State:(1, 2)  (5, 5)  
+Action:0  3  
+Next State:(0, 2)  (5, 6)  
+#######################################
+
+Episode 0, step: 318, reward: -20
+State:(0, 2)  (5, 6)  
+Action:1  3  
+Next State:(1, 2)  (5, 6)  
+#######################################
+
+Episode 0, step: 319, reward: -20
+State:(1, 2)  (5, 6)  
+Action:0  3  
+Next State:(0, 2)  (5, 6)  
+#######################################
+
+Episode 0, step: 320, reward: -10
+State:(0, 2)  (5, 6)  
+Action:1  2  
+Next State:(1, 2)  (5, 5)  
+#######################################
+
+Episode 0, step: 321, reward: -10
+State:(1, 2)  (5, 5)  
+Action:2  2  
+Next State:(1, 1)  (5, 4)  
+#######################################
+
+Episode 0, step: 322, reward: -20
+State:(1, 1)  (5, 4)  
+Action:0  2  
+Next State:(0, 1)  (5, 3)  
+#######################################
+
+Episode 0, step: 323, reward: -10
+State:(0, 1)  (5, 3)  
+Action:1  0  
+Next State:(1, 1)  (4, 3)  
+#######################################
+
+Episode 0, step: 324, reward: -20
+State:(1, 1)  (4, 3)  
+Action:0  3  
+Next State:(0, 1)  (4, 4)  
+#######################################
+
+Episode 0, step: 325, reward: -30
+State:(0, 1)  (4, 4)  
+Action:2  0  
+Next State:(0, 0)  (3, 4)  
+#######################################
+
+Episode 0, step: 326, reward: -30
+State:(0, 0)  (3, 4)  
+Action:0  2  
+Next State:(0, 0)  (3, 3)  
+#######################################
+
+Episode 0, step: 327, reward: -20
+State:(0, 0)  (3, 3)  
+Action:1  3  
+Next State:(1, 0)  (3, 4)  
+#######################################
+
+Episode 0, step: 328, reward: -20
+State:(1, 0)  (3, 4)  
+Action:2  3  
+Next State:(1, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 329, reward: -20
+State:(1, 0)  (3, 5)  
+Action:2  2  
+Next State:(1, 0)  (3, 4)  
+#######################################
+
+Episode 0, step: 330, reward: -10
+State:(1, 0)  (3, 4)  
+Action:1  2  
+Next State:(2, 0)  (3, 3)  
+#######################################
+
+Episode 0, step: 331, reward: 0
+State:(2, 0)  (3, 3)  
+Action:1  3  
+Next State:(3, 0)  (3, 4)  
+#######################################
+
+Episode 0, step: 332, reward: -10
+State:(3, 0)  (3, 4)  
+Action:1  2  
+Next State:(4, 0)  (3, 3)  
+#######################################
+
+Episode 0, step: 333, reward: 0
+State:(4, 0)  (3, 3)  
+Action:3  2  
+Next State:(4, 1)  (3, 2)  
+#######################################
+
+Episode 0, step: 334, reward: -10
+State:(4, 1)  (3, 2)  
+Action:2  1  
+Next State:(4, 0)  (4, 2)  
+#######################################
+
+Episode 0, step: 335, reward: -10
+State:(4, 0)  (4, 2)  
+Action:2  2  
+Next State:(4, 0)  (4, 1)  
+#######################################
+
+Episode 0, step: 336, reward: -10
+State:(4, 0)  (4, 1)  
+Action:2  1  
+Next State:(4, 0)  (5, 1)  
+#######################################
+
+Episode 0, step: 337, reward: -20
+State:(4, 0)  (5, 1)  
+Action:1  1  
+Next State:(5, 0)  (6, 1)  
+#######################################
+
+Episode 0, step: 338, reward: -10
+State:(5, 0)  (6, 1)  
+Action:0  3  
+Next State:(4, 0)  (6, 2)  
+#######################################
+
+Episode 0, step: 339, reward: -10
+State:(4, 0)  (6, 2)  
+Action:0  1  
+Next State:(3, 0)  (6, 2)  
+#######################################
+
+Episode 0, step: 340, reward: -20
+State:(3, 0)  (6, 2)  
+Action:2  2  
+Next State:(3, 0)  (6, 1)  
+#######################################
+
+Episode 0, step: 341, reward: -10
+State:(3, 0)  (6, 1)  
+Action:2  3  
+Next State:(3, 0)  (6, 2)  
+#######################################
+
+Episode 0, step: 342, reward: 0
+State:(3, 0)  (6, 2)  
+Action:2  0  
+Next State:(3, 0)  (5, 2)  
+#######################################
+
+Episode 0, step: 343, reward: -10
+State:(3, 0)  (5, 2)  
+Action:0  3  
+Next State:(2, 0)  (5, 3)  
+#######################################
+
+Episode 0, step: 344, reward: -20
+State:(2, 0)  (5, 3)  
+Action:0  0  
+Next State:(1, 0)  (4, 3)  
+#######################################
+
+Episode 0, step: 345, reward: -10
+State:(1, 0)  (4, 3)  
+Action:1  2  
+Next State:(2, 0)  (4, 2)  
+#######################################
+
+Episode 0, step: 346, reward: -20
+State:(2, 0)  (4, 2)  
+Action:0  3  
+Next State:(1, 0)  (4, 3)  
+#######################################
+
+Episode 0, step: 347, reward: -10
+State:(1, 0)  (4, 3)  
+Action:1  3  
+Next State:(2, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 348, reward: -20
+State:(2, 0)  (4, 4)  
+Action:0  3  
+Next State:(1, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 349, reward: -10
+State:(1, 0)  (4, 5)  
+Action:1  2  
+Next State:(2, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 350, reward: 0
+State:(2, 0)  (4, 4)  
+Action:3  3  
+Next State:(2, 1)  (4, 5)  
+#######################################
+
+Episode 0, step: 351, reward: 10
+State:(2, 1)  (4, 5)  
+Action:1  0  
+Next State:(3, 1)  (3, 5)  
+#######################################
+
+Episode 0, step: 352, reward: 0
+State:(3, 1)  (3, 5)  
+Action:1  3  
+Next State:(4, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 353, reward: -10
+State:(4, 1)  (3, 6)  
+Action:2  3  
+Next State:(4, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 354, reward: -10
+State:(4, 0)  (3, 6)  
+Action:2  1  
+Next State:(4, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 355, reward: -20
+State:(4, 0)  (4, 6)  
+Action:1  1  
+Next State:(5, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 356, reward: -30
+State:(5, 0)  (5, 6)  
+Action:1  3  
+Next State:(6, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 357, reward: -30
+State:(6, 0)  (5, 6)  
+Action:2  1  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 358, reward: -30
+State:(6, 0)  (6, 6)  
+Action:0  3  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 359, reward: -30
+State:(5, 0)  (6, 6)  
+Action:2  3  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 360, reward: -30
+State:(5, 0)  (6, 6)  
+Action:1  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 361, reward: -30
+State:(6, 0)  (6, 6)  
+Action:2  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 362, reward: -20
+State:(6, 0)  (6, 6)  
+Action:3  2  
+Next State:(6, 1)  (6, 5)  
+#######################################
+
+Episode 0, step: 363, reward: -20
+State:(6, 1)  (6, 5)  
+Action:1  0  
+Next State:(6, 1)  (5, 5)  
+#######################################
+
+Episode 0, step: 364, reward: -30
+State:(6, 1)  (5, 5)  
+Action:2  3  
+Next State:(6, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 365, reward: -30
+State:(6, 0)  (5, 6)  
+Action:0  1  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 366, reward: -30
+State:(5, 0)  (6, 6)  
+Action:0  3  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 367, reward: -30
+State:(4, 0)  (6, 6)  
+Action:2  3  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 368, reward: -30
+State:(4, 0)  (6, 6)  
+Action:1  3  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 369, reward: -30
+State:(5, 0)  (6, 6)  
+Action:1  1  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 370, reward: -30
+State:(6, 0)  (6, 6)  
+Action:1  0  
+Next State:(6, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 371, reward: -30
+State:(6, 0)  (5, 6)  
+Action:0  1  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 372, reward: -30
+State:(5, 0)  (6, 6)  
+Action:1  2  
+Next State:(6, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 373, reward: -30
+State:(6, 0)  (6, 5)  
+Action:1  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 374, reward: -30
+State:(6, 0)  (6, 6)  
+Action:2  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 375, reward: -30
+State:(6, 0)  (6, 6)  
+Action:0  1  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 376, reward: -20
+State:(5, 0)  (6, 6)  
+Action:2  2  
+Next State:(5, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 377, reward: -30
+State:(5, 0)  (6, 5)  
+Action:1  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 378, reward: -30
+State:(6, 0)  (6, 6)  
+Action:2  0  
+Next State:(6, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 379, reward: -20
+State:(6, 0)  (5, 6)  
+Action:0  0  
+Next State:(5, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 380, reward: -20
+State:(5, 0)  (4, 6)  
+Action:2  2  
+Next State:(5, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 381, reward: -20
+State:(5, 0)  (4, 5)  
+Action:2  1  
+Next State:(5, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 382, reward: -20
+State:(5, 0)  (5, 5)  
+Action:2  1  
+Next State:(5, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 383, reward: -30
+State:(5, 0)  (6, 5)  
+Action:1  2  
+Next State:(6, 0)  (6, 4)  
+#######################################
+
+Episode 0, step: 384, reward: -30
+State:(6, 0)  (6, 4)  
+Action:2  2  
+Next State:(6, 0)  (6, 3)  
+#######################################
+
+Episode 0, step: 385, reward: -30
+State:(6, 0)  (6, 3)  
+Action:2  3  
+Next State:(6, 0)  (6, 4)  
+#######################################
+
+Episode 0, step: 386, reward: -30
+State:(6, 0)  (6, 4)  
+Action:2  1  
+Next State:(6, 0)  (6, 4)  
+#######################################
+
+Episode 0, step: 387, reward: -30
+State:(6, 0)  (6, 4)  
+Action:2  2  
+Next State:(6, 0)  (6, 3)  
+#######################################
+
+Episode 0, step: 388, reward: -20
+State:(6, 0)  (6, 3)  
+Action:0  3  
+Next State:(5, 0)  (6, 4)  
+#######################################
+
+Episode 0, step: 389, reward: -20
+State:(5, 0)  (6, 4)  
+Action:2  3  
+Next State:(5, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 390, reward: -30
+State:(5, 0)  (6, 5)  
+Action:2  3  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 391, reward: -20
+State:(5, 0)  (6, 6)  
+Action:2  0  
+Next State:(5, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 392, reward: -30
+State:(5, 0)  (5, 6)  
+Action:2  1  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 393, reward: -30
+State:(5, 0)  (6, 6)  
+Action:1  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 394, reward: -20
+State:(6, 0)  (6, 6)  
+Action:0  2  
+Next State:(5, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 395, reward: -30
+State:(5, 0)  (6, 5)  
+Action:1  1  
+Next State:(6, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 396, reward: -30
+State:(6, 0)  (6, 5)  
+Action:0  3  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 397, reward: -30
+State:(5, 0)  (6, 6)  
+Action:1  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 398, reward: -30
+State:(6, 0)  (6, 6)  
+Action:2  1  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 399, reward: -30
+State:(6, 0)  (6, 6)  
+Action:2  0  
+Next State:(6, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 400, reward: -30
+State:(6, 0)  (5, 6)  
+Action:2  0  
+Next State:(6, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 401, reward: -30
+State:(6, 0)  (4, 6)  
+Action:1  0  
+Next State:(6, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 402, reward: -20
+State:(6, 0)  (3, 6)  
+Action:3  1  
+Next State:(6, 1)  (4, 6)  
+#######################################
+
+Episode 0, step: 403, reward: -30
+State:(6, 1)  (4, 6)  
+Action:2  2  
+Next State:(6, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 404, reward: -30
+State:(6, 0)  (4, 5)  
+Action:1  2  
+Next State:(6, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 405, reward: -20
+State:(6, 0)  (4, 4)  
+Action:3  1  
+Next State:(6, 1)  (5, 4)  
+#######################################
+
+Episode 0, step: 406, reward: -30
+State:(6, 1)  (5, 4)  
+Action:2  0  
+Next State:(6, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 407, reward: -20
+State:(6, 0)  (4, 4)  
+Action:0  2  
+Next State:(5, 0)  (4, 3)  
+#######################################
+
+Episode 0, step: 408, reward: -20
+State:(5, 0)  (4, 3)  
+Action:2  2  
+Next State:(5, 0)  (4, 2)  
+#######################################
+
+Episode 0, step: 409, reward: -30
+State:(5, 0)  (4, 2)  
+Action:1  2  
+Next State:(6, 0)  (4, 1)  
+#######################################
+
+Episode 0, step: 410, reward: -30
+State:(6, 0)  (4, 1)  
+Action:2  3  
+Next State:(6, 0)  (4, 2)  
+#######################################
+
+Episode 0, step: 411, reward: -30
+State:(6, 0)  (4, 2)  
+Action:2  3  
+Next State:(6, 0)  (4, 3)  
+#######################################
+
+Episode 0, step: 412, reward: -30
+State:(6, 0)  (4, 3)  
+Action:2  3  
+Next State:(6, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 413, reward: -20
+State:(6, 0)  (4, 4)  
+Action:0  0  
+Next State:(5, 0)  (3, 4)  
+#######################################
+
+Episode 0, step: 414, reward: -20
+State:(5, 0)  (3, 4)  
+Action:2  3  
+Next State:(5, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 415, reward: -10
+State:(5, 0)  (3, 5)  
+Action:3  2  
+Next State:(5, 1)  (3, 4)  
+#######################################
+
+Episode 0, step: 416, reward: -20
+State:(5, 1)  (3, 4)  
+Action:1  1  
+Next State:(6, 1)  (4, 4)  
+#######################################
+
+Episode 0, step: 417, reward: -30
+State:(6, 1)  (4, 4)  
+Action:2  1  
+Next State:(6, 0)  (5, 4)  
+#######################################
+
+Episode 0, step: 418, reward: -30
+State:(6, 0)  (5, 4)  
+Action:1  0  
+Next State:(6, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 419, reward: -30
+State:(6, 0)  (4, 4)  
+Action:1  0  
+Next State:(6, 0)  (3, 4)  
+#######################################
+
+Episode 0, step: 420, reward: -20
+State:(6, 0)  (3, 4)  
+Action:3  3  
+Next State:(6, 1)  (3, 5)  
+#######################################
+
+Episode 0, step: 421, reward: -30
+State:(6, 1)  (3, 5)  
+Action:2  1  
+Next State:(6, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 422, reward: -30
+State:(6, 0)  (4, 5)  
+Action:2  1  
+Next State:(6, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 423, reward: -30
+State:(6, 0)  (5, 5)  
+Action:2  3  
+Next State:(6, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 424, reward: -30
+State:(6, 0)  (5, 6)  
+Action:2  3  
+Next State:(6, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 425, reward: -20
+State:(6, 0)  (5, 6)  
+Action:0  3  
+Next State:(5, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 426, reward: -20
+State:(5, 0)  (5, 6)  
+Action:2  0  
+Next State:(5, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 427, reward: -10
+State:(5, 0)  (4, 6)  
+Action:0  3  
+Next State:(4, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 428, reward: -20
+State:(4, 0)  (4, 6)  
+Action:1  1  
+Next State:(5, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 429, reward: -30
+State:(5, 0)  (5, 6)  
+Action:1  1  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 430, reward: -30
+State:(6, 0)  (6, 6)  
+Action:0  1  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 431, reward: -30
+State:(5, 0)  (6, 6)  
+Action:2  3  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 432, reward: -20
+State:(5, 0)  (6, 6)  
+Action:2  2  
+Next State:(5, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 433, reward: -20
+State:(5, 0)  (6, 5)  
+Action:0  1  
+Next State:(4, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 434, reward: -20
+State:(4, 0)  (6, 5)  
+Action:2  1  
+Next State:(4, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 435, reward: -30
+State:(4, 0)  (6, 5)  
+Action:1  3  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 436, reward: -20
+State:(5, 0)  (6, 6)  
+Action:2  0  
+Next State:(5, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 437, reward: -30
+State:(5, 0)  (5, 6)  
+Action:1  3  
+Next State:(6, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 438, reward: -30
+State:(6, 0)  (5, 6)  
+Action:2  1  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 439, reward: -30
+State:(6, 0)  (6, 6)  
+Action:1  2  
+Next State:(6, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 440, reward: -30
+State:(6, 0)  (6, 5)  
+Action:2  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 441, reward: -30
+State:(6, 0)  (6, 6)  
+Action:2  2  
+Next State:(6, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 442, reward: -30
+State:(6, 0)  (6, 5)  
+Action:1  2  
+Next State:(6, 0)  (6, 4)  
+#######################################
+
+Episode 0, step: 443, reward: -20
+State:(6, 0)  (6, 4)  
+Action:0  2  
+Next State:(5, 0)  (6, 3)  
+#######################################
+
+Episode 0, step: 444, reward: -20
+State:(5, 0)  (6, 3)  
+Action:2  3  
+Next State:(5, 0)  (6, 4)  
+#######################################
+
+Episode 0, step: 445, reward: -20
+State:(5, 0)  (6, 4)  
+Action:2  3  
+Next State:(5, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 446, reward: -30
+State:(5, 0)  (6, 5)  
+Action:1  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 447, reward: -30
+State:(6, 0)  (6, 6)  
+Action:2  0  
+Next State:(6, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 448, reward: -20
+State:(6, 0)  (5, 6)  
+Action:3  3  
+Next State:(6, 1)  (5, 6)  
+#######################################
+
+Episode 0, step: 449, reward: -20
+State:(6, 1)  (5, 6)  
+Action:1  3  
+Next State:(6, 1)  (5, 6)  
+#######################################
+
+Episode 0, step: 450, reward: -30
+State:(6, 1)  (5, 6)  
+Action:3  1  
+Next State:(6, 2)  (6, 6)  
+#######################################
+
+Episode 0, step: 451, reward: -20
+State:(6, 2)  (6, 6)  
+Action:1  2  
+Next State:(6, 2)  (6, 5)  
+#######################################
+
+Episode 0, step: 452, reward: -10
+State:(6, 2)  (6, 5)  
+Action:1  0  
+Next State:(6, 2)  (5, 5)  
+#######################################
+
+Episode 0, step: 453, reward: 0
+State:(6, 2)  (5, 5)  
+Action:3  2  
+Next State:(6, 3)  (5, 4)  
+#######################################
+
+Episode 0, step: 454, reward: -10
+State:(6, 3)  (5, 4)  
+Action:2  1  
+Next State:(6, 2)  (6, 4)  
+#######################################
+
+Episode 0, step: 455, reward: -10
+State:(6, 2)  (6, 4)  
+Action:0  1  
+Next State:(5, 2)  (6, 4)  
+#######################################
+
+Episode 0, step: 456, reward: -20
+State:(5, 2)  (6, 4)  
+Action:0  3  
+Next State:(4, 2)  (6, 5)  
+#######################################
+
+Episode 0, step: 457, reward: -10
+State:(4, 2)  (6, 5)  
+Action:1  0  
+Next State:(5, 2)  (5, 5)  
+#######################################
+
+Episode 0, step: 458, reward: -20
+State:(5, 2)  (5, 5)  
+Action:1  3  
+Next State:(6, 2)  (5, 6)  
+#######################################
+
+Episode 0, step: 459, reward: -20
+State:(6, 2)  (5, 6)  
+Action:3  3  
+Next State:(6, 3)  (5, 6)  
+#######################################
+
+Episode 0, step: 460, reward: -20
+State:(6, 3)  (5, 6)  
+Action:2  3  
+Next State:(6, 2)  (5, 6)  
+#######################################
+
+Episode 0, step: 461, reward: -10
+State:(6, 2)  (5, 6)  
+Action:1  0  
+Next State:(6, 2)  (4, 6)  
+#######################################
+
+Episode 0, step: 462, reward: -10
+State:(6, 2)  (4, 6)  
+Action:1  2  
+Next State:(6, 2)  (4, 5)  
+#######################################
+
+Episode 0, step: 463, reward: -10
+State:(6, 2)  (4, 5)  
+Action:0  3  
+Next State:(5, 2)  (4, 6)  
+#######################################
+
+Episode 0, step: 464, reward: -10
+State:(5, 2)  (4, 6)  
+Action:3  3  
+Next State:(5, 3)  (4, 6)  
+#######################################
+
+Episode 0, step: 465, reward: -10
+State:(5, 3)  (4, 6)  
+Action:2  3  
+Next State:(5, 2)  (4, 6)  
+#######################################
+
+Episode 0, step: 466, reward: -10
+State:(5, 2)  (4, 6)  
+Action:2  0  
+Next State:(5, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 467, reward: -20
+State:(5, 1)  (3, 6)  
+Action:1  0  
+Next State:(6, 1)  (2, 6)  
+#######################################
+
+Episode 0, step: 468, reward: -30
+State:(6, 1)  (2, 6)  
+Action:2  2  
+Next State:(6, 0)  (2, 5)  
+#######################################
+
+Episode 0, step: 469, reward: -20
+State:(6, 0)  (2, 5)  
+Action:3  3  
+Next State:(6, 1)  (2, 6)  
+#######################################
+
+Episode 0, step: 470, reward: -30
+State:(6, 1)  (2, 6)  
+Action:2  0  
+Next State:(6, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 471, reward: -30
+State:(6, 0)  (1, 6)  
+Action:2  2  
+Next State:(6, 0)  (1, 5)  
+#######################################
+
+Episode 0, step: 472, reward: -20
+State:(6, 0)  (1, 5)  
+Action:0  3  
+Next State:(5, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 473, reward: -30
+State:(5, 0)  (1, 6)  
+Action:2  0  
+Next State:(5, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 474, reward: -30
+State:(5, 0)  (0, 6)  
+Action:1  2  
+Next State:(6, 0)  (0, 5)  
+#######################################
+
+Episode 0, step: 475, reward: -30
+State:(6, 0)  (0, 5)  
+Action:2  3  
+Next State:(6, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 476, reward: -30
+State:(6, 0)  (0, 6)  
+Action:1  0  
+Next State:(6, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 477, reward: -30
+State:(6, 0)  (0, 6)  
+Action:2  1  
+Next State:(6, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 478, reward: -30
+State:(6, 0)  (1, 6)  
+Action:1  0  
+Next State:(6, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 479, reward: -30
+State:(6, 0)  (0, 6)  
+Action:1  3  
+Next State:(6, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 480, reward: -30
+State:(6, 0)  (0, 6)  
+Action:1  1  
+Next State:(6, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 481, reward: -30
+State:(6, 0)  (1, 6)  
+Action:1  3  
+Next State:(6, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 482, reward: -30
+State:(6, 0)  (1, 6)  
+Action:2  1  
+Next State:(6, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 483, reward: -20
+State:(6, 0)  (2, 6)  
+Action:0  1  
+Next State:(5, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 484, reward: -10
+State:(5, 0)  (3, 6)  
+Action:0  3  
+Next State:(4, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 485, reward: -10
+State:(4, 0)  (3, 6)  
+Action:2  1  
+Next State:(4, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 486, reward: -10
+State:(4, 0)  (4, 6)  
+Action:0  3  
+Next State:(3, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 487, reward: -10
+State:(3, 0)  (4, 6)  
+Action:1  3  
+Next State:(4, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 488, reward: -10
+State:(4, 0)  (4, 6)  
+Action:2  3  
+Next State:(4, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 489, reward: -20
+State:(4, 0)  (4, 6)  
+Action:2  1  
+Next State:(4, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 490, reward: -20
+State:(4, 0)  (5, 6)  
+Action:1  2  
+Next State:(5, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 491, reward: -30
+State:(5, 0)  (5, 5)  
+Action:1  1  
+Next State:(6, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 492, reward: -30
+State:(6, 0)  (6, 5)  
+Action:2  0  
+Next State:(6, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 493, reward: -30
+State:(6, 0)  (5, 5)  
+Action:1  1  
+Next State:(6, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 494, reward: -20
+State:(6, 0)  (6, 5)  
+Action:3  2  
+Next State:(6, 1)  (6, 4)  
+#######################################
+
+Episode 0, step: 495, reward: -20
+State:(6, 1)  (6, 4)  
+Action:3  3  
+Next State:(6, 2)  (6, 5)  
+#######################################
+
+Episode 0, step: 496, reward: -20
+State:(6, 2)  (6, 5)  
+Action:0  1  
+Next State:(5, 2)  (6, 5)  
+#######################################
+
+Episode 0, step: 497, reward: -20
+State:(5, 2)  (6, 5)  
+Action:1  1  
+Next State:(6, 2)  (6, 5)  
+#######################################
+
+Episode 0, step: 498, reward: -30
+State:(6, 2)  (6, 5)  
+Action:0  3  
+Next State:(5, 2)  (6, 6)  
+#######################################
+
+Episode 0, step: 499, reward: -30
+State:(5, 2)  (6, 6)  
+Action:3  1  
+Next State:(5, 3)  (6, 6)  
+#######################################
+
+Episode 0, step: 500, reward: -30
+State:(5, 3)  (6, 6)  
+Action:1  1  
+Next State:(6, 3)  (6, 6)  
+#######################################
+
+Episode 0, step: 501, reward: -30
+State:(6, 3)  (6, 6)  
+Action:1  3  
+Next State:(6, 3)  (6, 6)  
+#######################################
+
+Episode 0, step: 502, reward: -30
+State:(6, 3)  (6, 6)  
+Action:1  3  
+Next State:(6, 3)  (6, 6)  
+#######################################
+
+Episode 0, step: 503, reward: -20
+State:(6, 3)  (6, 6)  
+Action:2  2  
+Next State:(6, 2)  (6, 5)  
+#######################################
+
+Episode 0, step: 504, reward: -10
+State:(6, 2)  (6, 5)  
+Action:1  2  
+Next State:(6, 2)  (6, 4)  
+#######################################
+
+Episode 0, step: 505, reward: -20
+State:(6, 2)  (6, 4)  
+Action:2  2  
+Next State:(6, 1)  (6, 3)  
+#######################################
+
+Episode 0, step: 506, reward: -10
+State:(6, 1)  (6, 3)  
+Action:0  3  
+Next State:(5, 1)  (6, 4)  
+#######################################
+
+Episode 0, step: 507, reward: -20
+State:(5, 1)  (6, 4)  
+Action:0  3  
+Next State:(4, 1)  (6, 5)  
+#######################################
+
+Episode 0, step: 508, reward: -10
+State:(4, 1)  (6, 5)  
+Action:2  2  
+Next State:(4, 0)  (6, 4)  
+#######################################
+
+Episode 0, step: 509, reward: -20
+State:(4, 0)  (6, 4)  
+Action:2  3  
+Next State:(4, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 510, reward: -30
+State:(4, 0)  (6, 5)  
+Action:2  3  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 511, reward: -20
+State:(4, 0)  (6, 6)  
+Action:2  0  
+Next State:(4, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 512, reward: -30
+State:(4, 0)  (5, 6)  
+Action:3  1  
+Next State:(4, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 513, reward: -20
+State:(4, 1)  (6, 6)  
+Action:0  2  
+Next State:(3, 1)  (6, 5)  
+#######################################
+
+Episode 0, step: 514, reward: -30
+State:(3, 1)  (6, 5)  
+Action:1  3  
+Next State:(4, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 515, reward: -30
+State:(4, 1)  (6, 6)  
+Action:2  1  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 516, reward: -30
+State:(4, 0)  (6, 6)  
+Action:3  1  
+Next State:(4, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 517, reward: -20
+State:(4, 1)  (6, 6)  
+Action:2  0  
+Next State:(4, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 518, reward: -30
+State:(4, 0)  (5, 6)  
+Action:1  1  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 519, reward: -30
+State:(5, 0)  (6, 6)  
+Action:1  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 520, reward: -30
+State:(6, 0)  (6, 6)  
+Action:2  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 521, reward: -30
+State:(6, 0)  (6, 6)  
+Action:2  2  
+Next State:(6, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 522, reward: -30
+State:(6, 0)  (6, 5)  
+Action:2  0  
+Next State:(6, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 523, reward: -20
+State:(6, 0)  (5, 5)  
+Action:3  3  
+Next State:(6, 1)  (5, 6)  
+#######################################
+
+Episode 0, step: 524, reward: -30
+State:(6, 1)  (5, 6)  
+Action:2  3  
+Next State:(6, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 525, reward: -30
+State:(6, 0)  (5, 6)  
+Action:2  1  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 526, reward: -30
+State:(6, 0)  (6, 6)  
+Action:1  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 527, reward: -30
+State:(6, 0)  (6, 6)  
+Action:1  1  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 528, reward: -30
+State:(6, 0)  (6, 6)  
+Action:2  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 529, reward: -30
+State:(6, 0)  (6, 6)  
+Action:0  3  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 530, reward: -30
+State:(5, 0)  (6, 6)  
+Action:1  2  
+Next State:(6, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 531, reward: -30
+State:(6, 0)  (6, 5)  
+Action:1  2  
+Next State:(6, 0)  (6, 4)  
+#######################################
+
+Episode 0, step: 532, reward: -30
+State:(6, 0)  (6, 4)  
+Action:1  1  
+Next State:(6, 0)  (6, 4)  
+#######################################
+
+Episode 0, step: 533, reward: -30
+State:(6, 0)  (6, 4)  
+Action:1  3  
+Next State:(6, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 534, reward: -30
+State:(6, 0)  (6, 5)  
+Action:0  3  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 535, reward: -20
+State:(5, 0)  (6, 6)  
+Action:2  2  
+Next State:(5, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 536, reward: -30
+State:(5, 0)  (6, 5)  
+Action:1  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 537, reward: -30
+State:(6, 0)  (6, 6)  
+Action:0  1  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 538, reward: -20
+State:(5, 0)  (6, 6)  
+Action:2  0  
+Next State:(5, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 539, reward: -20
+State:(5, 0)  (5, 6)  
+Action:3  3  
+Next State:(5, 1)  (5, 6)  
+#######################################
+
+Episode 0, step: 540, reward: -20
+State:(5, 1)  (5, 6)  
+Action:2  3  
+Next State:(5, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 541, reward: -30
+State:(5, 0)  (5, 6)  
+Action:1  1  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 542, reward: -30
+State:(6, 0)  (6, 6)  
+Action:2  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 543, reward: -30
+State:(6, 0)  (6, 6)  
+Action:1  0  
+Next State:(6, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 544, reward: -30
+State:(6, 0)  (5, 6)  
+Action:2  0  
+Next State:(6, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 545, reward: -30
+State:(6, 0)  (4, 6)  
+Action:2  0  
+Next State:(6, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 546, reward: -30
+State:(6, 0)  (3, 6)  
+Action:2  2  
+Next State:(6, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 547, reward: -30
+State:(6, 0)  (3, 5)  
+Action:2  3  
+Next State:(6, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 548, reward: -30
+State:(6, 0)  (3, 6)  
+Action:2  2  
+Next State:(6, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 549, reward: -30
+State:(6, 0)  (3, 5)  
+Action:2  3  
+Next State:(6, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 550, reward: -20
+State:(6, 0)  (3, 6)  
+Action:0  1  
+Next State:(5, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 551, reward: -30
+State:(5, 0)  (4, 6)  
+Action:1  0  
+Next State:(6, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 552, reward: -30
+State:(6, 0)  (3, 6)  
+Action:1  0  
+Next State:(6, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 553, reward: -30
+State:(6, 0)  (2, 6)  
+Action:1  1  
+Next State:(6, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 554, reward: -30
+State:(6, 0)  (3, 6)  
+Action:2  1  
+Next State:(6, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 555, reward: -20
+State:(6, 0)  (4, 6)  
+Action:3  2  
+Next State:(6, 1)  (4, 5)  
+#######################################
+
+Episode 0, step: 556, reward: -20
+State:(6, 1)  (4, 5)  
+Action:1  0  
+Next State:(6, 1)  (3, 5)  
+#######################################
+
+Episode 0, step: 557, reward: -10
+State:(6, 1)  (3, 5)  
+Action:0  3  
+Next State:(5, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 558, reward: 0
+State:(5, 1)  (3, 6)  
+Action:0  3  
+Next State:(4, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 559, reward: -10
+State:(4, 1)  (3, 6)  
+Action:2  1  
+Next State:(4, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 560, reward: -10
+State:(4, 0)  (4, 6)  
+Action:2  3  
+Next State:(4, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 561, reward: -20
+State:(4, 0)  (4, 6)  
+Action:1  3  
+Next State:(5, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 562, reward: -10
+State:(5, 0)  (4, 6)  
+Action:0  2  
+Next State:(4, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 563, reward: -10
+State:(4, 0)  (4, 5)  
+Action:2  3  
+Next State:(4, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 564, reward: -10
+State:(4, 0)  (4, 6)  
+Action:2  3  
+Next State:(4, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 565, reward: -10
+State:(4, 0)  (4, 6)  
+Action:0  3  
+Next State:(3, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 566, reward: -10
+State:(3, 0)  (4, 6)  
+Action:1  0  
+Next State:(4, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 567, reward: -10
+State:(4, 0)  (3, 6)  
+Action:2  3  
+Next State:(4, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 568, reward: -10
+State:(4, 0)  (3, 6)  
+Action:0  1  
+Next State:(3, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 569, reward: -20
+State:(3, 0)  (4, 6)  
+Action:1  1  
+Next State:(4, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 570, reward: -20
+State:(4, 0)  (5, 6)  
+Action:2  3  
+Next State:(4, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 571, reward: -20
+State:(4, 0)  (5, 6)  
+Action:1  2  
+Next State:(5, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 572, reward: -20
+State:(5, 0)  (5, 5)  
+Action:2  0  
+Next State:(5, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 573, reward: -10
+State:(5, 0)  (4, 5)  
+Action:3  2  
+Next State:(5, 1)  (4, 4)  
+#######################################
+
+Episode 0, step: 574, reward: 0
+State:(5, 1)  (4, 4)  
+Action:0  3  
+Next State:(4, 1)  (4, 5)  
+#######################################
+
+Episode 0, step: 575, reward: -10
+State:(4, 1)  (4, 5)  
+Action:2  0  
+Next State:(4, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 576, reward: -10
+State:(4, 0)  (3, 5)  
+Action:2  1  
+Next State:(4, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 577, reward: -10
+State:(4, 0)  (4, 5)  
+Action:0  1  
+Next State:(3, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 578, reward: -20
+State:(3, 0)  (5, 5)  
+Action:2  3  
+Next State:(3, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 579, reward: -20
+State:(3, 0)  (5, 6)  
+Action:1  3  
+Next State:(4, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 580, reward: -20
+State:(4, 0)  (5, 6)  
+Action:0  3  
+Next State:(3, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 581, reward: -30
+State:(3, 0)  (5, 6)  
+Action:1  1  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 582, reward: -30
+State:(4, 0)  (6, 6)  
+Action:2  1  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 583, reward: -20
+State:(4, 0)  (6, 6)  
+Action:1  2  
+Next State:(5, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 584, reward: -30
+State:(5, 0)  (6, 5)  
+Action:0  3  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 585, reward: -20
+State:(4, 0)  (6, 6)  
+Action:1  2  
+Next State:(5, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 586, reward: -10
+State:(5, 0)  (6, 5)  
+Action:0  2  
+Next State:(4, 0)  (6, 4)  
+#######################################
+
+Episode 0, step: 587, reward: -20
+State:(4, 0)  (6, 4)  
+Action:1  3  
+Next State:(5, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 588, reward: -30
+State:(5, 0)  (6, 5)  
+Action:0  3  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 589, reward: -20
+State:(4, 0)  (6, 6)  
+Action:0  2  
+Next State:(3, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 590, reward: -30
+State:(3, 0)  (6, 5)  
+Action:1  3  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 591, reward: -30
+State:(4, 0)  (6, 6)  
+Action:1  3  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 592, reward: -30
+State:(5, 0)  (6, 6)  
+Action:0  3  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 593, reward: -30
+State:(4, 0)  (6, 6)  
+Action:1  1  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 594, reward: -30
+State:(5, 0)  (6, 6)  
+Action:2  1  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 595, reward: -30
+State:(5, 0)  (6, 6)  
+Action:2  3  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 596, reward: -20
+State:(5, 0)  (6, 6)  
+Action:2  0  
+Next State:(5, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 597, reward: -30
+State:(5, 0)  (5, 6)  
+Action:2  1  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 598, reward: -20
+State:(5, 0)  (6, 6)  
+Action:0  0  
+Next State:(4, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 599, reward: -30
+State:(4, 0)  (5, 6)  
+Action:2  1  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 600, reward: -20
+State:(4, 0)  (6, 6)  
+Action:2  2  
+Next State:(4, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 601, reward: -30
+State:(4, 0)  (6, 5)  
+Action:0  3  
+Next State:(3, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 602, reward: -30
+State:(3, 0)  (6, 6)  
+Action:1  3  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 603, reward: -30
+State:(4, 0)  (6, 6)  
+Action:1  1  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 604, reward: -20
+State:(5, 0)  (6, 6)  
+Action:2  0  
+Next State:(5, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 605, reward: -30
+State:(5, 0)  (5, 6)  
+Action:3  1  
+Next State:(5, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 606, reward: -30
+State:(5, 1)  (6, 6)  
+Action:2  1  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 607, reward: -30
+State:(5, 0)  (6, 6)  
+Action:1  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 608, reward: -30
+State:(6, 0)  (6, 6)  
+Action:3  3  
+Next State:(6, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 609, reward: -30
+State:(6, 1)  (6, 6)  
+Action:1  3  
+Next State:(6, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 610, reward: -30
+State:(6, 1)  (6, 6)  
+Action:2  3  
+Next State:(6, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 611, reward: -30
+State:(6, 0)  (6, 6)  
+Action:2  2  
+Next State:(6, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 612, reward: -30
+State:(6, 0)  (6, 5)  
+Action:0  3  
+Next State:(5, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 613, reward: -30
+State:(5, 0)  (6, 6)  
+Action:0  3  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 614, reward: -20
+State:(4, 0)  (6, 6)  
+Action:2  2  
+Next State:(4, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 615, reward: -30
+State:(4, 0)  (6, 5)  
+Action:2  3  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 616, reward: -20
+State:(4, 0)  (6, 6)  
+Action:2  2  
+Next State:(4, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 617, reward: -30
+State:(4, 0)  (6, 5)  
+Action:0  3  
+Next State:(3, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 618, reward: -30
+State:(3, 0)  (6, 6)  
+Action:2  3  
+Next State:(3, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 619, reward: -20
+State:(3, 0)  (6, 6)  
+Action:0  0  
+Next State:(2, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 620, reward: -30
+State:(2, 0)  (5, 6)  
+Action:0  1  
+Next State:(1, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 621, reward: -20
+State:(1, 0)  (6, 6)  
+Action:2  0  
+Next State:(1, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 622, reward: -10
+State:(1, 0)  (5, 6)  
+Action:3  0  
+Next State:(1, 1)  (4, 6)  
+#######################################
+
+Episode 0, step: 623, reward: -20
+State:(1, 1)  (4, 6)  
+Action:2  3  
+Next State:(1, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 624, reward: -20
+State:(1, 0)  (4, 6)  
+Action:2  1  
+Next State:(1, 0)  (5, 6)  
+#######################################
+
+Episode 0, step: 625, reward: -10
+State:(1, 0)  (5, 6)  
+Action:1  2  
+Next State:(2, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 626, reward: 0
+State:(2, 0)  (5, 5)  
+Action:1  2  
+Next State:(3, 0)  (5, 4)  
+#######################################
+
+Episode 0, step: 627, reward: 10
+State:(3, 0)  (5, 4)  
+Action:3  2  
+Next State:(3, 1)  (5, 3)  
+#######################################
+
+Episode 0, step: 628, reward: 0
+State:(3, 1)  (5, 3)  
+Action:1  3  
+Next State:(4, 1)  (5, 4)  
+#######################################
+
+Episode 0, step: 629, reward: -10
+State:(4, 1)  (5, 4)  
+Action:2  3  
+Next State:(4, 0)  (5, 5)  
+#######################################
+
+Episode 0, step: 630, reward: 0
+State:(4, 0)  (5, 5)  
+Action:0  0  
+Next State:(3, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 631, reward: -10
+State:(3, 0)  (4, 5)  
+Action:0  2  
+Next State:(2, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 632, reward: 0
+State:(2, 0)  (4, 4)  
+Action:1  0  
+Next State:(3, 0)  (3, 4)  
+#######################################
+
+Episode 0, step: 633, reward: 10
+State:(3, 0)  (3, 4)  
+Action:3  2  
+Next State:(3, 1)  (3, 3)  
+#######################################
+
+Episode 0, step: 634, reward: 0
+State:(3, 1)  (3, 3)  
+Action:0  1  
+Next State:(2, 1)  (4, 3)  
+#######################################
+
+Episode 0, step: 635, reward: -10
+State:(2, 1)  (4, 3)  
+Action:2  3  
+Next State:(2, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 636, reward: -10
+State:(2, 0)  (4, 4)  
+Action:2  2  
+Next State:(2, 0)  (4, 3)  
+#######################################
+
+Episode 0, step: 637, reward: 0
+State:(2, 0)  (4, 3)  
+Action:3  1  
+Next State:(2, 1)  (5, 3)  
+#######################################
+
+Episode 0, step: 638, reward: -10
+State:(2, 1)  (5, 3)  
+Action:2  3  
+Next State:(2, 0)  (5, 4)  
+#######################################
+
+Episode 0, step: 639, reward: 0
+State:(2, 0)  (5, 4)  
+Action:1  2  
+Next State:(3, 0)  (5, 3)  
+#######################################
+
+Episode 0, step: 640, reward: -10
+State:(3, 0)  (5, 3)  
+Action:1  3  
+Next State:(4, 0)  (5, 4)  
+#######################################
+
+Episode 0, step: 641, reward: 0
+State:(4, 0)  (5, 4)  
+Action:3  0  
+Next State:(4, 1)  (4, 4)  
+#######################################
+
+Episode 0, step: 642, reward: -10
+State:(4, 1)  (4, 4)  
+Action:2  1  
+Next State:(4, 0)  (5, 4)  
+#######################################
+
+Episode 0, step: 643, reward: -20
+State:(4, 0)  (5, 4)  
+Action:1  0  
+Next State:(5, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 644, reward: -10
+State:(5, 0)  (4, 4)  
+Action:0  3  
+Next State:(4, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 645, reward: -10
+State:(4, 0)  (4, 5)  
+Action:2  0  
+Next State:(4, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 646, reward: -10
+State:(4, 0)  (3, 5)  
+Action:2  0  
+Next State:(4, 0)  (2, 5)  
+#######################################
+
+Episode 0, step: 647, reward: -10
+State:(4, 0)  (2, 5)  
+Action:2  3  
+Next State:(4, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 648, reward: -10
+State:(4, 0)  (2, 6)  
+Action:2  3  
+Next State:(4, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 649, reward: -20
+State:(4, 0)  (2, 6)  
+Action:1  3  
+Next State:(5, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 650, reward: -10
+State:(5, 0)  (2, 6)  
+Action:0  1  
+Next State:(4, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 651, reward: 0
+State:(4, 0)  (3, 6)  
+Action:0  2  
+Next State:(3, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 652, reward: 0
+State:(3, 0)  (3, 5)  
+Action:2  0  
+Next State:(3, 0)  (2, 5)  
+#######################################
+
+Episode 0, step: 653, reward: -10
+State:(3, 0)  (2, 5)  
+Action:0  0  
+Next State:(2, 0)  (1, 5)  
+#######################################
+
+Episode 0, step: 654, reward: -20
+State:(2, 0)  (1, 5)  
+Action:1  3  
+Next State:(3, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 655, reward: -30
+State:(3, 0)  (1, 6)  
+Action:0  0  
+Next State:(2, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 656, reward: -30
+State:(2, 0)  (0, 6)  
+Action:1  0  
+Next State:(3, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 657, reward: -30
+State:(3, 0)  (0, 6)  
+Action:3  3  
+Next State:(3, 1)  (0, 6)  
+#######################################
+
+Episode 0, step: 658, reward: -30
+State:(3, 1)  (0, 6)  
+Action:0  3  
+Next State:(2, 1)  (0, 6)  
+#######################################
+
+Episode 0, step: 659, reward: -20
+State:(2, 1)  (0, 6)  
+Action:2  1  
+Next State:(2, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 660, reward: -10
+State:(2, 0)  (1, 6)  
+Action:1  1  
+Next State:(3, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 661, reward: -10
+State:(3, 0)  (2, 6)  
+Action:1  3  
+Next State:(4, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 662, reward: -20
+State:(4, 0)  (2, 6)  
+Action:1  3  
+Next State:(5, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 663, reward: -30
+State:(5, 0)  (2, 6)  
+Action:1  3  
+Next State:(6, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 664, reward: -20
+State:(6, 0)  (2, 6)  
+Action:0  3  
+Next State:(5, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 665, reward: -20
+State:(5, 0)  (2, 6)  
+Action:2  0  
+Next State:(5, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 666, reward: -30
+State:(5, 0)  (1, 6)  
+Action:1  0  
+Next State:(6, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 667, reward: -30
+State:(6, 0)  (0, 6)  
+Action:0  3  
+Next State:(5, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 668, reward: -30
+State:(5, 0)  (0, 6)  
+Action:1  0  
+Next State:(6, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 669, reward: -30
+State:(6, 0)  (0, 6)  
+Action:1  3  
+Next State:(6, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 670, reward: -30
+State:(6, 0)  (0, 6)  
+Action:0  3  
+Next State:(5, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 671, reward: -30
+State:(5, 0)  (0, 6)  
+Action:0  0  
+Next State:(4, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 672, reward: -20
+State:(4, 0)  (0, 6)  
+Action:2  2  
+Next State:(4, 0)  (0, 5)  
+#######################################
+
+Episode 0, step: 673, reward: -10
+State:(4, 0)  (0, 5)  
+Action:0  2  
+Next State:(3, 0)  (0, 4)  
+#######################################
+
+Episode 0, step: 674, reward: 0
+State:(3, 0)  (0, 4)  
+Action:2  2  
+Next State:(3, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 675, reward: -10
+State:(3, 0)  (0, 3)  
+Action:0  2  
+Next State:(2, 0)  (0, 2)  
+#######################################
+
+Episode 0, step: 676, reward: -10
+State:(2, 0)  (0, 2)  
+Action:3  0  
+Next State:(2, 1)  (0, 2)  
+#######################################
+
+Episode 0, step: 677, reward: 0
+State:(2, 1)  (0, 2)  
+Action:1  1  
+Next State:(3, 1)  (1, 2)  
+#######################################
+
+Episode 0, step: 678, reward: -10
+State:(3, 1)  (1, 2)  
+Action:0  0  
+Next State:(2, 1)  (0, 2)  
+#######################################
+
+Episode 0, step: 679, reward: 0
+State:(2, 1)  (0, 2)  
+Action:1  3  
+Next State:(3, 1)  (0, 3)  
+#######################################
+
+Episode 0, step: 680, reward: -10
+State:(3, 1)  (0, 3)  
+Action:1  3  
+Next State:(4, 1)  (0, 4)  
+#######################################
+
+Episode 0, step: 681, reward: -10
+State:(4, 1)  (0, 4)  
+Action:2  2  
+Next State:(4, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 682, reward: -20
+State:(4, 0)  (0, 3)  
+Action:1  0  
+Next State:(5, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 683, reward: -20
+State:(5, 0)  (0, 3)  
+Action:2  2  
+Next State:(5, 0)  (0, 2)  
+#######################################
+
+Episode 0, step: 684, reward: -30
+State:(5, 0)  (0, 2)  
+Action:1  1  
+Next State:(6, 0)  (1, 2)  
+#######################################
+
+Episode 0, step: 685, reward: -30
+State:(6, 0)  (1, 2)  
+Action:2  1  
+Next State:(6, 0)  (2, 2)  
+#######################################
+
+Episode 0, step: 686, reward: -20
+State:(6, 0)  (2, 2)  
+Action:0  3  
+Next State:(5, 0)  (2, 3)  
+#######################################
+
+Episode 0, step: 687, reward: -10
+State:(5, 0)  (2, 3)  
+Action:3  0  
+Next State:(5, 1)  (1, 3)  
+#######################################
+
+Episode 0, step: 688, reward: -20
+State:(5, 1)  (1, 3)  
+Action:1  0  
+Next State:(6, 1)  (0, 3)  
+#######################################
+
+Episode 0, step: 689, reward: -30
+State:(6, 1)  (0, 3)  
+Action:2  1  
+Next State:(6, 0)  (1, 3)  
+#######################################
+
+Episode 0, step: 690, reward: -30
+State:(6, 0)  (1, 3)  
+Action:1  3  
+Next State:(6, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 691, reward: -30
+State:(6, 0)  (1, 4)  
+Action:1  1  
+Next State:(6, 0)  (2, 4)  
+#######################################
+
+Episode 0, step: 692, reward: -20
+State:(6, 0)  (2, 4)  
+Action:3  2  
+Next State:(6, 1)  (2, 3)  
+#######################################
+
+Episode 0, step: 693, reward: -10
+State:(6, 1)  (2, 3)  
+Action:0  2  
+Next State:(5, 1)  (2, 2)  
+#######################################
+
+Episode 0, step: 694, reward: -20
+State:(5, 1)  (2, 2)  
+Action:2  3  
+Next State:(5, 0)  (2, 3)  
+#######################################
+
+Episode 0, step: 695, reward: -30
+State:(5, 0)  (2, 3)  
+Action:1  3  
+Next State:(6, 0)  (2, 4)  
+#######################################
+
+Episode 0, step: 696, reward: -30
+State:(6, 0)  (2, 4)  
+Action:2  0  
+Next State:(6, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 697, reward: -20
+State:(6, 0)  (1, 4)  
+Action:0  3  
+Next State:(5, 0)  (1, 5)  
+#######################################
+
+Episode 0, step: 698, reward: -10
+State:(5, 0)  (1, 5)  
+Action:0  2  
+Next State:(4, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 699, reward: -10
+State:(4, 0)  (1, 4)  
+Action:2  3  
+Next State:(4, 0)  (1, 5)  
+#######################################
+
+Episode 0, step: 700, reward: -20
+State:(4, 0)  (1, 5)  
+Action:0  0  
+Next State:(3, 0)  (0, 5)  
+#######################################
+
+Episode 0, step: 701, reward: -20
+State:(3, 0)  (0, 5)  
+Action:2  0  
+Next State:(3, 0)  (0, 5)  
+#######################################
+
+Episode 0, step: 702, reward: -30
+State:(3, 0)  (0, 5)  
+Action:2  3  
+Next State:(3, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 703, reward: -20
+State:(3, 0)  (0, 6)  
+Action:1  1  
+Next State:(4, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 704, reward: -10
+State:(4, 0)  (1, 6)  
+Action:2  2  
+Next State:(4, 0)  (1, 5)  
+#######################################
+
+Episode 0, step: 705, reward: -20
+State:(4, 0)  (1, 5)  
+Action:2  3  
+Next State:(4, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 706, reward: -20
+State:(4, 0)  (1, 6)  
+Action:0  3  
+Next State:(3, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 707, reward: -10
+State:(3, 0)  (1, 6)  
+Action:0  1  
+Next State:(2, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 708, reward: -20
+State:(2, 0)  (2, 6)  
+Action:2  0  
+Next State:(2, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 709, reward: -10
+State:(2, 0)  (1, 6)  
+Action:1  1  
+Next State:(3, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 710, reward: -20
+State:(3, 0)  (2, 6)  
+Action:1  0  
+Next State:(4, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 711, reward: -20
+State:(4, 0)  (1, 6)  
+Action:2  3  
+Next State:(4, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 712, reward: -20
+State:(4, 0)  (1, 6)  
+Action:2  3  
+Next State:(4, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 713, reward: -20
+State:(4, 0)  (1, 6)  
+Action:1  3  
+Next State:(5, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 714, reward: -30
+State:(5, 0)  (1, 6)  
+Action:2  0  
+Next State:(5, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 715, reward: -30
+State:(5, 0)  (0, 6)  
+Action:1  3  
+Next State:(6, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 716, reward: -30
+State:(6, 0)  (0, 6)  
+Action:0  3  
+Next State:(5, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 717, reward: -30
+State:(5, 0)  (0, 6)  
+Action:3  0  
+Next State:(5, 1)  (0, 6)  
+#######################################
+
+Episode 0, step: 718, reward: -20
+State:(5, 1)  (0, 6)  
+Action:0  2  
+Next State:(4, 1)  (0, 5)  
+#######################################
+
+Episode 0, step: 719, reward: -10
+State:(4, 1)  (0, 5)  
+Action:1  2  
+Next State:(5, 1)  (0, 4)  
+#######################################
+
+Episode 0, step: 720, reward: -20
+State:(5, 1)  (0, 4)  
+Action:1  2  
+Next State:(6, 1)  (0, 3)  
+#######################################
+
+Episode 0, step: 721, reward: -10
+State:(6, 1)  (0, 3)  
+Action:3  1  
+Next State:(6, 2)  (1, 3)  
+#######################################
+
+Episode 0, step: 722, reward: 0
+State:(6, 2)  (1, 3)  
+Action:3  0  
+Next State:(6, 3)  (0, 3)  
+#######################################
+
+Episode 0, step: 723, reward: -10
+State:(6, 3)  (0, 3)  
+Action:3  2  
+Next State:(6, 4)  (0, 2)  
+#######################################
+
+Episode 0, step: 724, reward: 0
+State:(6, 4)  (0, 2)  
+Action:0  3  
+Next State:(5, 4)  (0, 3)  
+#######################################
+
+Episode 0, step: 725, reward: -10
+State:(5, 4)  (0, 3)  
+Action:3  3  
+Next State:(5, 5)  (0, 4)  
+#######################################
+
+Episode 0, step: 726, reward: -20
+State:(5, 5)  (0, 4)  
+Action:0  3  
+Next State:(4, 5)  (0, 5)  
+#######################################
+
+Episode 0, step: 727, reward: -10
+State:(4, 5)  (0, 5)  
+Action:2  2  
+Next State:(4, 4)  (0, 4)  
+#######################################
+
+Episode 0, step: 728, reward: -10
+State:(4, 4)  (0, 4)  
+Action:2  0  
+Next State:(4, 3)  (0, 4)  
+#######################################
+
+Episode 0, step: 729, reward: 0
+State:(4, 3)  (0, 4)  
+Action:1  2  
+Next State:(5, 3)  (0, 3)  
+#######################################
+
+Episode 0, step: 730, reward: 0
+State:(5, 3)  (0, 3)  
+Action:1  0  
+Next State:(6, 3)  (0, 3)  
+#######################################
+
+Episode 0, step: 731, reward: -10
+State:(6, 3)  (0, 3)  
+Action:1  3  
+Next State:(6, 3)  (0, 4)  
+#######################################
+
+Episode 0, step: 732, reward: -20
+State:(6, 3)  (0, 4)  
+Action:3  3  
+Next State:(6, 4)  (0, 5)  
+#######################################
+
+Episode 0, step: 733, reward: -20
+State:(6, 4)  (0, 5)  
+Action:3  1  
+Next State:(6, 5)  (1, 5)  
+#######################################
+
+Episode 0, step: 734, reward: -20
+State:(6, 5)  (1, 5)  
+Action:1  0  
+Next State:(6, 5)  (0, 5)  
+#######################################
+
+Episode 0, step: 735, reward: -30
+State:(6, 5)  (0, 5)  
+Action:0  3  
+Next State:(5, 5)  (0, 6)  
+#######################################
+
+Episode 0, step: 736, reward: -30
+State:(5, 5)  (0, 6)  
+Action:3  0  
+Next State:(5, 6)  (0, 6)  
+#######################################
+
+Episode 0, step: 737, reward: -20
+State:(5, 6)  (0, 6)  
+Action:2  1  
+Next State:(5, 5)  (1, 6)  
+#######################################
+
+Episode 0, step: 738, reward: -30
+State:(5, 5)  (1, 6)  
+Action:1  0  
+Next State:(6, 5)  (0, 6)  
+#######################################
+
+Episode 0, step: 739, reward: -30
+State:(6, 5)  (0, 6)  
+Action:1  3  
+Next State:(6, 5)  (0, 6)  
+#######################################
+
+Episode 0, step: 740, reward: -30
+State:(6, 5)  (0, 6)  
+Action:1  3  
+Next State:(6, 5)  (0, 6)  
+#######################################
+
+Episode 0, step: 741, reward: -30
+State:(6, 5)  (0, 6)  
+Action:0  0  
+Next State:(5, 5)  (0, 6)  
+#######################################
+
+Episode 0, step: 742, reward: -20
+State:(5, 5)  (0, 6)  
+Action:1  1  
+Next State:(6, 5)  (1, 6)  
+#######################################
+
+Episode 0, step: 743, reward: -20
+State:(6, 5)  (1, 6)  
+Action:1  1  
+Next State:(6, 5)  (2, 6)  
+#######################################
+
+Episode 0, step: 744, reward: -10
+State:(6, 5)  (2, 6)  
+Action:2  3  
+Next State:(6, 4)  (2, 6)  
+#######################################
+
+Episode 0, step: 745, reward: -10
+State:(6, 4)  (2, 6)  
+Action:1  1  
+Next State:(6, 4)  (3, 6)  
+#######################################
+
+Episode 0, step: 746, reward: -10
+State:(6, 4)  (3, 6)  
+Action:1  2  
+Next State:(6, 4)  (3, 5)  
+#######################################
+
+Episode 0, step: 747, reward: -20
+State:(6, 4)  (3, 5)  
+Action:3  1  
+Next State:(6, 5)  (4, 5)  
+#######################################
+
+Episode 0, step: 748, reward: -10
+State:(6, 5)  (4, 5)  
+Action:0  1  
+Next State:(5, 5)  (4, 5)  
+#######################################
+
+Episode 0, step: 749, reward: -10
+State:(5, 5)  (4, 5)  
+Action:2  1  
+Next State:(5, 4)  (5, 5)  
+#######################################
+
+Episode 0, step: 750, reward: -20
+State:(5, 4)  (5, 5)  
+Action:2  3  
+Next State:(5, 3)  (5, 6)  
+#######################################
+
+Episode 0, step: 751, reward: -10
+State:(5, 3)  (5, 6)  
+Action:1  2  
+Next State:(6, 3)  (5, 5)  
+#######################################
+
+Episode 0, step: 752, reward: -10
+State:(6, 3)  (5, 5)  
+Action:2  2  
+Next State:(6, 2)  (5, 4)  
+#######################################
+
+Episode 0, step: 753, reward: -10
+State:(6, 2)  (5, 4)  
+Action:1  0  
+Next State:(6, 2)  (4, 4)  
+#######################################
+
+Episode 0, step: 754, reward: -20
+State:(6, 2)  (4, 4)  
+Action:2  0  
+Next State:(6, 1)  (3, 4)  
+#######################################
+
+Episode 0, step: 755, reward: -30
+State:(6, 1)  (3, 4)  
+Action:2  1  
+Next State:(6, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 756, reward: -30
+State:(6, 0)  (4, 4)  
+Action:1  2  
+Next State:(6, 0)  (4, 3)  
+#######################################
+
+Episode 0, step: 757, reward: -30
+State:(6, 0)  (4, 3)  
+Action:1  3  
+Next State:(6, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 758, reward: -30
+State:(6, 0)  (4, 4)  
+Action:1  3  
+Next State:(6, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 759, reward: -30
+State:(6, 0)  (4, 5)  
+Action:2  2  
+Next State:(6, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 760, reward: -30
+State:(6, 0)  (4, 4)  
+Action:1  2  
+Next State:(6, 0)  (4, 3)  
+#######################################
+
+Episode 0, step: 761, reward: -20
+State:(6, 0)  (4, 3)  
+Action:0  3  
+Next State:(5, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 762, reward: -10
+State:(5, 0)  (4, 4)  
+Action:3  0  
+Next State:(5, 1)  (3, 4)  
+#######################################
+
+Episode 0, step: 763, reward: -20
+State:(5, 1)  (3, 4)  
+Action:1  3  
+Next State:(6, 1)  (3, 5)  
+#######################################
+
+Episode 0, step: 764, reward: -10
+State:(6, 1)  (3, 5)  
+Action:0  2  
+Next State:(5, 1)  (3, 4)  
+#######################################
+
+Episode 0, step: 765, reward: -20
+State:(5, 1)  (3, 4)  
+Action:2  3  
+Next State:(5, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 766, reward: -30
+State:(5, 0)  (3, 5)  
+Action:1  0  
+Next State:(6, 0)  (2, 5)  
+#######################################
+
+Episode 0, step: 767, reward: -30
+State:(6, 0)  (2, 5)  
+Action:1  2  
+Next State:(6, 0)  (2, 4)  
+#######################################
+
+Episode 0, step: 768, reward: -30
+State:(6, 0)  (2, 4)  
+Action:2  0  
+Next State:(6, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 769, reward: -30
+State:(6, 0)  (1, 4)  
+Action:2  2  
+Next State:(6, 0)  (1, 3)  
+#######################################
+
+Episode 0, step: 770, reward: -30
+State:(6, 0)  (1, 3)  
+Action:2  0  
+Next State:(6, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 771, reward: -30
+State:(6, 0)  (0, 3)  
+Action:2  1  
+Next State:(6, 0)  (1, 3)  
+#######################################
+
+Episode 0, step: 772, reward: -30
+State:(6, 0)  (1, 3)  
+Action:2  3  
+Next State:(6, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 773, reward: -30
+State:(6, 0)  (1, 4)  
+Action:1  2  
+Next State:(6, 0)  (1, 3)  
+#######################################
+
+Episode 0, step: 774, reward: -30
+State:(6, 0)  (1, 3)  
+Action:2  3  
+Next State:(6, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 775, reward: -30
+State:(6, 0)  (1, 4)  
+Action:2  0  
+Next State:(6, 0)  (0, 4)  
+#######################################
+
+Episode 0, step: 776, reward: -30
+State:(6, 0)  (0, 4)  
+Action:1  2  
+Next State:(6, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 777, reward: -30
+State:(6, 0)  (0, 3)  
+Action:2  3  
+Next State:(6, 0)  (0, 4)  
+#######################################
+
+Episode 0, step: 778, reward: -30
+State:(6, 0)  (0, 4)  
+Action:2  2  
+Next State:(6, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 779, reward: -30
+State:(6, 0)  (0, 3)  
+Action:2  0  
+Next State:(6, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 780, reward: -20
+State:(6, 0)  (0, 3)  
+Action:0  3  
+Next State:(5, 0)  (0, 4)  
+#######################################
+
+Episode 0, step: 781, reward: -20
+State:(5, 0)  (0, 4)  
+Action:2  2  
+Next State:(5, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 782, reward: -10
+State:(5, 0)  (0, 3)  
+Action:0  3  
+Next State:(4, 0)  (0, 4)  
+#######################################
+
+Episode 0, step: 783, reward: -20
+State:(4, 0)  (0, 4)  
+Action:2  3  
+Next State:(4, 0)  (0, 5)  
+#######################################
+
+Episode 0, step: 784, reward: -10
+State:(4, 0)  (0, 5)  
+Action:3  2  
+Next State:(4, 1)  (0, 4)  
+#######################################
+
+Episode 0, step: 785, reward: 0
+State:(4, 1)  (0, 4)  
+Action:0  1  
+Next State:(3, 1)  (1, 4)  
+#######################################
+
+Episode 0, step: 786, reward: -10
+State:(3, 1)  (1, 4)  
+Action:0  3  
+Next State:(2, 1)  (1, 5)  
+#######################################
+
+Episode 0, step: 787, reward: -10
+State:(2, 1)  (1, 5)  
+Action:2  2  
+Next State:(2, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 788, reward: -10
+State:(2, 0)  (1, 4)  
+Action:3  0  
+Next State:(2, 1)  (0, 4)  
+#######################################
+
+Episode 0, step: 789, reward: -10
+State:(2, 1)  (0, 4)  
+Action:0  2  
+Next State:(1, 1)  (0, 3)  
+#######################################
+
+Episode 0, step: 790, reward: -20
+State:(1, 1)  (0, 3)  
+Action:2  2  
+Next State:(1, 0)  (0, 2)  
+#######################################
+
+Episode 0, step: 791, reward: -20
+State:(1, 0)  (0, 2)  
+Action:3  2  
+Next State:(1, 1)  (0, 1)  
+#######################################
+
+Episode 0, step: 792, reward: -10
+State:(1, 1)  (0, 1)  
+Action:1  1  
+Next State:(2, 1)  (1, 1)  
+#######################################
+
+Episode 0, step: 793, reward: -20
+State:(2, 1)  (1, 1)  
+Action:1  0  
+Next State:(3, 1)  (0, 1)  
+#######################################
+
+Episode 0, step: 794, reward: -20
+State:(3, 1)  (0, 1)  
+Action:1  0  
+Next State:(4, 1)  (0, 1)  
+#######################################
+
+Episode 0, step: 795, reward: -20
+State:(4, 1)  (0, 1)  
+Action:2  0  
+Next State:(4, 0)  (0, 1)  
+#######################################
+
+Episode 0, step: 796, reward: -30
+State:(4, 0)  (0, 1)  
+Action:1  2  
+Next State:(5, 0)  (0, 0)  
+#######################################
+
+Episode 0, step: 797, reward: -30
+State:(5, 0)  (0, 0)  
+Action:1  2  
+Next State:(6, 0)  (0, 0)  
+#######################################
+
+Episode 0, step: 798, reward: -30
+State:(6, 0)  (0, 0)  
+Action:1  2  
+Next State:(6, 0)  (0, 0)  
+#######################################
+
+Episode 0, step: 799, reward: -30
+State:(6, 0)  (0, 0)  
+Action:0  0  
+Next State:(5, 0)  (0, 0)  
+#######################################
+
+Episode 0, step: 800, reward: -20
+State:(5, 0)  (0, 0)  
+Action:2  1  
+Next State:(5, 0)  (1, 0)  
+#######################################
+
+Episode 0, step: 801, reward: -20
+State:(5, 0)  (1, 0)  
+Action:2  3  
+Next State:(5, 0)  (1, 1)  
+#######################################
+
+Episode 0, step: 802, reward: -10
+State:(5, 0)  (1, 1)  
+Action:3  3  
+Next State:(5, 1)  (1, 2)  
+#######################################
+
+Episode 0, step: 803, reward: -20
+State:(5, 1)  (1, 2)  
+Action:1  2  
+Next State:(6, 1)  (1, 1)  
+#######################################
+
+Episode 0, step: 804, reward: -30
+State:(6, 1)  (1, 1)  
+Action:2  3  
+Next State:(6, 0)  (1, 2)  
+#######################################
+
+Episode 0, step: 805, reward: -30
+State:(6, 0)  (1, 2)  
+Action:1  3  
+Next State:(6, 0)  (1, 3)  
+#######################################
+
+Episode 0, step: 806, reward: -30
+State:(6, 0)  (1, 3)  
+Action:1  0  
+Next State:(6, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 807, reward: -20
+State:(6, 0)  (0, 3)  
+Action:0  0  
+Next State:(5, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 808, reward: -20
+State:(5, 0)  (0, 3)  
+Action:2  0  
+Next State:(5, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 809, reward: -20
+State:(5, 0)  (0, 3)  
+Action:2  3  
+Next State:(5, 0)  (0, 4)  
+#######################################
+
+Episode 0, step: 810, reward: -30
+State:(5, 0)  (0, 4)  
+Action:1  3  
+Next State:(6, 0)  (0, 5)  
+#######################################
+
+Episode 0, step: 811, reward: -30
+State:(6, 0)  (0, 5)  
+Action:1  2  
+Next State:(6, 0)  (0, 4)  
+#######################################
+
+Episode 0, step: 812, reward: -20
+State:(6, 0)  (0, 4)  
+Action:0  1  
+Next State:(5, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 813, reward: -20
+State:(5, 0)  (1, 4)  
+Action:2  2  
+Next State:(5, 0)  (1, 3)  
+#######################################
+
+Episode 0, step: 814, reward: -20
+State:(5, 0)  (1, 3)  
+Action:2  1  
+Next State:(5, 0)  (2, 3)  
+#######################################
+
+Episode 0, step: 815, reward: -10
+State:(5, 0)  (2, 3)  
+Action:0  3  
+Next State:(4, 0)  (2, 4)  
+#######################################
+
+Episode 0, step: 816, reward: 0
+State:(4, 0)  (2, 4)  
+Action:0  3  
+Next State:(3, 0)  (2, 5)  
+#######################################
+
+Episode 0, step: 817, reward: -10
+State:(3, 0)  (2, 5)  
+Action:2  0  
+Next State:(3, 0)  (1, 5)  
+#######################################
+
+Episode 0, step: 818, reward: -10
+State:(3, 0)  (1, 5)  
+Action:1  1  
+Next State:(4, 0)  (2, 5)  
+#######################################
+
+Episode 0, step: 819, reward: -20
+State:(4, 0)  (2, 5)  
+Action:1  1  
+Next State:(5, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 820, reward: -20
+State:(5, 0)  (3, 5)  
+Action:2  0  
+Next State:(5, 0)  (2, 5)  
+#######################################
+
+Episode 0, step: 821, reward: -30
+State:(5, 0)  (2, 5)  
+Action:1  3  
+Next State:(6, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 822, reward: -30
+State:(6, 0)  (2, 6)  
+Action:2  3  
+Next State:(6, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 823, reward: -20
+State:(6, 0)  (2, 6)  
+Action:0  3  
+Next State:(5, 0)  (2, 6)  
+#######################################
+
+Episode 0, step: 824, reward: -30
+State:(5, 0)  (2, 6)  
+Action:1  1  
+Next State:(6, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 825, reward: -20
+State:(6, 0)  (3, 6)  
+Action:0  3  
+Next State:(5, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 826, reward: -20
+State:(5, 0)  (3, 6)  
+Action:2  3  
+Next State:(5, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 827, reward: -30
+State:(5, 0)  (3, 6)  
+Action:1  3  
+Next State:(6, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 828, reward: -20
+State:(6, 0)  (3, 6)  
+Action:0  3  
+Next State:(5, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 829, reward: -10
+State:(5, 0)  (3, 6)  
+Action:3  3  
+Next State:(5, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 830, reward: -20
+State:(5, 1)  (3, 6)  
+Action:1  3  
+Next State:(6, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 831, reward: -30
+State:(6, 1)  (3, 6)  
+Action:2  3  
+Next State:(6, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 832, reward: -20
+State:(6, 0)  (3, 6)  
+Action:0  3  
+Next State:(5, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 833, reward: -30
+State:(5, 0)  (3, 6)  
+Action:1  1  
+Next State:(6, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 834, reward: -30
+State:(6, 0)  (4, 6)  
+Action:2  3  
+Next State:(6, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 835, reward: -20
+State:(6, 0)  (4, 6)  
+Action:3  2  
+Next State:(6, 1)  (4, 5)  
+#######################################
+
+Episode 0, step: 836, reward: -30
+State:(6, 1)  (4, 5)  
+Action:2  3  
+Next State:(6, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 837, reward: -30
+State:(6, 0)  (4, 6)  
+Action:1  3  
+Next State:(6, 0)  (4, 6)  
+#######################################
+
+Episode 0, step: 838, reward: -30
+State:(6, 0)  (4, 6)  
+Action:2  2  
+Next State:(6, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 839, reward: -20
+State:(6, 0)  (4, 5)  
+Action:3  3  
+Next State:(6, 1)  (4, 6)  
+#######################################
+
+Episode 0, step: 840, reward: -10
+State:(6, 1)  (4, 6)  
+Action:0  0  
+Next State:(5, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 841, reward: 0
+State:(5, 1)  (3, 6)  
+Action:0  3  
+Next State:(4, 1)  (3, 6)  
+#######################################
+
+Episode 0, step: 842, reward: -10
+State:(4, 1)  (3, 6)  
+Action:2  2  
+Next State:(4, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 843, reward: 0
+State:(4, 0)  (3, 5)  
+Action:0  3  
+Next State:(3, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 844, reward: -10
+State:(3, 0)  (3, 6)  
+Action:0  2  
+Next State:(2, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 845, reward: -10
+State:(2, 0)  (3, 5)  
+Action:2  0  
+Next State:(2, 0)  (2, 5)  
+#######################################
+
+Episode 0, step: 846, reward: -10
+State:(2, 0)  (2, 5)  
+Action:2  1  
+Next State:(2, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 847, reward: -20
+State:(2, 0)  (3, 5)  
+Action:0  3  
+Next State:(1, 0)  (3, 6)  
+#######################################
+
+Episode 0, step: 848, reward: -10
+State:(1, 0)  (3, 6)  
+Action:3  2  
+Next State:(1, 1)  (3, 5)  
+#######################################
+
+Episode 0, step: 849, reward: -20
+State:(1, 1)  (3, 5)  
+Action:2  2  
+Next State:(1, 0)  (3, 4)  
+#######################################
+
+Episode 0, step: 850, reward: -10
+State:(1, 0)  (3, 4)  
+Action:1  2  
+Next State:(2, 0)  (3, 3)  
+#######################################
+
+Episode 0, step: 851, reward: -10
+State:(2, 0)  (3, 3)  
+Action:2  1  
+Next State:(2, 0)  (4, 3)  
+#######################################
+
+Episode 0, step: 852, reward: -20
+State:(2, 0)  (4, 3)  
+Action:0  2  
+Next State:(1, 0)  (4, 2)  
+#######################################
+
+Episode 0, step: 853, reward: -30
+State:(1, 0)  (4, 2)  
+Action:0  2  
+Next State:(0, 0)  (4, 1)  
+#######################################
+
+Episode 0, step: 854, reward: -20
+State:(0, 0)  (4, 1)  
+Action:1  3  
+Next State:(1, 0)  (4, 2)  
+#######################################
+
+Episode 0, step: 855, reward: -10
+State:(1, 0)  (4, 2)  
+Action:1  2  
+Next State:(2, 0)  (4, 1)  
+#######################################
+
+Episode 0, step: 856, reward: -20
+State:(2, 0)  (4, 1)  
+Action:0  3  
+Next State:(1, 0)  (4, 2)  
+#######################################
+
+Episode 0, step: 857, reward: -30
+State:(1, 0)  (4, 2)  
+Action:0  2  
+Next State:(0, 0)  (4, 1)  
+#######################################
+
+Episode 0, step: 858, reward: -20
+State:(0, 0)  (4, 1)  
+Action:1  2  
+Next State:(1, 0)  (4, 0)  
+#######################################
+
+Episode 0, step: 859, reward: -10
+State:(1, 0)  (4, 0)  
+Action:1  2  
+Next State:(2, 0)  (4, 0)  
+#######################################
+
+Episode 0, step: 860, reward: -20
+State:(2, 0)  (4, 0)  
+Action:3  1  
+Next State:(2, 1)  (5, 0)  
+#######################################
+
+Episode 0, step: 861, reward: -20
+State:(2, 1)  (5, 0)  
+Action:1  2  
+Next State:(3, 1)  (5, 0)  
+#######################################
+
+Episode 0, step: 862, reward: -10
+State:(3, 1)  (5, 0)  
+Action:3  0  
+Next State:(3, 2)  (4, 0)  
+#######################################
+
+Episode 0, step: 863, reward: -20
+State:(3, 2)  (4, 0)  
+Action:3  1  
+Next State:(3, 3)  (5, 0)  
+#######################################
+
+Episode 0, step: 864, reward: -30
+State:(3, 3)  (5, 0)  
+Action:0  1  
+Next State:(2, 3)  (6, 0)  
+#######################################
+
+Episode 0, step: 865, reward: -20
+State:(2, 3)  (6, 0)  
+Action:2  0  
+Next State:(2, 2)  (5, 0)  
+#######################################
+
+Episode 0, step: 866, reward: -10
+State:(2, 2)  (5, 0)  
+Action:2  3  
+Next State:(2, 1)  (5, 1)  
+#######################################
+
+Episode 0, step: 867, reward: -10
+State:(2, 1)  (5, 1)  
+Action:0  3  
+Next State:(1, 1)  (5, 2)  
+#######################################
+
+Episode 0, step: 868, reward: 0
+State:(1, 1)  (5, 2)  
+Action:1  0  
+Next State:(2, 1)  (4, 2)  
+#######################################
+
+Episode 0, step: 869, reward: -10
+State:(2, 1)  (4, 2)  
+Action:2  3  
+Next State:(2, 0)  (4, 3)  
+#######################################
+
+Episode 0, step: 870, reward: 0
+State:(2, 0)  (4, 3)  
+Action:1  3  
+Next State:(3, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 871, reward: -10
+State:(3, 0)  (4, 4)  
+Action:1  1  
+Next State:(4, 0)  (5, 4)  
+#######################################
+
+Episode 0, step: 872, reward: -20
+State:(4, 0)  (5, 4)  
+Action:1  0  
+Next State:(5, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 873, reward: -10
+State:(5, 0)  (4, 4)  
+Action:3  1  
+Next State:(5, 1)  (5, 4)  
+#######################################
+
+Episode 0, step: 874, reward: -20
+State:(5, 1)  (5, 4)  
+Action:1  1  
+Next State:(6, 1)  (6, 4)  
+#######################################
+
+Episode 0, step: 875, reward: -10
+State:(6, 1)  (6, 4)  
+Action:0  1  
+Next State:(5, 1)  (6, 4)  
+#######################################
+
+Episode 0, step: 876, reward: -20
+State:(5, 1)  (6, 4)  
+Action:2  3  
+Next State:(5, 0)  (6, 5)  
+#######################################
+
+Episode 0, step: 877, reward: -30
+State:(5, 0)  (6, 5)  
+Action:0  3  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 878, reward: -30
+State:(4, 0)  (6, 6)  
+Action:2  3  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 879, reward: -30
+State:(4, 0)  (6, 6)  
+Action:2  3  
+Next State:(4, 0)  (6, 6)  
+#######################################
+
+Episode 0, step: 880, reward: -30
+State:(4, 0)  (6, 6)  
+Action:3  3  
+Next State:(4, 1)  (6, 6)  
+#######################################
+
+Episode 0, step: 881, reward: -20
+State:(4, 1)  (6, 6)  
+Action:0  0  
+Next State:(3, 1)  (5, 6)  
+#######################################
+
+Episode 0, step: 882, reward: -20
+State:(3, 1)  (5, 6)  
+Action:1  3  
+Next State:(4, 1)  (5, 6)  
+#######################################
+
+Episode 0, step: 883, reward: -10
+State:(4, 1)  (5, 6)  
+Action:1  2  
+Next State:(5, 1)  (5, 5)  
+#######################################
+
+Episode 0, step: 884, reward: -20
+State:(5, 1)  (5, 5)  
+Action:2  0  
+Next State:(5, 0)  (4, 5)  
+#######################################
+
+Episode 0, step: 885, reward: -20
+State:(5, 0)  (4, 5)  
+Action:2  2  
+Next State:(5, 0)  (4, 4)  
+#######################################
+
+Episode 0, step: 886, reward: -30
+State:(5, 0)  (4, 4)  
+Action:1  0  
+Next State:(6, 0)  (3, 4)  
+#######################################
+
+Episode 0, step: 887, reward: -20
+State:(6, 0)  (3, 4)  
+Action:0  0  
+Next State:(5, 0)  (2, 4)  
+#######################################
+
+Episode 0, step: 888, reward: -20
+State:(5, 0)  (2, 4)  
+Action:2  0  
+Next State:(5, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 889, reward: -10
+State:(5, 0)  (1, 4)  
+Action:0  1  
+Next State:(4, 0)  (2, 4)  
+#######################################
+
+Episode 0, step: 890, reward: -10
+State:(4, 0)  (2, 4)  
+Action:2  1  
+Next State:(4, 0)  (3, 4)  
+#######################################
+
+Episode 0, step: 891, reward: -10
+State:(4, 0)  (3, 4)  
+Action:2  2  
+Next State:(4, 0)  (3, 3)  
+#######################################
+
+Episode 0, step: 892, reward: 0
+State:(4, 0)  (3, 3)  
+Action:3  3  
+Next State:(4, 1)  (3, 4)  
+#######################################
+
+Episode 0, step: 893, reward: -10
+State:(4, 1)  (3, 4)  
+Action:2  0  
+Next State:(4, 0)  (2, 4)  
+#######################################
+
+Episode 0, step: 894, reward: -10
+State:(4, 0)  (2, 4)  
+Action:2  0  
+Next State:(4, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 895, reward: -20
+State:(4, 0)  (1, 4)  
+Action:1  2  
+Next State:(5, 0)  (1, 3)  
+#######################################
+
+Episode 0, step: 896, reward: -20
+State:(5, 0)  (1, 3)  
+Action:2  1  
+Next State:(5, 0)  (2, 3)  
+#######################################
+
+Episode 0, step: 897, reward: -20
+State:(5, 0)  (2, 3)  
+Action:2  3  
+Next State:(5, 0)  (2, 4)  
+#######################################
+
+Episode 0, step: 898, reward: -20
+State:(5, 0)  (2, 4)  
+Action:2  0  
+Next State:(5, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 899, reward: -10
+State:(5, 0)  (1, 4)  
+Action:0  1  
+Next State:(4, 0)  (2, 4)  
+#######################################
+
+Episode 0, step: 900, reward: -20
+State:(4, 0)  (2, 4)  
+Action:1  3  
+Next State:(5, 0)  (2, 5)  
+#######################################
+
+Episode 0, step: 901, reward: -30
+State:(5, 0)  (2, 5)  
+Action:1  2  
+Next State:(6, 0)  (2, 4)  
+#######################################
+
+Episode 0, step: 902, reward: -30
+State:(6, 0)  (2, 4)  
+Action:2  3  
+Next State:(6, 0)  (2, 5)  
+#######################################
+
+Episode 0, step: 903, reward: -20
+State:(6, 0)  (2, 5)  
+Action:3  1  
+Next State:(6, 1)  (3, 5)  
+#######################################
+
+Episode 0, step: 904, reward: -30
+State:(6, 1)  (3, 5)  
+Action:2  2  
+Next State:(6, 0)  (3, 4)  
+#######################################
+
+Episode 0, step: 905, reward: -20
+State:(6, 0)  (3, 4)  
+Action:0  3  
+Next State:(5, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 906, reward: -10
+State:(5, 0)  (3, 5)  
+Action:3  2  
+Next State:(5, 1)  (3, 4)  
+#######################################
+
+Episode 0, step: 907, reward: 0
+State:(5, 1)  (3, 4)  
+Action:0  3  
+Next State:(4, 1)  (3, 5)  
+#######################################
+
+Episode 0, step: 908, reward: -10
+State:(4, 1)  (3, 5)  
+Action:1  1  
+Next State:(5, 1)  (4, 5)  
+#######################################
+
+Episode 0, step: 909, reward: -10
+State:(5, 1)  (4, 5)  
+Action:0  3  
+Next State:(4, 1)  (4, 6)  
+#######################################
+
+Episode 0, step: 910, reward: 0
+State:(4, 1)  (4, 6)  
+Action:3  0  
+Next State:(4, 2)  (3, 6)  
+#######################################
+
+Episode 0, step: 911, reward: 0
+State:(4, 2)  (3, 6)  
+Action:1  3  
+Next State:(5, 2)  (3, 6)  
+#######################################
+
+Episode 0, step: 912, reward: -10
+State:(5, 2)  (3, 6)  
+Action:1  1  
+Next State:(6, 2)  (4, 6)  
+#######################################
+
+Episode 0, step: 913, reward: -10
+State:(6, 2)  (4, 6)  
+Action:1  3  
+Next State:(6, 2)  (4, 6)  
+#######################################
+
+Episode 0, step: 914, reward: -20
+State:(6, 2)  (4, 6)  
+Action:2  2  
+Next State:(6, 1)  (4, 5)  
+#######################################
+
+Episode 0, step: 915, reward: -30
+State:(6, 1)  (4, 5)  
+Action:2  0  
+Next State:(6, 0)  (3, 5)  
+#######################################
+
+Episode 0, step: 916, reward: -30
+State:(6, 0)  (3, 5)  
+Action:2  2  
+Next State:(6, 0)  (3, 4)  
+#######################################
+
+Episode 0, step: 917, reward: -30
+State:(6, 0)  (3, 4)  
+Action:2  2  
+Next State:(6, 0)  (3, 3)  
+#######################################
+
+Episode 0, step: 918, reward: -30
+State:(6, 0)  (3, 3)  
+Action:2  2  
+Next State:(6, 0)  (3, 2)  
+#######################################
+
+Episode 0, step: 919, reward: -30
+State:(6, 0)  (3, 2)  
+Action:2  3  
+Next State:(6, 0)  (3, 3)  
+#######################################
+
+Episode 0, step: 920, reward: -30
+State:(6, 0)  (3, 3)  
+Action:1  3  
+Next State:(6, 0)  (3, 4)  
+#######################################
+
+Episode 0, step: 921, reward: -30
+State:(6, 0)  (3, 4)  
+Action:2  2  
+Next State:(6, 0)  (3, 3)  
+#######################################
+
+Episode 0, step: 922, reward: -20
+State:(6, 0)  (3, 3)  
+Action:0  2  
+Next State:(5, 0)  (3, 2)  
+#######################################
+
+Episode 0, step: 923, reward: -10
+State:(5, 0)  (3, 2)  
+Action:0  1  
+Next State:(4, 0)  (4, 2)  
+#######################################
+
+Episode 0, step: 924, reward: -10
+State:(4, 0)  (4, 2)  
+Action:2  2  
+Next State:(4, 0)  (4, 1)  
+#######################################
+
+Episode 0, step: 925, reward: -10
+State:(4, 0)  (4, 1)  
+Action:2  0  
+Next State:(4, 0)  (3, 1)  
+#######################################
+
+Episode 0, step: 926, reward: 0
+State:(4, 0)  (3, 1)  
+Action:3  3  
+Next State:(4, 1)  (3, 2)  
+#######################################
+
+Episode 0, step: 927, reward: 10
+State:(4, 1)  (3, 2)  
+Action:3  2  
+Next State:(4, 2)  (3, 1)  
+#######################################
+
+Episode 0, step: 928, reward: 0
+State:(4, 2)  (3, 1)  
+Action:2  2  
+Next State:(4, 1)  (3, 0)  
+#######################################
+
+Episode 0, step: 929, reward: -10
+State:(4, 1)  (3, 0)  
+Action:3  1  
+Next State:(4, 2)  (4, 0)  
+#######################################
+
+Episode 0, step: 930, reward: 0
+State:(4, 2)  (4, 0)  
+Action:1  0  
+Next State:(5, 2)  (3, 0)  
+#######################################
+
+Episode 0, step: 931, reward: 10
+State:(5, 2)  (3, 0)  
+Action:3  3  
+Next State:(5, 3)  (3, 1)  
+#######################################
+
+Episode 0, step: 932, reward: 0
+State:(5, 3)  (3, 1)  
+Action:2  3  
+Next State:(5, 2)  (3, 2)  
+#######################################
+
+Episode 0, step: 933, reward: 10
+State:(5, 2)  (3, 2)  
+Action:3  1  
+Next State:(5, 3)  (4, 2)  
+#######################################
+
+Episode 0, step: 934, reward: 0
+State:(5, 3)  (4, 2)  
+Action:2  2  
+Next State:(5, 2)  (4, 1)  
+#######################################
+
+Episode 0, step: 935, reward: 0
+State:(5, 2)  (4, 1)  
+Action:0  3  
+Next State:(4, 2)  (4, 1)  
+#######################################
+
+Episode 0, step: 936, reward: -10
+State:(4, 2)  (4, 1)  
+Action:0  2  
+Next State:(3, 2)  (4, 0)  
+#######################################
+
+Episode 0, step: 937, reward: 0
+State:(3, 2)  (4, 0)  
+Action:2  3  
+Next State:(3, 1)  (4, 1)  
+#######################################
+
+Episode 0, step: 938, reward: 0
+State:(3, 1)  (4, 1)  
+Action:2  0  
+Next State:(3, 0)  (3, 1)  
+#######################################
+
+Episode 0, step: 939, reward: -10
+State:(3, 0)  (3, 1)  
+Action:0  3  
+Next State:(2, 0)  (3, 2)  
+#######################################
+
+Episode 0, step: 940, reward: -20
+State:(2, 0)  (3, 2)  
+Action:0  0  
+Next State:(1, 0)  (2, 2)  
+#######################################
+
+Episode 0, step: 941, reward: -10
+State:(1, 0)  (2, 2)  
+Action:3  3  
+Next State:(1, 1)  (2, 3)  
+#######################################
+
+Episode 0, step: 942, reward: -20
+State:(1, 1)  (2, 3)  
+Action:2  3  
+Next State:(1, 0)  (2, 4)  
+#######################################
+
+Episode 0, step: 943, reward: -10
+State:(1, 0)  (2, 4)  
+Action:3  3  
+Next State:(1, 1)  (2, 5)  
+#######################################
+
+Episode 0, step: 944, reward: -20
+State:(1, 1)  (2, 5)  
+Action:2  0  
+Next State:(1, 0)  (1, 5)  
+#######################################
+
+Episode 0, step: 945, reward: -30
+State:(1, 0)  (1, 5)  
+Action:0  0  
+Next State:(0, 0)  (0, 5)  
+#######################################
+
+Episode 0, step: 946, reward: -30
+State:(0, 0)  (0, 5)  
+Action:2  0  
+Next State:(0, 0)  (0, 5)  
+#######################################
+
+Episode 0, step: 947, reward: -30
+State:(0, 0)  (0, 5)  
+Action:3  3  
+Next State:(0, 1)  (0, 6)  
+#######################################
+
+Episode 0, step: 948, reward: -20
+State:(0, 1)  (0, 6)  
+Action:1  2  
+Next State:(1, 1)  (0, 5)  
+#######################################
+
+Episode 0, step: 949, reward: -30
+State:(1, 1)  (0, 5)  
+Action:2  3  
+Next State:(1, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 950, reward: -30
+State:(1, 0)  (0, 6)  
+Action:1  0  
+Next State:(2, 0)  (0, 6)  
+#######################################
+
+Episode 0, step: 951, reward: -20
+State:(2, 0)  (0, 6)  
+Action:2  1  
+Next State:(2, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 952, reward: -20
+State:(2, 0)  (1, 6)  
+Action:3  3  
+Next State:(2, 1)  (1, 6)  
+#######################################
+
+Episode 0, step: 953, reward: -10
+State:(2, 1)  (1, 6)  
+Action:1  2  
+Next State:(3, 1)  (1, 5)  
+#######################################
+
+Episode 0, step: 954, reward: -20
+State:(3, 1)  (1, 5)  
+Action:0  0  
+Next State:(2, 1)  (0, 5)  
+#######################################
+
+Episode 0, step: 955, reward: -20
+State:(2, 1)  (0, 5)  
+Action:0  0  
+Next State:(1, 1)  (0, 5)  
+#######################################
+
+Episode 0, step: 956, reward: -20
+State:(1, 1)  (0, 5)  
+Action:1  0  
+Next State:(2, 1)  (0, 5)  
+#######################################
+
+Episode 0, step: 957, reward: -20
+State:(2, 1)  (0, 5)  
+Action:3  0  
+Next State:(2, 2)  (0, 5)  
+#######################################
+
+Episode 0, step: 958, reward: -10
+State:(2, 2)  (0, 5)  
+Action:3  1  
+Next State:(2, 3)  (1, 5)  
+#######################################
+
+Episode 0, step: 959, reward: 0
+State:(2, 3)  (1, 5)  
+Action:1  2  
+Next State:(3, 3)  (1, 4)  
+#######################################
+
+Episode 0, step: 960, reward: -10
+State:(3, 3)  (1, 4)  
+Action:0  3  
+Next State:(2, 3)  (1, 5)  
+#######################################
+
+Episode 0, step: 961, reward: -20
+State:(2, 3)  (1, 5)  
+Action:3  3  
+Next State:(2, 4)  (1, 6)  
+#######################################
+
+Episode 0, step: 962, reward: -20
+State:(2, 4)  (1, 6)  
+Action:2  3  
+Next State:(2, 3)  (1, 6)  
+#######################################
+
+Episode 0, step: 963, reward: -30
+State:(2, 3)  (1, 6)  
+Action:1  0  
+Next State:(3, 3)  (0, 6)  
+#######################################
+
+Episode 0, step: 964, reward: -30
+State:(3, 3)  (0, 6)  
+Action:2  3  
+Next State:(3, 2)  (0, 6)  
+#######################################
+
+Episode 0, step: 965, reward: -20
+State:(3, 2)  (0, 6)  
+Action:1  1  
+Next State:(4, 2)  (1, 6)  
+#######################################
+
+Episode 0, step: 966, reward: -10
+State:(4, 2)  (1, 6)  
+Action:2  2  
+Next State:(4, 1)  (1, 5)  
+#######################################
+
+Episode 0, step: 967, reward: -20
+State:(4, 1)  (1, 5)  
+Action:2  3  
+Next State:(4, 0)  (1, 6)  
+#######################################
+
+Episode 0, step: 968, reward: -30
+State:(4, 0)  (1, 6)  
+Action:3  0  
+Next State:(4, 1)  (0, 6)  
+#######################################
+
+Episode 0, step: 969, reward: -30
+State:(4, 1)  (0, 6)  
+Action:0  3  
+Next State:(3, 1)  (0, 6)  
+#######################################
+
+Episode 0, step: 970, reward: -20
+State:(3, 1)  (0, 6)  
+Action:0  1  
+Next State:(2, 1)  (1, 6)  
+#######################################
+
+Episode 0, step: 971, reward: -10
+State:(2, 1)  (1, 6)  
+Action:3  2  
+Next State:(2, 2)  (1, 5)  
+#######################################
+
+Episode 0, step: 972, reward: 0
+State:(2, 2)  (1, 5)  
+Action:1  2  
+Next State:(3, 2)  (1, 4)  
+#######################################
+
+Episode 0, step: 973, reward: 10
+State:(3, 2)  (1, 4)  
+Action:2  1  
+Next State:(3, 1)  (2, 4)  
+#######################################
+
+Episode 0, step: 974, reward: 0
+State:(3, 1)  (2, 4)  
+Action:2  0  
+Next State:(3, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 975, reward: -10
+State:(3, 0)  (1, 4)  
+Action:2  0  
+Next State:(3, 0)  (0, 4)  
+#######################################
+
+Episode 0, step: 976, reward: -10
+State:(3, 0)  (0, 4)  
+Action:0  1  
+Next State:(2, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 977, reward: -10
+State:(2, 0)  (1, 4)  
+Action:1  0  
+Next State:(3, 0)  (0, 4)  
+#######################################
+
+Episode 0, step: 978, reward: 0
+State:(3, 0)  (0, 4)  
+Action:3  2  
+Next State:(3, 1)  (0, 3)  
+#######################################
+
+Episode 0, step: 979, reward: 0
+State:(3, 1)  (0, 3)  
+Action:2  0  
+Next State:(3, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 980, reward: 10
+State:(3, 0)  (0, 3)  
+Action:3  1  
+Next State:(3, 1)  (1, 3)  
+#######################################
+
+Episode 0, step: 981, reward: 0
+State:(3, 1)  (1, 3)  
+Action:1  3  
+Next State:(4, 1)  (1, 4)  
+#######################################
+
+Episode 0, step: 982, reward: 10
+State:(4, 1)  (1, 4)  
+Action:0  1  
+Next State:(3, 1)  (2, 4)  
+#######################################
+
+Episode 0, step: 983, reward: 0
+State:(3, 1)  (2, 4)  
+Action:1  0  
+Next State:(4, 1)  (1, 4)  
+#######################################
+
+Episode 0, step: 984, reward: 10
+State:(4, 1)  (1, 4)  
+Action:0  2  
+Next State:(3, 1)  (1, 3)  
+#######################################
+
+Episode 0, step: 985, reward: 0
+State:(3, 1)  (1, 3)  
+Action:0  3  
+Next State:(2, 1)  (1, 4)  
+#######################################
+
+Episode 0, step: 986, reward: -10
+State:(2, 1)  (1, 4)  
+Action:0  3  
+Next State:(1, 1)  (1, 5)  
+#######################################
+
+Episode 0, step: 987, reward: -20
+State:(1, 1)  (1, 5)  
+Action:2  2  
+Next State:(1, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 988, reward: -20
+State:(1, 0)  (1, 4)  
+Action:2  2  
+Next State:(1, 0)  (1, 3)  
+#######################################
+
+Episode 0, step: 989, reward: -30
+State:(1, 0)  (1, 3)  
+Action:0  0  
+Next State:(0, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 990, reward: -20
+State:(0, 0)  (0, 3)  
+Action:1  3  
+Next State:(1, 0)  (0, 4)  
+#######################################
+
+Episode 0, step: 991, reward: -30
+State:(1, 0)  (0, 4)  
+Action:0  2  
+Next State:(0, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 992, reward: -20
+State:(0, 0)  (0, 3)  
+Action:1  3  
+Next State:(1, 0)  (0, 4)  
+#######################################
+
+Episode 0, step: 993, reward: -10
+State:(1, 0)  (0, 4)  
+Action:1  2  
+Next State:(2, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 994, reward: 0
+State:(2, 0)  (0, 3)  
+Action:1  0  
+Next State:(3, 0)  (0, 3)  
+#######################################
+
+Episode 0, step: 995, reward: -10
+State:(3, 0)  (0, 3)  
+Action:1  1  
+Next State:(4, 0)  (1, 3)  
+#######################################
+
+Episode 0, step: 996, reward: -20
+State:(4, 0)  (1, 3)  
+Action:1  3  
+Next State:(5, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 997, reward: -10
+State:(5, 0)  (1, 4)  
+Action:0  2  
+Next State:(4, 0)  (1, 3)  
+#######################################
+
+Episode 0, step: 998, reward: -10
+State:(4, 0)  (1, 3)  
+Action:2  3  
+Next State:(4, 0)  (1, 4)  
+#######################################
+
+Episode 0, step: 999, reward: -10
+State:(4, 0)  (1, 4)  
+Action:2  1  
+Next State:(4, 0)  (2, 4)  
+#######################################
+
+Episode 1, step: 0, reward: -20
+State:(0, 5)  (0, 6)  
+Action:2  2  
+Next State:(0, 4)  (0, 5)  
+#######################################
+
+Episode 1, step: 1, reward: -10
+State:(0, 4)  (0, 5)  
+Action:2  1  
+Next State:(0, 3)  (1, 5)  
+#######################################
+
+Episode 1, step: 2, reward: -10
+State:(0, 3)  (1, 5)  
+Action:2  2  
+Next State:(0, 2)  (1, 4)  
+#######################################
+
+Episode 1, step: 3, reward: -10
+State:(0, 2)  (1, 4)  
+Action:1  3  
+Next State:(1, 2)  (1, 5)  
+#######################################
+
+Episode 1, step: 4, reward: -10
+State:(1, 2)  (1, 5)  
+Action:2  1  
+Next State:(1, 1)  (2, 5)  
+#######################################
+
+Episode 1, step: 5, reward: -20
+State:(1, 1)  (2, 5)  
+Action:2  1  
+Next State:(1, 0)  (3, 5)  
+#######################################
+
+Episode 1, step: 6, reward: -10
+State:(1, 0)  (3, 5)  
+Action:1  0  
+Next State:(2, 0)  (2, 5)  
+#######################################
+
+Episode 1, step: 7, reward: -20
+State:(2, 0)  (2, 5)  
+Action:0  1  
+Next State:(1, 0)  (3, 5)  
+#######################################
+
+Episode 1, step: 8, reward: -10
+State:(1, 0)  (3, 5)  
+Action:1  3  
+Next State:(2, 0)  (3, 6)  
+#######################################
+
+Episode 1, step: 9, reward: 0
+State:(2, 0)  (3, 6)  
+Action:1  3  
+Next State:(3, 0)  (3, 6)  
+#######################################
+
+Episode 1, step: 10, reward: -10
+State:(3, 0)  (3, 6)  
+Action:1  2  
+Next State:(4, 0)  (3, 5)  
+#######################################
+
+Episode 1, step: 11, reward: 0
+State:(4, 0)  (3, 5)  
+Action:0  0  
+Next State:(3, 0)  (2, 5)  
+#######################################
+
+Episode 1, step: 12, reward: 0
+State:(3, 0)  (2, 5)  
+Action:2  2  
+Next State:(3, 0)  (2, 4)  
+#######################################
+
+Episode 1, step: 13, reward: 0
+State:(3, 0)  (2, 4)  
+Action:2  0  
+Next State:(3, 0)  (1, 4)  
+#######################################
+
+Episode 1, step: 14, reward: -10
+State:(3, 0)  (1, 4)  
+Action:3  3  
+Next State:(3, 1)  (1, 5)  
+#######################################
+
+Episode 1, step: 15, reward: 0
+State:(3, 1)  (1, 5)  
+Action:0  2  
+Next State:(2, 1)  (1, 4)  
+#######################################
+
+Episode 1, step: 16, reward: -10
+State:(2, 1)  (1, 4)  
+Action:3  3  
+Next State:(2, 2)  (1, 5)  
+#######################################
+
+Episode 1, step: 17, reward: 0
+State:(2, 2)  (1, 5)  
+Action:1  2  
+Next State:(3, 2)  (1, 4)  
+#######################################
+
+Episode 1, step: 18, reward: 10
+State:(3, 2)  (1, 4)  
+Action:3  1  
+Next State:(3, 3)  (2, 4)  
+#######################################
+
+Episode 1, step: 19, reward: 20
+State:(3, 3)  (2, 4)  
+Action:0  1  
+Next State:(2, 3)  (3, 4)  
+#######################################
+
+Episode 1, step: 20, reward: 10
+State:(2, 3)  (3, 4)  
+Action:1  0  
+Next State:(3, 3)  (2, 4)  
+#######################################
+
+Episode 1, step: 21, reward: 0
+State:(3, 3)  (2, 4)  
+Action:1  3  
+Next State:(4, 3)  (2, 5)  
+#######################################
+
+Episode 1, step: 22, reward: -10
+State:(4, 3)  (2, 5)  
+Action:2  3  
+Next State:(4, 2)  (2, 6)  
+#######################################
+
+Episode 1, step: 23, reward: 0
+State:(4, 2)  (2, 6)  
+Action:2  2  
+Next State:(4, 1)  (2, 5)  
+#######################################
+
+Episode 1, step: 24, reward: -10
+State:(4, 1)  (2, 5)  
+Action:2  1  
+Next State:(4, 0)  (3, 5)  
+#######################################
+
+Episode 1, step: 25, reward: -20
+State:(4, 0)  (3, 5)  
+Action:1  1  
+Next State:(5, 0)  (4, 5)  
+#######################################
+
+Episode 1, step: 26, reward: -30
+State:(5, 0)  (4, 5)  
+Action:1  3  
+Next State:(6, 0)  (4, 6)  
+#######################################
+
+Episode 1, step: 27, reward: -30
+State:(6, 0)  (4, 6)  
+Action:2  0  
+Next State:(6, 0)  (3, 6)  
+#######################################
+
+Episode 1, step: 28, reward: -30
+State:(6, 0)  (3, 6)  
+Action:1  2  
+Next State:(6, 0)  (3, 5)  
+#######################################
+
+Episode 1, step: 29, reward: -20
+State:(6, 0)  (3, 5)  
+Action:0  3  
+Next State:(5, 0)  (3, 6)  
+#######################################
+
+Episode 1, step: 30, reward: -30
+State:(5, 0)  (3, 6)  
+Action:1  2  
+Next State:(6, 0)  (3, 5)  
+#######################################
+
+Episode 1, step: 31, reward: -30
+State:(6, 0)  (3, 5)  
+Action:1  2  
+Next State:(6, 0)  (3, 4)  
+#######################################
+
+Episode 1, step: 32, reward: -30
+State:(6, 0)  (3, 4)  
+Action:2  3  
+Next State:(6, 0)  (3, 5)  
+#######################################
+
+Episode 1, step: 33, reward: -20
+State:(6, 0)  (3, 5)  
+Action:0  1  
+Next State:(5, 0)  (4, 5)  
+#######################################
+
+Episode 1, step: 34, reward: -30
+State:(5, 0)  (4, 5)  
+Action:1  1  
+Next State:(6, 0)  (5, 5)  
+#######################################
+
+Episode 1, step: 35, reward: -30
+State:(6, 0)  (5, 5)  
+Action:1  0  
+Next State:(6, 0)  (4, 5)  
+#######################################
+
+Episode 1, step: 36, reward: -20
+State:(6, 0)  (4, 5)  
+Action:0  0  
+Next State:(5, 0)  (3, 5)  
+#######################################
+
+Episode 1, step: 37, reward: -30
+State:(5, 0)  (3, 5)  
+Action:1  2  
+Next State:(6, 0)  (3, 4)  
+#######################################
+
+Episode 1, step: 38, reward: -20
+State:(6, 0)  (3, 4)  
+Action:3  1  
+Next State:(6, 1)  (4, 4)  
+#######################################
+
+Episode 1, step: 39, reward: -20
+State:(6, 1)  (4, 4)  
+Action:1  1  
+Next State:(6, 1)  (5, 4)  
+#######################################
+
+Episode 1, step: 40, reward: -30
+State:(6, 1)  (5, 4)  
+Action:2  0  
+Next State:(6, 0)  (4, 4)  
+#######################################
+
+Episode 1, step: 41, reward: -30
+State:(6, 0)  (4, 4)  
+Action:1  0  
+Next State:(6, 0)  (3, 4)  
+#######################################
+
+Episode 1, step: 42, reward: -30
+State:(6, 0)  (3, 4)  
+Action:1  3  
+Next State:(6, 0)  (3, 5)  
+#######################################
+
+Episode 1, step: 43, reward: -30
+State:(6, 0)  (3, 5)  
+Action:1  1  
+Next State:(6, 0)  (4, 5)  
+#######################################
+
+Episode 1, step: 44, reward: -30
+State:(6, 0)  (4, 5)  
+Action:1  2  
+Next State:(6, 0)  (4, 4)  
+#######################################
+
+Episode 1, step: 45, reward: -30
+State:(6, 0)  (4, 4)  
+Action:1  2  
+Next State:(6, 0)  (4, 3)  
+#######################################
+
+Episode 1, step: 46, reward: -20
+State:(6, 0)  (4, 3)  
+Action:3  1  
+Next State:(6, 1)  (5, 3)  
+#######################################
+
+Episode 1, step: 47, reward: -10
+State:(6, 1)  (5, 3)  
+Action:0  0  
+Next State:(5, 1)  (4, 3)  
+#######################################
+
+Episode 1, step: 48, reward: -20
+State:(5, 1)  (4, 3)  
+Action:2  0  
+Next State:(5, 0)  (3, 3)  
+#######################################
+
+Episode 1, step: 49, reward: -10
+State:(5, 0)  (3, 3)  
+Action:3  3  
+Next State:(5, 1)  (3, 4)  
+#######################################
+
+Episode 1, step: 50, reward: -20
+State:(5, 1)  (3, 4)  
+Action:1  0  
+Next State:(6, 1)  (2, 4)  
+#######################################
+
+Episode 1, step: 51, reward: -10
+State:(6, 1)  (2, 4)  
+Action:3  3  
+Next State:(6, 2)  (2, 5)  
+#######################################
+
+Episode 1, step: 52, reward: -20
+State:(6, 2)  (2, 5)  
+Action:2  1  
+Next State:(6, 1)  (3, 5)  
+#######################################
+
+Episode 1, step: 53, reward: -20
+State:(6, 1)  (3, 5)  
+Action:1  1  
+Next State:(6, 1)  (4, 5)  
+#######################################
+
+Episode 1, step: 54, reward: -10
+State:(6, 1)  (4, 5)  
+Action:0  1  
+Next State:(5, 1)  (5, 5)  
+#######################################
+
+Episode 1, step: 55, reward: -20
+State:(5, 1)  (5, 5)  
+Action:3  1  
+Next State:(5, 2)  (6, 5)  
+#######################################
+
+Episode 1, step: 56, reward: -30
+State:(5, 2)  (6, 5)  
+Action:1  3  
+Next State:(6, 2)  (6, 6)  
+#######################################
+
+Episode 1, step: 57, reward: -30
+State:(6, 2)  (6, 6)  
+Action:3  3  
+Next State:(6, 3)  (6, 6)  
+#######################################
+
+Episode 1, step: 58, reward: -20
+State:(6, 3)  (6, 6)  
+Action:0  2  
+Next State:(5, 3)  (6, 5)  
+#######################################
+
+Episode 1, step: 59, reward: -10
+State:(5, 3)  (6, 5)  
+Action:0  0  
+Next State:(4, 3)  (5, 5)  
+#######################################
+
+Episode 1, step: 60, reward: 0
+State:(4, 3)  (5, 5)  
+Action:3  0  
+Next State:(4, 4)  (4, 5)  
+#######################################
+
+Episode 1, step: 61, reward: 10
+State:(4, 4)  (4, 5)  
+Action:2  0  
+Next State:(4, 3)  (3, 5)  
+#######################################
+
+Episode 1, step: 62, reward: 10
+State:(4, 3)  (3, 5)  
+Action:1  2  
+Next State:(5, 3)  (3, 4)  
+#######################################
+
+Episode 1, step: 63, reward: 20
+State:(5, 3)  (3, 4)  
+Action:0  2  
+Next State:(4, 3)  (3, 3)  
+#######################################
+
+Episode 1, step: 64, reward: 20
+State:(4, 3)  (3, 3)  
+Action:0  0  
+Next State:(3, 3)  (2, 3)  
+#######################################
+
+Episode 1, step: 65, reward: 10
+State:(3, 3)  (2, 3)  
+Action:0  3  
+Next State:(2, 3)  (2, 4)  
+#######################################
+
+Episode 1, step: 66, reward: 0
+State:(2, 3)  (2, 4)  
+Action:0  0  
+Next State:(1, 3)  (1, 4)  
+#######################################
+
+Episode 1, step: 67, reward: -10
+State:(1, 3)  (1, 4)  
+Action:3  3  
+Next State:(1, 4)  (1, 5)  
+#######################################
+
+Episode 1, step: 68, reward: 0
+State:(1, 4)  (1, 5)  
+Action:2  1  
+Next State:(1, 3)  (2, 5)  
+#######################################
+
+Episode 1, step: 69, reward: -10
+State:(1, 3)  (2, 5)  
+Action:2  0  
+Next State:(1, 2)  (1, 5)  
+#######################################
+
+Episode 1, step: 70, reward: -20
+State:(1, 2)  (1, 5)  
+Action:2  0  
+Next State:(1, 1)  (0, 5)  
+#######################################
+
+Episode 1, step: 71, reward: -20
+State:(1, 1)  (0, 5)  
+Action:0  2  
+Next State:(0, 1)  (0, 4)  
+#######################################
+
+Episode 1, step: 72, reward: -20
+State:(0, 1)  (0, 4)  
+Action:0  2  
+Next State:(0, 1)  (0, 3)  
+#######################################
+
+Episode 1, step: 73, reward: -10
+State:(0, 1)  (0, 3)  
+Action:3  0  
+Next State:(0, 2)  (0, 3)  
+#######################################
+
+Episode 1, step: 74, reward: -20
+State:(0, 2)  (0, 3)  
+Action:2  3  
+Next State:(0, 1)  (0, 4)  
+#######################################
+
+Episode 1, step: 75, reward: -10
+State:(0, 1)  (0, 4)  
+Action:1  2  
+Next State:(1, 1)  (0, 3)  
+#######################################
+
+Episode 1, step: 76, reward: -20
+State:(1, 1)  (0, 3)  
+Action:0  2  
+Next State:(0, 1)  (0, 2)  
+#######################################
+
+Episode 1, step: 77, reward: -30
+State:(0, 1)  (0, 2)  
+Action:2  2  
+Next State:(0, 0)  (0, 1)  
+#######################################
+
+Episode 1, step: 78, reward: -30
+State:(0, 0)  (0, 1)  
+Action:0  1  
+Next State:(0, 0)  (1, 1)  
+#######################################
+
+Episode 1, step: 79, reward: -20
+State:(0, 0)  (1, 1)  
+Action:1  1  
+Next State:(1, 0)  (2, 1)  
+#######################################
+
+Episode 1, step: 80, reward: -10
+State:(1, 0)  (2, 1)  
+Action:1  1  
+Next State:(2, 0)  (3, 1)  
+#######################################
+
+Episode 1, step: 81, reward: 0
+State:(2, 0)  (3, 1)  
+Action:3  3  
+Next State:(2, 1)  (3, 2)  
+#######################################
+
+Episode 1, step: 82, reward: -10
+State:(2, 1)  (3, 2)  
+Action:0  1  
+Next State:(1, 1)  (4, 2)  
+#######################################
+
+Episode 1, step: 83, reward: -20
+State:(1, 1)  (4, 2)  
+Action:2  0  
+Next State:(1, 0)  (3, 2)  
+#######################################
+
+Episode 1, step: 84, reward: -20
+State:(1, 0)  (3, 2)  
+Action:2  3  
+Next State:(1, 0)  (3, 3)  
+#######################################
+
+Episode 1, step: 85, reward: -30
+State:(1, 0)  (3, 3)  
+Action:0  3  
+Next State:(0, 0)  (3, 4)  
+#######################################
+
+Episode 1, step: 86, reward: -20
+State:(0, 0)  (3, 4)  
+Action:1  3  
+Next State:(1, 0)  (3, 5)  
+#######################################
+
+Episode 1, step: 87, reward: -10
+State:(1, 0)  (3, 5)  
+Action:3  1  
+Next State:(1, 1)  (4, 5)  
+#######################################
+
+Episode 1, step: 88, reward: 0
+State:(1, 1)  (4, 5)  
+Action:3  2  
+Next State:(1, 2)  (4, 4)  
+#######################################
+
+Episode 1, step: 89, reward: 10
+State:(1, 2)  (4, 4)  
+Action:1  2  
+Next State:(2, 2)  (4, 3)  
+#######################################
+
+Episode 1, step: 90, reward: 10
+State:(2, 2)  (4, 3)  
+Action:1  1  
+Next State:(3, 2)  (5, 3)  
+#######################################
+
+Episode 1, step: 91, reward: 0
+State:(3, 2)  (5, 3)  
+Action:1  2  
+Next State:(4, 2)  (5, 2)  
+#######################################
+
+Episode 1, step: 92, reward: -10
+State:(4, 2)  (5, 2)  
+Action:1  2  
+Next State:(5, 2)  (5, 1)  
+#######################################
+
+Episode 1, step: 93, reward: -20
+State:(5, 2)  (5, 1)  
+Action:3  1  
+Next State:(5, 3)  (6, 1)  
+#######################################
+
+Episode 1, step: 94, reward: -10
+State:(5, 3)  (6, 1)  
+Action:1  0  
+Next State:(6, 3)  (5, 1)  
+#######################################
+
+Episode 1, step: 95, reward: -20
+State:(6, 3)  (5, 1)  
+Action:1  2  
+Next State:(6, 3)  (5, 0)  
+#######################################
+
+Episode 1, step: 96, reward: -10
+State:(6, 3)  (5, 0)  
+Action:1  3  
+Next State:(6, 3)  (5, 1)  
+#######################################
+
+Episode 1, step: 97, reward: -20
+State:(6, 3)  (5, 1)  
+Action:0  2  
+Next State:(5, 3)  (5, 0)  
+#######################################
+
+Episode 1, step: 98, reward: -20
+State:(5, 3)  (5, 0)  
+Action:3  2  
+Next State:(5, 4)  (5, 0)  
+#######################################
+
+Episode 1, step: 99, reward: -10
+State:(5, 4)  (5, 0)  
+Action:2  3  
+Next State:(5, 3)  (5, 1)  
+#######################################
+
+Episode 1, step: 100, reward: -20
+State:(5, 3)  (5, 1)  
+Action:1  1  
+Next State:(6, 3)  (6, 1)  
+#######################################
+
+Episode 1, step: 101, reward: -10
+State:(6, 3)  (6, 1)  
+Action:2  0  
+Next State:(6, 2)  (5, 1)  
+#######################################
+
+Episode 1, step: 102, reward: 0
+State:(6, 2)  (5, 1)  
+Action:3  3  
+Next State:(6, 3)  (5, 2)  
+#######################################
+
+Episode 1, step: 103, reward: -10
+State:(6, 3)  (5, 2)  
+Action:3  3  
+Next State:(6, 4)  (5, 3)  
+#######################################
+
+Episode 1, step: 104, reward: -10
+State:(6, 4)  (5, 3)  
+Action:1  3  
+Next State:(6, 4)  (5, 4)  
+#######################################
+
+Episode 1, step: 105, reward: -10
+State:(6, 4)  (5, 4)  
+Action:1  3  
+Next State:(6, 4)  (5, 5)  
+#######################################
+
+Episode 1, step: 106, reward: -20
+State:(6, 4)  (5, 5)  
+Action:1  3  
+Next State:(6, 4)  (5, 6)  
+#######################################
+
+Episode 1, step: 107, reward: -30
+State:(6, 4)  (5, 6)  
+Action:1  1  
+Next State:(6, 4)  (6, 6)  
+#######################################
+
+Episode 1, step: 108, reward: -30
+State:(6, 4)  (6, 6)  
+Action:2  1  
+Next State:(6, 3)  (6, 6)  
+#######################################
+
+Episode 1, step: 109, reward: -30
+State:(6, 3)  (6, 6)  
+Action:2  3  
+Next State:(6, 2)  (6, 6)  
+#######################################
+
+Episode 1, step: 110, reward: -20
+State:(6, 2)  (6, 6)  
+Action:0  2  
+Next State:(5, 2)  (6, 5)  
+#######################################
+
+Episode 1, step: 111, reward: -10
+State:(5, 2)  (6, 5)  
+Action:1  0  
+Next State:(6, 2)  (5, 5)  
+#######################################
+
+Episode 1, step: 112, reward: -20
+State:(6, 2)  (5, 5)  
+Action:1  1  
+Next State:(6, 2)  (6, 5)  
+#######################################
+
+Episode 1, step: 113, reward: -20
+State:(6, 2)  (6, 5)  
+Action:2  2  
+Next State:(6, 1)  (6, 4)  
+#######################################
+
+Episode 1, step: 114, reward: -20
+State:(6, 1)  (6, 4)  
+Action:1  3  
+Next State:(6, 1)  (6, 5)  
+#######################################
+
+Episode 1, step: 115, reward: -20
+State:(6, 1)  (6, 5)  
+Action:1  0  
+Next State:(6, 1)  (5, 5)  
+#######################################
+
+Episode 1, step: 116, reward: -30
+State:(6, 1)  (5, 5)  
+Action:2  1  
+Next State:(6, 0)  (6, 5)  
+#######################################
+
+Episode 1, step: 117, reward: -30
+State:(6, 0)  (6, 5)  
+Action:1  1  
+Next State:(6, 0)  (6, 5)  
+#######################################
+
+Episode 1, step: 118, reward: -30
+State:(6, 0)  (6, 5)  
+Action:3  3  
+Next State:(6, 1)  (6, 6)  
+#######################################
+
+Episode 1, step: 119, reward: -30
+State:(6, 1)  (6, 6)  
+Action:1  3  
+Next State:(6, 1)  (6, 6)  
+#######################################
+
+Episode 1, step: 120, reward: -20
+State:(6, 1)  (6, 6)  
+Action:0  0  
+Next State:(5, 1)  (5, 6)  
+#######################################
+
+Episode 1, step: 121, reward: -20
+State:(5, 1)  (5, 6)  
+Action:3  3  
+Next State:(5, 2)  (5, 6)  
+#######################################
+
