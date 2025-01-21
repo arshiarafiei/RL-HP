@@ -366,6 +366,6 @@ if __name__ == "__main__":
             env = Job(n_agent=n_agent, grid_size=grid_size, starting_positions=starting_positions, resource_position=resource_position)
             agent = PPOAgent(state_size, action_size, n_agent)
 
-            for i in range(10):
+            for i in range(4,10):
 
-                train_ppo(env, agent, i,episodes=1000, step_size=1000, batch_size=64, update_epochs=50, )
+                train_ppo(env, agent, i,episodes=500, step_size=1000, batch_size=64, update_epochs=50)
