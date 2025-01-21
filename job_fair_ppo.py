@@ -281,7 +281,7 @@ def train_ppo(env, agent, tries,episodes=1000, step_size=1000, batch_size=64, up
 
             reward = reward_fairness(env, trajectories)
 
-            log(e,step,st, next_state,action, reward)
+            # log(e,step,st, next_state,action, reward)
 
 
 
