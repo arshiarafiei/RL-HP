@@ -281,7 +281,7 @@ def train_ppo(env, agent, tries,episodes=1000, step_size=1000, batch_size=64, up
 
             reward = reward_fairness(env, trajectories)
 
-            # log(e,step,st, next_state,action, reward)
+            log(e,step,st, next_state,action, reward)
 
 
 
@@ -312,7 +312,7 @@ def train_ppo(env, agent, tries,episodes=1000, step_size=1000, batch_size=64, up
             #     done = True
 
 
-            if max(temp) < 0.15 and sum(allocation_total) > (step_size * 0.8):
+            if max(temp) < 0.15 and sum(allocation_total) > (step_size * 0.5):
                 done = True
 
         # Convert rewards, dones to NumPy arrays
@@ -366,6 +366,9 @@ if __name__ == "__main__":
             env = Job(n_agent=n_agent, grid_size=grid_size, starting_positions=starting_positions, resource_position=resource_position)
             agent = PPOAgent(state_size, action_size, n_agent)
 
-            for i in range(4,10):
+            for i in range(5,10):
+
+                f = open("log_fair.txt", "w")
+                f = open("Fair_ppo.txt", "w")
 
                 train_ppo(env, agent, i,episodes=500, step_size=1000, batch_size=64, update_epochs=50)
