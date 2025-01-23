@@ -281,7 +281,7 @@ def train_ppo(env, agent, tries,episodes=1000, step_size=1000, batch_size=64, up
 
             reward = reward_fairness(env, trajectories)
 
-            log(e,step,st, next_state,action, reward)
+            # log(e,step,st, next_state,action, reward)
 
 
 
@@ -336,7 +336,7 @@ def train_ppo(env, agent, tries,episodes=1000, step_size=1000, batch_size=64, up
 
         output(e, episodes, agent.epsilon_clip, allocation_total, done)
         df.loc[len(df)] = allocation_total
-        st = "data/fair_"+str(env.n_agent)+"_"+str(env.grid_size)+"_"+str(tries)+".csv"
+        st = "data/grid"+str(env.grid_size)+"/fair_"+str(env.n_agent)+"_"+str(env.grid_size)+"_"+str(tries)+".csv"
         
         df.to_csv(st, index=False)
 
@@ -347,13 +347,13 @@ def train_ppo(env, agent, tries,episodes=1000, step_size=1000, batch_size=64, up
 
 if __name__ == "__main__":
     n_ag = [2]
-    gr = [7]
+    gr = [5]
     for n in n_ag:
         for g in gr:
 
             n_agent = n
             grid_size = g
-            starting_positions = [(0, 0), (4, 4), (3,2), (0,0)]
+            starting_positions = [(0, 0), (4, 4)]
             if g%2 ==0:
                 resource_position = (int(g/2)-1, int(g/2)-1)  
 
@@ -366,7 +366,7 @@ if __name__ == "__main__":
             env = Job(n_agent=n_agent, grid_size=grid_size, starting_positions=starting_positions, resource_position=resource_position)
             agent = PPOAgent(state_size, action_size, n_agent)
 
-            for i in range(5,10):
+            for i in range(1,7):
 
                 f = open("log_fair.txt", "w")
                 f = open("Fair_ppo.txt", "w")
