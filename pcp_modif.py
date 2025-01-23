@@ -511,6 +511,9 @@ if __name__ == "__main__":
             
             action = agent.act(state)  # Get action for the current state
             next_state, next_domino = env.step(action)  # Take action in the environment
+
+            print(next_state)
+            print(next_domino)
             
             
             # total_reward = reward_pcp(next_domino, step)  # Compute reward
