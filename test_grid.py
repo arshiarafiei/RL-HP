@@ -9,6 +9,7 @@ from tensorflow.keras.layers import Dense, Input
 from tensorflow.keras.optimizers import Adam
 from collections import deque
 import random
+import pandas as pd
 
 # Hyperparameters
 GAMMA = 0.99
@@ -18,7 +19,7 @@ EPSILON_MIN = 0.01
 LR = 0.001
 BATCH_SIZE = 64
 REPLAY_BUFFER_SIZE = 10000
-NUM_EPISODES = 800
+NUM_EPISODES = 1000
 MAX_STEPS = 300
 
 NUM_AGENTS = 2
@@ -159,8 +160,14 @@ def reward_grid_env(env, trajectory1, trajectory2, step, episode):
 
 
 # Main loop
-def main():
+def main(tr):
     # Initialize environment and models
+
+    column = ["episode", "total_done", "total_col"]
+
+    df = pd.DataFrame(columns=column)
+
+
     env = GridEnv(map_name='SUNY', nagents=NUM_AGENTS, norender=True, padding=True)
     main_model = build_model()
     target_model = build_model()
@@ -168,6 +175,8 @@ def main():
 
     replay_buffer = ReplayBuffer(REPLAY_BUFFER_SIZE)
     epsilon = EPSILON
+
+    total_done = 0
 
     for episode in range(NUM_EPISODES):
 
@@ -181,6 +190,8 @@ def main():
         reward_list = list()
         collision = False
         done = False
+        
+        total_collision = 0
 
         for step in range(MAX_STEPS):
             # Select actions for all agents
@@ -202,27 +213,6 @@ def main():
             done = all(goal_flags)  
 
 
-            ############### logs #####################
-
-            # print(next_pos)
-            # print(reward)
-
-            # time.sleep(0.5)
-            # print("####################################################################", step, "####################################################################")
-
-            # print("actions", actions)
-
-            # print("positions", next_pos)
-            # print("rewards", reward)
-
-            
-
-            # print("done", done)
-
-
-            ############## logs ######################
-            
-
             # Store transition 
             replay_buffer.remember(state_flat, actions, reward, next_state_flat, done)
 
@@ -232,10 +222,11 @@ def main():
             reward_list.append(reward)
 
             if done:
+                total_done +=1
                 break
             if coll:
                 collision = True
-                break
+                total_collision +=1
         
 
             # Train the network
@@ -249,19 +240,25 @@ def main():
         # Update target model periodically
         if episode % 10 == 0:
             target_model.set_weights(main_model.get_weights())
-        f = open("result_run.txt", "a")
-        f.write(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Collision: {collision} , Epsilon: {epsilon:.2f}\n")
-        f.writelines([f"{line}  " for line in reward_list])
-        f.write("\n#######################################\n\n\n\n#######################################\n")
+        # f = open("result_run.txt", "a")
+        # f.write(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Collision: {collision} , Epsilon: {epsilon:.2f}\n")
+        # f.writelines([f"{line}  " for line in reward_list])
+        # f.write("\n#######################################\n\n\n\n#######################################\n")
 
 
 
-        print(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Collision: {collision} ,Epsilon: {epsilon:.2f}")
-        print(reward_list)
+        print(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
+        arr = [episode, total_done, total_collision]
+        df.loc[len(df)] = arr
+        st = "data/suny/"+str(tr)+".csv"
+        df.to_csv(st, index=False)
+
+        # print(reward_list)
 
 # Run the main loop
 if __name__ == "__main__":
-    main()
+    for i in range(0,10):
+        main(i)
 
 
 
