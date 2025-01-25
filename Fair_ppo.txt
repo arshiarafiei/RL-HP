@@ -1,0 +1,372 @@
+Episode 1/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:497 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 2/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:0 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 3/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:0 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 4/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 5/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:497 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 6/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:0 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 7/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 8/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:250 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 9/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:250 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 10/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:497 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 11/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:251 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 12/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:0 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 13/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:0 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 14/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:0 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 15/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:482 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 16/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:251 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 17/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 18/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:0 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 19/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 20/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:0 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 21/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 22/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:495 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 23/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 24/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:0 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 25/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:0 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 26/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:0 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 27/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:497 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 28/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:244 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 29/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:247 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 30/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:251 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 31/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:251 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 32/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:241 
+Agent:1 -- Total Allocation:5 
+----------------------------------------
+----------------------------------------
+
+Episode 33/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 34/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:250 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 35/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:250 
+Agent:1 -- Total Allocation:2 
+----------------------------------------
+----------------------------------------
+
+Episode 36/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:250 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 37/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:2 
+----------------------------------------
+----------------------------------------
+
+Episode 38/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:250 
+Agent:1 -- Total Allocation:2 
+----------------------------------------
+----------------------------------------
+
+Episode 39/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:2 
+----------------------------------------
+----------------------------------------
+
+Episode 40/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:248 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 41/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 42/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:248 
+Agent:1 -- Total Allocation:2 
+----------------------------------------
+----------------------------------------
+
+Episode 43/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:2 
+----------------------------------------
+----------------------------------------
+
+Episode 44/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:248 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 45/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 46/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 47/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:250 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 48/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 49/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:251 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 50/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:244 
+Agent:1 -- Total Allocation:12 
+----------------------------------------
+----------------------------------------
+
+Episode 51/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:2 
+----------------------------------------
+----------------------------------------
+
+Episode 52/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:250 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 53/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 54/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:2 
+----------------------------------------
+----------------------------------------
+
+Episode 55/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:250 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 56/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:249 
+Agent:1 -- Total Allocation:2 
+----------------------------------------
+----------------------------------------
+
+Episode 57/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:250 
+Agent:1 -- Total Allocation:0 
+----------------------------------------
+----------------------------------------
+
+Episode 58/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:251 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 59/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:250 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 60/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:251 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+
+Episode 61/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:248 
+Agent:1 -- Total Allocation:3 
+----------------------------------------
+----------------------------------------
+
+Episode 62/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:216 
+Agent:1 -- Total Allocation:1 
+----------------------------------------
+----------------------------------------
+

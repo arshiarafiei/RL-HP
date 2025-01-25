@@ -347,7 +347,7 @@ def train_ppo(env, agent, tries,episodes=1000, step_size=1000, batch_size=64, up
 
 if __name__ == "__main__":
     n_ag = [2]
-    gr = [5]
+    gr = [6]
     for n in n_ag:
         for g in gr:
 
@@ -366,7 +366,7 @@ if __name__ == "__main__":
             env = Job(n_agent=n_agent, grid_size=grid_size, starting_positions=starting_positions, resource_position=resource_position)
             agent = PPOAgent(state_size, action_size, n_agent)
 
-            for i in range(1,7):
+            for i in range(10):
 
                 f = open("log_fair.txt", "w")
                 f = open("Fair_ppo.txt", "w")
