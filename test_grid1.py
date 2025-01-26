@@ -237,14 +237,14 @@ def main(tr):
         # Update target model periodically
         if episode % 10 == 0:
             target_model.set_weights(main_model.get_weights())
-        f = open("/Users/tartmsu/Desktop/result_run.txt", "a")
+        f = open("/Users/tartmsu/Desktop/result_run1.txt", "a")
         f.write(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Collision: {collision} , Epsilon: {epsilon:.2f}\n")
         f.writelines([f"{line}  " for line in reward_list])
         f.write("\n#######################################\n\n\n\n#######################################\n")
 
 
 
-        print(f"Zero Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
+        print(f"One : Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
         arr = [episode, total_done, total_collision]
         df.loc[len(df)] = arr
         st = "data/suny/"+str(tr)+".csv"
@@ -254,7 +254,7 @@ def main(tr):
 
 # Run the main loop
 if __name__ == "__main__":
-    for i in range(1,4):
+    for i in range(4,7):
         main(i)
 
 
