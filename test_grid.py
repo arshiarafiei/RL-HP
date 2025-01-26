@@ -19,8 +19,8 @@ EPSILON_MIN = 0.01
 LR = 0.001
 BATCH_SIZE = 64
 REPLAY_BUFFER_SIZE = 10000
-NUM_EPISODES = 1000
-MAX_STEPS = 300
+NUM_EPISODES = 200
+MAX_STEPS = 500
 
 NUM_AGENTS = 2
 ACTION_SPACE = 5  # Number of actions per agent
@@ -46,11 +46,8 @@ class ReplayBuffer:
 def build_model():
     model = Sequential([
         Input(shape=(STATE_DIM,)),
-        Dense(64, activation='relu'),
-        Dense(128, activation='relu'),
-        Dense(256, activation='relu'),
-        Dense(128, activation='relu'),
-        Dense(64, activation='relu'),
+        Dense(512, activation='relu'),
+        Dense(512, activation='relu'),
         Dense(NUM_AGENTS * ACTION_SPACE)  # Output Q-values for all actions of all agents
     ])
     model.compile(optimizer=Adam(learning_rate=LR), loss='mse')
@@ -116,20 +113,20 @@ def reward_grid_env(env, trajectory1, trajectory2, step, episode):
 
     for index in range(len(trajectory1)):
 
-        phi3_list.append(-1 * int(value/2) + env.calculate_distance(tuple(trajectory1[index]), tuple(trajectory2[index])))
+        phi3_list.append(-1 + env.calculate_distance(tuple(trajectory1[index]), tuple(trajectory2[index])))
 
         # phi3_list.append([-1 + env.calculate_distance(tuple(trajectory1[index]), tuple(trajectory2[index])), tuple(trajectory1[index]), tuple(trajectory2[index])])
 
-        phi1_list.append(int(value/2) - env.calculate_distance(tuple(trajectory1[index]), target1))
+        phi1_list.append(1 - env.calculate_distance(tuple(trajectory1[index]), target1))
 
 
-        phi2_list.append(int(value/2) - env.calculate_distance(tuple(trajectory2[index]), target2))
+        phi2_list.append(1 - env.calculate_distance(tuple(trajectory2[index]), target2))
 
     # print(phi3_list)
     # print(phi2_list)
     # print(phi1_list)
 
-    reward = min(phi3_list[-1], max(phi1_list), max(phi2_list))
+    reward = min(min(phi3_list), max(phi1_list), max(phi2_list))
 
     f = open("log.txt", "a")
     f.write(f"Episode {episode}, step: {step}\n")
@@ -257,7 +254,7 @@ def main(tr):
 
 # Run the main loop
 if __name__ == "__main__":
-    for i in range(0,10):
+    for i in range(1,10):
         main(i)
 
 
