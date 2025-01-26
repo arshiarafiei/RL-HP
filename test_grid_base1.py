@@ -202,7 +202,22 @@ def main(tr):
             trajectory1.append(next_pos[0].tolist())
             trajectory2.append(next_pos[1].tolist())
 
-            reward = reward_grid_env(env, trajectory1, trajectory2, step, episode + 1)
+            reward = 0
+
+            if goal_flags[0] == 1 and goal_flags[0]:
+                reward = 10
+            elif goal_flags[0] == 1 and goal_flags[0] == 0:
+                reward = 5
+            elif goal_flags[0] == 0 and goal_flags[0] == 1:
+                reward = 5
+            elif coll:
+                reward = -1
+            else:
+                reward = 0
+
+
+            
+
 
             next_state_flat = np.concatenate(next_pos)  
 
@@ -237,24 +252,25 @@ def main(tr):
         # Update target model periodically
         if episode % 10 == 0:
             target_model.set_weights(main_model.get_weights())
-        f = open("/Users/tartmsu/Desktop/result_run1.txt", "a")
-        f.write(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Collision: {collision} , Epsilon: {epsilon:.2f}\n")
-        f.writelines([f"{line}  " for line in reward_list])
-        f.write("\n#######################################\n\n\n\n#######################################\n")
+        # f = open("/Users/tartmsu/Desktop/result_run1.txt", "a")
+        # f.write(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Collision: {collision} , Epsilon: {epsilon:.2f}\n")
+        # f.writelines([f"{line}  " for line in reward_list])
+        # f.write("\n#######################################\n\n\n\n#######################################\n")
 
 
 
-        print(f"One : Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
+        print(f"base : Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
         arr = [episode, total_done, total_collision]
         df.loc[len(df)] = arr
-        st = "data/suny/"+str(tr)+".csv"
+        st = "data/suny_base/"+str(tr)+".csv"
         df.to_csv(st, index=False)
 
         # print(reward_list)
 
 # Run the main loop
 if __name__ == "__main__":
-    main(6)
+    for i in range(10,15):
+        main(i)
 
 
 
