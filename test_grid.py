@@ -128,15 +128,15 @@ def reward_grid_env(env, trajectory1, trajectory2, step, episode):
 
     reward = min(min(phi3_list), max(phi1_list), max(phi2_list))
 
-    f = open("log.txt", "a")
-    f.write(f"Episode {episode}, step: {step}\n")
-    f.write("Phi_1:")
-    f.writelines([f"{line}  " for line in phi1_list])
-    f.write("\nPhi_2:")
-    f.writelines([f"{line}  " for line in phi2_list])
-    f.write("\nPhi_3:")
-    f.writelines([f"{line}  " for line in phi3_list])
-    f.write("\n#######################################\n\n")
+    # f = open("log.txt", "a")
+    # f.write(f"Episode {episode}, step: {step}\n")
+    # f.write("Phi_1:")
+    # f.writelines([f"{line}  " for line in phi1_list])
+    # f.write("\nPhi_2:")
+    # f.writelines([f"{line}  " for line in phi2_list])
+    # f.write("\nPhi_3:")
+    # f.writelines([f"{line}  " for line in phi3_list])
+    # f.write("\n#######################################\n\n")
 
 
     # print("Reward", reward)
@@ -160,12 +160,12 @@ def reward_grid_env(env, trajectory1, trajectory2, step, episode):
 def main(tr):
     # Initialize environment and models
 
-    column = ["episode", "total_done", "total_col"]
+    column = ["episode", "total_done", "total_col", "step"]
 
     df = pd.DataFrame(columns=column)
 
 
-    env = GridEnv(map_name='SUNY', nagents=NUM_AGENTS, norender=True, padding=True)
+    env = GridEnv(map_name='ISR', nagents=NUM_AGENTS, norender=True, padding=True)
     main_model = build_model()
     target_model = build_model()
     target_model.set_weights(main_model.get_weights())
@@ -189,6 +189,7 @@ def main(tr):
         done = False
         
         total_collision = 0
+        s= 0
 
         for step in range(MAX_STEPS):
             # Select actions for all agents
@@ -208,6 +209,8 @@ def main(tr):
 
 
             done = all(goal_flags)  
+
+            s +=1
 
 
             # Store transition 
@@ -245,9 +248,9 @@ def main(tr):
 
 
         print(f"Zero Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
-        arr = [episode, total_done, total_collision]
+        arr = [episode, total_done, total_collision, s]
         df.loc[len(df)] = arr
-        st = "data/suny/"+str(tr)+".csv"
+        st = "data/isr/"+str(tr)+".csv"
         df.to_csv(st, index=False)
 
         # print(reward_list)
