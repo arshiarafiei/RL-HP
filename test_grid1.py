@@ -160,12 +160,12 @@ def reward_grid_env(env, trajectory1, trajectory2, step, episode):
 def main(tr):
     # Initialize environment and models
 
-    column = ["episode", "total_done", "total_col"]
+    column = ["episode", "total_done", "total_col", "step"]
 
     df = pd.DataFrame(columns=column)
 
 
-    env = GridEnv(map_name='SUNY', nagents=NUM_AGENTS, norender=True, padding=True)
+    env = GridEnv(map_name='Pentagon', nagents=NUM_AGENTS, norender=True, padding=True)
     main_model = build_model()
     target_model = build_model()
     target_model.set_weights(main_model.get_weights())
@@ -189,6 +189,7 @@ def main(tr):
         done = False
         
         total_collision = 0
+        s= 0
 
         for step in range(MAX_STEPS):
             # Select actions for all agents
@@ -208,6 +209,8 @@ def main(tr):
 
 
             done = all(goal_flags)  
+
+            s +=1
 
 
             # Store transition 
@@ -230,31 +233,31 @@ def main(tr):
             train_network(replay_buffer, main_model, target_model)
 
         # Decay epsilon
-        if done:
-            epsilon = max(epsilon * EPSILON_DECAY, EPSILON_MIN)
+        epsilon = max(epsilon * EPSILON_DECAY, EPSILON_MIN)
         
 
         # Update target model periodically
         if episode % 10 == 0:
             target_model.set_weights(main_model.get_weights())
-        f = open("/Users/tartmsu/Desktop/result_run1.txt", "a")
+        f = open("/Users/tartmsu/Desktop/result_run.txt", "a")
         f.write(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Collision: {collision} , Epsilon: {epsilon:.2f}\n")
         f.writelines([f"{line}  " for line in reward_list])
         f.write("\n#######################################\n\n\n\n#######################################\n")
 
 
 
-        print(f"One : Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
-        arr = [episode, total_done, total_collision]
+        print(f"Zero Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
+        arr = [episode, total_done, total_collision, s]
         df.loc[len(df)] = arr
-        st = "data/suny/"+str(tr)+".csv"
+        st = "data/pent/"+str(tr)+".csv"
         df.to_csv(st, index=False)
 
         # print(reward_list)
 
 # Run the main loop
 if __name__ == "__main__":
-    main(6)
+    for i in range(30,40):
+        main(i)
 
 
 
