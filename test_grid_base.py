@@ -165,7 +165,7 @@ def main(tr):
     df = pd.DataFrame(columns=column)
 
 
-    env = GridEnv(map_name='ISR', nagents=NUM_AGENTS, norender=True, padding=True)
+    env = GridEnv(map_name='Pentagon', nagents=NUM_AGENTS, norender=True, padding=True)
     main_model = build_model()
     target_model = build_model()
     target_model.set_weights(main_model.get_weights())
@@ -262,14 +262,14 @@ def main(tr):
         print(f"base : Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
         arr = [episode, total_done, total_collision,s]
         df.loc[len(df)] = arr
-        st = "data/isr_base/"+str(tr)+".csv"
+        st = "data/pent_base/"+str(tr)+".csv"
         df.to_csv(st, index=False)
 
         # print(reward_list)
 
 # Run the main loop
 if __name__ == "__main__":
-    for i in range(20,25):
+    for i in range(2,10):
         main(i)
 
 

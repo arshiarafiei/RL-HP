@@ -12,14 +12,14 @@ import random
 import pandas as pd
 
 # Hyperparameters
-GAMMA = 0.99
+GAMMA = 1.0
 EPSILON = 1.0
 EPSILON_DECAY = 0.995
 EPSILON_MIN = 0.01
 LR = 0.001
 BATCH_SIZE = 64
 REPLAY_BUFFER_SIZE = 10000
-NUM_EPISODES = 200
+NUM_EPISODES = 300
 MAX_STEPS = 500
 
 NUM_AGENTS = 2
@@ -46,8 +46,8 @@ class ReplayBuffer:
 def build_model():
     model = Sequential([
         Input(shape=(STATE_DIM,)),
-        Dense(512, activation='relu'),
-        Dense(512, activation='relu'),
+        Dense(1024, activation='relu'),
+        Dense(1024, activation='relu'),
         Dense(NUM_AGENTS * ACTION_SPACE)  # Output Q-values for all actions of all agents
     ])
     model.compile(optimizer=Adam(learning_rate=LR), loss='mse')
@@ -165,7 +165,7 @@ def main(tr):
     df = pd.DataFrame(columns=column)
 
 
-    env = GridEnv(map_name='Pentagon', nagents=NUM_AGENTS, norender=True, padding=True)
+    env = GridEnv(map_name='MIT', nagents=NUM_AGENTS, norender=True, padding=True)
     main_model = build_model()
     target_model = build_model()
     target_model.set_weights(main_model.get_weights())
@@ -232,32 +232,30 @@ def main(tr):
             # Train the network
             train_network(replay_buffer, main_model, target_model)
 
-        # Decay epsilon
-        if done:
-            epsilon = max(epsilon * EPSILON_DECAY, EPSILON_MIN)
+        epsilon = max(epsilon * EPSILON_DECAY, EPSILON_MIN)
         
 
         # Update target model periodically
         if episode % 10 == 0:
             target_model.set_weights(main_model.get_weights())
-        f = open("/Users/tartmsu/Desktop/result_run.txt", "a")
-        f.write(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Collision: {collision} , Epsilon: {epsilon:.2f}\n")
-        f.writelines([f"{line}  " for line in reward_list])
-        f.write("\n#######################################\n\n\n\n#######################################\n")
+        # f = open("/Users/tartmsu/Desktop/result_run.txt", "a")
+        # f.write(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Collision: {collision} , Epsilon: {epsilon:.2f}\n")
+        # f.writelines([f"{line}  " for line in reward_list])
+        # f.write("\n#######################################\n\n\n\n#######################################\n")
 
 
 
         print(f"Zero Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
         arr = [episode, total_done, total_collision, s]
         df.loc[len(df)] = arr
-        st = "data/pent/"+str(tr)+".csv"
+        st = "data/mit/"+str(tr)+".csv"
         df.to_csv(st, index=False)
 
         # print(reward_list)
 
 # Run the main loop
 if __name__ == "__main__":
-    for i in range(0,5):
+    for i in range(5,10):
         main(i)
 
 

@@ -1,29 +1,30 @@
 # Case Studies
 
 ## PCP
-Status: mostly stable 
+Status: 80% 
+
 
 ### ToDos:
-1- Optimization
 
-2- Baseline ???
+graphs and baseline (random is done)
 
 ## planning
 
-Status: mostly stable 
+Status: 90%
+
+graphs
 
 ### ToDos:
-1- Optimization
 
-2- Graphs and comparison
+
+graphs and add baselines 
+
 
 ## Fairness
 
-Status: Stable (it is not "learning")
+Status: 80%
 
 ### ToDos:
-1- ALOTTTTT of Optimization
-
-2- Graphs and comparison
+graphs and add baselines 
 
 

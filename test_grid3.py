@@ -12,14 +12,14 @@ import random
 import pandas as pd
 
 # Hyperparameters
-GAMMA = 0.99
+GAMMA = 1.0
 EPSILON = 1.0
 EPSILON_DECAY = 0.995
 EPSILON_MIN = 0.01
 LR = 0.001
 BATCH_SIZE = 64
 REPLAY_BUFFER_SIZE = 10000
-NUM_EPISODES = 200
+NUM_EPISODES = 300
 MAX_STEPS = 500
 
 NUM_AGENTS = 2
@@ -46,8 +46,8 @@ class ReplayBuffer:
 def build_model():
     model = Sequential([
         Input(shape=(STATE_DIM,)),
-        Dense(512, activation='relu'),
-        Dense(512, activation='relu'),
+        Dense(1024, activation='relu'),
+        Dense(1024, activation='relu'),
         Dense(NUM_AGENTS * ACTION_SPACE)  # Output Q-values for all actions of all agents
     ])
     model.compile(optimizer=Adam(learning_rate=LR), loss='mse')
@@ -165,7 +165,7 @@ def main(tr):
     df = pd.DataFrame(columns=column)
 
 
-    env = GridEnv(map_name='Pentagon', nagents=NUM_AGENTS, norender=True, padding=True)
+    env = GridEnv(map_name='MIT', nagents=NUM_AGENTS, norender=True, padding=True)
     main_model = build_model()
     target_model = build_model()
     target_model.set_weights(main_model.get_weights())
@@ -189,8 +189,7 @@ def main(tr):
         done = False
         
         total_collision = 0
-
-        s =0
+        s= 0
 
         for step in range(MAX_STEPS):
             # Select actions for all agents
@@ -204,25 +203,14 @@ def main(tr):
             trajectory1.append(next_pos[0].tolist())
             trajectory2.append(next_pos[1].tolist())
 
-            reward = 0
-
-            if goal_flags[0] == 1 and goal_flags[0] ==1:
-                reward = 10
-            if goal_flags[0] == 1 and goal_flags[0] == 0:
-                reward = 5
-            if goal_flags[0] == 0 and goal_flags[0] == 1:
-                reward = 5
-
-            if coll:
-                reward = -5
-            
-            s +=1
-
+            reward = reward_grid_env(env, trajectory1, trajectory2, step, episode + 1)
 
             next_state_flat = np.concatenate(next_pos)  
 
 
             done = all(goal_flags)  
+
+            s +=1
 
 
             # Store transition 
@@ -244,84 +232,28 @@ def main(tr):
             # Train the network
             train_network(replay_buffer, main_model, target_model)
 
-        # Decay epsilon
-        
         epsilon = max(epsilon * EPSILON_DECAY, EPSILON_MIN)
         
 
         # Update target model periodically
-        if episode % 50 == 0:
+        if episode % 10 == 0:
             target_model.set_weights(main_model.get_weights())
-        # f = open("/Users/tartmsu/Desktop/result_run1.txt", "a")
+        # f = open("/Users/tartmsu/Desktop/result_run.txt", "a")
         # f.write(f"Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Collision: {collision} , Epsilon: {epsilon:.2f}\n")
         # f.writelines([f"{line}  " for line in reward_list])
         # f.write("\n#######################################\n\n\n\n#######################################\n")
 
 
 
-        print(f"base : Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
-        arr = [episode, total_done, total_collision,s]
+        print(f"3 Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
+        arr = [episode, total_done, total_collision, s]
         df.loc[len(df)] = arr
-        st = "data/pent_base/"+str(tr)+".csv"
+        st = "data/mit/"+str(tr)+".csv"
         df.to_csv(st, index=False)
 
         # print(reward_list)
 
 # Run the main loop
 if __name__ == "__main__":
-    for i in range(11,16):
+    for i in range(20,25):
         main(i)
-
-
-
-
-
-# if __name__ == "__main__":
-
-
-#     # env = GridEnv(map_name='SUNY', nagents=2, norender=False, padding=True)
-#     # # env.render()
-#     # # a = input('next:\n')
-#     # env.pos = np.array([[1, 1], [1, 1]])
-#     # obs, rew, x, y, w, oob = env.step([0, 0])
-#     # # env.render()
-#     # print("Obs: ", obs, "  rew: ", rew, x , y, w, oob)
-#     # obs, rew, x, y , w, oob = env.step([4, 4])
-#     # # env.render()
-#     # print("Obs: ", obs, "  rew: ", rew, x , y, w, oob)
-#     # env.reset(debug=True)
-#     # print(type(obs))
-#     # a = input('next:\n')
-#     # obs, rew, _, _ = env.step([3, 1])
-#     # # env.render()
-#     # print("Obs: ", obs, "  rew: ", rew)
-#     # # a = input('next:\n')
-#     # obs, rew, _, _ = env.step([2, 1])
-#     # # env.render()
-#     # print("Obs: ", obs, "  rew: ", rew)
-#     # a = input('next:\n')
-
-#     # env.final_render()
-
-
-    # env = GridEnv(map_name='SUNY', nagents=2, norender=True, padding=True)
-
-
-#     print(env.action_space[0])
-
-    # env.pos = np.array([[8, 22], [1, 1]])  # Example current positions
-
-    # # Calculate distance for agent 0 to a specific target
-    # agent_id = 0
-    # target_position = tuple((8, 22))
-    # print(tuple(env.targets[0]))
-
-    
-
-
-
-    # distance = env.calculate_closest_distance(target_position,  tuple(env.targets[0]))
-    # print(f"Agent {agent_id} closest distance to {tuple(env.targets[0])}: {distance}")
-
-
-
