@@ -46,8 +46,8 @@ class ReplayBuffer:
 def build_model():
     model = Sequential([
         Input(shape=(STATE_DIM,)),
-        Dense(1024, activation='relu'),
-        Dense(1024, activation='relu'),
+        Dense(512, activation='relu'),
+        Dense(512, activation='relu'),
         Dense(NUM_AGENTS * ACTION_SPACE)  # Output Q-values for all actions of all agents
     ])
     model.compile(optimizer=Adam(learning_rate=LR), loss='mse')
@@ -248,10 +248,10 @@ def main(tr):
         print(f"{tr} Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
         arr = [episode, total_done, total_collision, s]
         df.loc[len(df)] = arr
-        st = "data/table/"+str(tr)+".csv"
+        st = "data/table1/"+str(tr)+".csv"
         df.to_csv(st, index=False)
 
-        # print(reward_list)
+        
 
 # Run the main loop
 
