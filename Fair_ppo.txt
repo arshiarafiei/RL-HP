@@ -1,0 +1,78 @@
+Episode 1/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:8 
+Agent:1 -- Total Allocation:4 
+----------------------------------------
+----------------------------------------
+
+Episode 2/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:26 
+Agent:1 -- Total Allocation:29 
+----------------------------------------
+----------------------------------------
+
+Episode 3/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:62 
+Agent:1 -- Total Allocation:63 
+----------------------------------------
+----------------------------------------
+
+Episode 4/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:164 
+Agent:1 -- Total Allocation:234 
+----------------------------------------
+----------------------------------------
+
+Episode 5/500 - Done: True - Epsilon: 0.20 
+Agent:0 -- Total Allocation:383 
+Agent:1 -- Total Allocation:430 
+----------------------------------------
+----------------------------------------
+
+Episode 6/500 - Done: True - Epsilon: 0.20 
+Agent:0 -- Total Allocation:473 
+Agent:1 -- Total Allocation:494 
+----------------------------------------
+----------------------------------------
+
+Episode 7/500 - Done: True - Epsilon: 0.20 
+Agent:0 -- Total Allocation:497 
+Agent:1 -- Total Allocation:497 
+----------------------------------------
+----------------------------------------
+
+Episode 8/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:114 
+Agent:1 -- Total Allocation:108 
+----------------------------------------
+----------------------------------------
+
+Episode 9/500 - Done: False - Epsilon: 0.20 
+Agent:0 -- Total Allocation:139 
+Agent:1 -- Total Allocation:137 
+----------------------------------------
+----------------------------------------
+
+Episode 10/500 - Done: True - Epsilon: 0.20 
+Agent:0 -- Total Allocation:426 
+Agent:1 -- Total Allocation:425 
+----------------------------------------
+----------------------------------------
+
+Episode 11/500 - Done: True - Epsilon: 0.20 
+Agent:0 -- Total Allocation:496 
+Agent:1 -- Total Allocation:500 
+----------------------------------------
+----------------------------------------
+
+Episode 12/500 - Done: True - Epsilon: 0.20 
+Agent:0 -- Total Allocation:497 
+Agent:1 -- Total Allocation:497 
+----------------------------------------
+----------------------------------------
+
+Episode 13/500 - Done: True - Epsilon: 0.20 
+Agent:0 -- Total Allocation:488 
+Agent:1 -- Total Allocation:491 
+----------------------------------------
+----------------------------------------
+
