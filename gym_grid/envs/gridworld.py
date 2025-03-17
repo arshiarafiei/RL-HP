@@ -187,7 +187,14 @@ class GridWorld:
         return obs_states
 
     def process_map(self, map):
-        if map == "simple":
+        if map == "basic":
+            self.targets = [[3, 3], [3, 0]]
+            self.init = [[3, 0], [3, 3]]
+            self.shared_goal = True
+            # self.distance = True
+            # self.collision = False
+
+        elif map == "simple":
             self.targets = [[0, 1], [0, 1], [0, 1], [0, 1]]
             self.init = [[3, 0], [3, 2], [1, 0], [1, 2]]
             self.shared_goal = True

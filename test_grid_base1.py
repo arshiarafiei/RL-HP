@@ -20,7 +20,7 @@ LR = 0.001
 BATCH_SIZE = 64
 REPLAY_BUFFER_SIZE = 10000
 NUM_EPISODES = 300
-MAX_STEPS = 500
+MAX_STEPS = 300
 
 NUM_AGENTS = 2
 ACTION_SPACE = 5  # Number of actions per agent
@@ -206,15 +206,15 @@ def main(tr):
 
             reward = 0
 
-            if goal_flags[0] == 1 and goal_flags[0] ==1:
+            if goal_flags[0] == 1 and goal_flags[1] ==1:
+                reward = 5
+            if goal_flags[0] == 1 and goal_flags[1] == 0:
+                reward = 5
+            if goal_flags[0] == 0 and goal_flags[1] == 1:
                 reward = 10
-            if goal_flags[0] == 1 and goal_flags[0] == 0:
-                reward = 5
-            if goal_flags[0] == 0 and goal_flags[0] == 1:
-                reward = 5
 
             if coll:
-                reward = -5
+                reward = -10
             
             s +=1
 
@@ -259,17 +259,17 @@ def main(tr):
 
 
 
-        print(f"base1 MIT (0,10) {tr} : Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
+        print(f"base4 MIT (5,10) {tr} : Episode {episode + 1}/{NUM_EPISODES}, Total Reward: {total_reward}, Done: {done}, Done: {total_done}, Collision: {total_collision} ,Epsilon: {epsilon:.2f}")
         arr = [episode, total_done, total_collision,s]
         df.loc[len(df)] = arr
-        st = "data/mit_base/"+str(tr)+".csv"
+        st = "data/mit_base_4/"+str(tr)+".csv"
         df.to_csv(st, index=False)
 
         # print(reward_list)
 
 # Run the main loop
 if __name__ == "__main__":
-    for i in range(2,10):
+    for i in range(5,10):
         main(i)
 
 

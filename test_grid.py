@@ -254,9 +254,9 @@ def main(tr):
         # print(reward_list)
 
 # Run the main loop
-if __name__ == "__main__":
-    for i in range(5,10):
-        main(i)
+# if __name__ == "__main__":
+#     for i in range(5,10):
+#         main(i)
 
 
 
