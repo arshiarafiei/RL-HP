@@ -74,16 +74,18 @@ class WildFireEnv(gym.Env):
 
         if self.med in self.victims:
             self.victims.remove(self.med)  # Remove rescued victim
+            self.victim_saved += 1
 
 
 
         if self.FF in self.fire:
             self.fire.remove(self.FF)  # Extinguish fire
+            self.fire_ex += 1
 
         terminated = len(self.fire) == 0 and len(self.victims) == 0
         sub_goals = [len(self.fire) == 0 , len(self.victims) == 0]
         reward = -1  
-        info = [len(self.fire) == 0 , len(self.victims) == 0]
+        info = [self.fire_ex , self.victim_saved]
 
         return self.get_observation(), reward, terminated, sub_goals, info
 
@@ -132,6 +134,7 @@ class WildFireEnv(gym.Env):
     
 
     def reward(self):
+        pass #to do reward funvtion and robustness function
 
 
 
@@ -139,15 +142,22 @@ env = WildFireEnv()
 print(env.observation_space)
 env.render()
 
-obs, _ = env.reset()
-print(obs)
-for i in range(50):
+done = False
+step = 0
+while done== False:
     
     action = env.action_space.sample()
     
-    print(obs)
+    obs, reward, done, goals, info = env.step(action)
+    step += 1 
     env.render()
-    obs, reward, terminated, truncated, info = env.step(action)
+    print("step", step)
+    print("obs ", obs)
+    print("terminate", done)
+    print("goals", goals)
+    print("info", info)
+    print("############################## \n \n##############################")
+
 
 
 
