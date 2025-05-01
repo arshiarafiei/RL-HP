@@ -87,6 +87,7 @@ class WildFireEnv(gym.Env):
         reward = -1  
         info = [self.fire_ex , self.victim_saved]
 
+
         return self.get_observation(), reward, terminated, sub_goals, info
 
     def reset(self, seed=None, options=None):
@@ -111,20 +112,22 @@ class WildFireEnv(gym.Env):
             if f in  temp_victim:
                 grid[tuple(f)] = 'V🔥'
                 temp_victim.remove(f)
-
-
- 
-        for v in temp_victim:
-            grid[tuple(v)] = 'V'  
-
+   
 
         if self.FF == self.med:
-            grid[tuple(self.FF)] = "FM"  
+            grid[tuple(self.FF)] = "FM" 
+        elif self.med in temp_victim:
+            grid[tuple(self.med)] = 'MDV'
+        elif self.FF in temp_victim:
+            grid[tuple(self.FF)] = 'FFV'
+        elif self.FF in self.fire:
+            grid[tuple(self.FF)] = 'FF🔥'
+        elif self.med in self.fire:
+            grid[tuple(self.med)] = 'MD🔥' 
         else:
             grid[tuple(self.FF)] = "FF"  # Firefighter
             grid[tuple(self.med)] = 'MD'  # Medic
-
-
+            
         formatted_grid = "\n".join(["  ".join(f"{cell:3}" for cell in row) for row in grid])
 
         print(formatted_grid)
@@ -132,9 +135,6 @@ class WildFireEnv(gym.Env):
     def _manhattan_distance(self, p1, p2):
         return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])
     
-
-    def reward(self):
-        pass #to do reward funvtion and robustness function
 
 
 
