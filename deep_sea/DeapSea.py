@@ -7,7 +7,7 @@ class DeepSeaTreasureEnv(gym.Env):
 
     metadata = {'render.modes': ['human']}
 
-    def __init__(self):
+    def __init__(self, hypRL = False):
         # the map of the deep sea treasure (convex version)
         self.sea_map = np.array([
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -24,6 +24,8 @@ class DeepSeaTreasureEnv(gym.Env):
         ], dtype=np.float32)
 
         self.max_reward = 1.0
+        self.hypRL = hypRL
+        self.step_num = 0
 
         # state is a pair of discrete coords in [0..10]
         self.observation_space = spaces.MultiDiscrete([11, 11])
@@ -37,7 +39,11 @@ class DeepSeaTreasureEnv(gym.Env):
 
         self.trajctory = list()
 
-    import numpy as np
+        self.treasure_cells = self.get_treasure_cells()
+
+        self.treasure_achieve = list()
+
+
 
     def get_treasure_cells(self, not_treasure =  0):
 
@@ -51,17 +57,51 @@ class DeepSeaTreasureEnv(gym.Env):
     def reset(self, *, seed=None, options=None):
         super().reset(seed=seed)
         self.current_state[:] = 0
-        self.trajctory.append(self.current_state)
+        self.trajctory.append(self.current_state.tolist())
         self.terminal = False
+        self.step_num = 0
+        self.treasure_achieve = list()
         return self.current_state, {}  # second return is "info"
     
     def seed(self, seed=None):
         np.random.seed(seed)
         return [seed]
     
-    def reward_hypRL(self):
+    def reward_hypRL(self, step_traget = 0):
+
+
+        # print("trajectory",self.trajctory)
+        # print("treasures",self.get_treasure_cells())
+
+        reach = list()
+
+        t = 0
+        for tr in self.treasure_cells:
+            temp = list()
+            for index, state in enumerate(self.trajctory):
+                if index < t:
+                    continue
+                temp.append([float(self.sea_map[tuple(tr)]) * (1 -  self.calculate_distance(state, tr)), index])
+            # print("temp",temp)
+            reach.append(max(temp, key=lambda x: x[0]))
+            t = max(temp, key=lambda x: x[0])[1] +1
+            t = min(t, len(self.trajctory)-1)
         
-        pass
+        # print("reach",reach)
+        # print(min(reach, key=lambda x: x[0])[0])
+
+        reach_term = min(reach, key=lambda x: x[0])[0]
+
+        # step_term = step_traget - self.step_num
+
+        # print("step_term",step_term)
+
+        # reward = min(reach_term, step_term)
+        # print("reward",reward)
+
+        return reach_term
+
+
 
     def step(self, action):
         # 4‐way motion
@@ -90,6 +130,11 @@ class DeepSeaTreasureEnv(gym.Env):
         if val <= 0:
             treasure = 0.0
         else:
+            self.treasure_achieve.append(val)
+            # print("treasure_achieve",self.treasure_achieve)
+            # print(val)
+            # print(self.current_state)
+            # print("step",self.step_num)
             treasure = val / self.max_reward
             self.terminal = True
 
@@ -99,14 +144,22 @@ class DeepSeaTreasureEnv(gym.Env):
 
 
 
-        self.trajctory.append(self.current_state)
+        self.trajctory.append(self.current_state.tolist())
 
         reward_vector = np.array([treasure, time_penalty], dtype=np.float32)
 
-        reward = reward_vector[0] +  reward_vector[1]
+        if self.hypRL:
+            reward = self.reward_hypRL()
+        else:
+            reward = reward_vector[0] + reward_vector[1]
+
+        self.step_num = self.step_num + 1
+
+        if self.step_num >= 25:
+            self.terminal = True
 
 
-        return self.current_state, reward, self.terminal, False, {}
+        return self.current_state, reward, self.terminal, False, {'treasure': sum(self.treasure_achieve), 'steps' :self.step_num}
 
 
     def render(self, mode='human'):
@@ -117,18 +170,20 @@ class DeepSeaTreasureEnv(gym.Env):
 
     
 if __name__ == "__main__":
-    env = DeepSeaTreasureEnv()
+    env = DeepSeaTreasureEnv(hypRL=True)
     env.reset()
 
-    print(env.get_treasure_cells())
+    # print(env.get_treasure_cells())
 
     # print(env.action_space.sample())
     # print(env.observation_space.sample())
-    # env.render()
+    #env.render()
 
-    # done = False
-    # for i in range(10):
-    #     state , reward, term, _ = env.step(1)
-    #     print(state, reward, term)
+    action = [1,3,1,3,1,3,1,3,3,3,1,1,3,3,1,1,3,1]
+
+    done = False
+    for i in range(16):
+        state , reward, term, _, _ = env.step(action[i])
+        print(reward)
 
     
