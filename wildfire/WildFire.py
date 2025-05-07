@@ -4,7 +4,7 @@ import numpy as np
 import math
 
 class WildFireEnv(gym.Env):
-    def __init__(self, n_grid = 3, method = "baseline"):
+    def __init__(self, n_grid = 3, method = "baseline", mode = 'train'):
         super(WildFireEnv, self).__init__()
 
         self.n_grid = n_grid
@@ -18,7 +18,12 @@ class WildFireEnv(gym.Env):
         self.victim_saved = 0
         self.fire_ex = 0
         self.trajectory = list()
-        self.max_step = 2000
+        if mode == 'train':
+            self.max_step = 1000
+        else:
+            self.max_step = 10000
+
+        self.mode = mode
         self.trunct = False
 
         self.action_space = spaces.MultiDiscrete([5, 5]) 
@@ -114,7 +119,7 @@ class WildFireEnv(gym.Env):
 
     
 
-    def step(self, action, mode = 'train'):
+    def step(self, action):
 
         # print('action',action)
 
@@ -123,7 +128,7 @@ class WildFireEnv(gym.Env):
         # print("FF", self.FF)
         # print("med", self.med)
 
-        if mode == 'inference':
+        if self.mode == 'inference':
             act = action[0]
             new_FF = [self.FF[0] + moves[int(act[0])][0], self.FF[1] + moves[int(act[0])][1]]
             new_med = [self.med[0] + moves[int(act[1])][0], self.med[1] + moves[int(act[1])][1]]

@@ -12,11 +12,11 @@ import os
 
 
 hyprl = list()
-env   = WildFireEnv(method="hypRL")
-for i in range(100):
+env   = WildFireEnv(method="hypRL",n_grid=5, mode='inference')
+for i in range(10):
     state, info = env.reset()
 
-    model = PPO.load("models/PPO_hyprl/PPO_1")
+    model = PPO.load("models/PPO_5_hyprl/PPO_0")
     done = False
     stepi = 0
     flag1 = 0
@@ -26,7 +26,7 @@ for i in range(100):
         action = model.predict(state)
         stepi += 1
 
-        obs, reward, done, goals, info = env.step(action, mode='inference')
+        obs, reward, done, goals, info = env.step(action)
         if info['sub_goals'][0] == True and flag1 ==0:
             fire = stepi
             flag1 = 1
@@ -34,36 +34,46 @@ for i in range(100):
             victim = stepi
             flag2 = 1
         dist += env.trajectory[-1][2]
+    if flag1 == 0:
+        fire = stepi
+    if flag2 == 0:
+        victim = stepi
     
     hyprl.append([fire, victim, stepi, dist/stepi])
 
         
 baseline = list()
-for i in range(100):
+for i in range(10):
     state, info = env.reset()
 
-    model = PPO.load("models/PPO_orginal/PPO_1")
+    model = PPO.load("models/PPO_5_orginal/PPO_0")
     done = False
-    stepi = 0
+    stepi1 = 0
     flag1 = 0
     flag2 = 0
     dist = 0
     while not done:
 
-        stepi += 1
+        stepi1 += 1
         action = model.predict(state)
 
-        obs, reward, done, goals, info = env.step(action, mode='inference')
+        obs, reward, done, goals, info = env.step(action)
 
         if info['sub_goals'][0] == True and flag1 ==0:
-            fire = stepi
+            fire = stepi1
             flag1 = 1
         if info['sub_goals'][1] == True and flag2 ==0:
-            victim = stepi
+            victim = stepi1
             flag2 = 1
         dist += env.trajectory[-1][2]
     
-    baseline.append([fire, victim, stepi, dist/stepi])
+    if flag1 == 0:
+        fire = stepi1
+    if flag2 == 0:
+        victim = stepi1
+
+    
+    baseline.append([fire, victim, stepi1, dist/stepi1])
 
 baseline_1 = sum(item[0] for item in baseline)/len(baseline)
 baseline_2 = sum(item[1] for item in baseline)/len(baseline)
