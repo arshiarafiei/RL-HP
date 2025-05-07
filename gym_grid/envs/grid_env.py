@@ -1,6 +1,6 @@
-import gym
-from gym import error, spaces, utils
-from gym.utils import seeding
+import gymnasium as gym
+from gymnasium import error, spaces, utils
+from gymnasium.utils import seeding
 import numpy as np
 import time
 from copy import deepcopy
@@ -19,22 +19,24 @@ import matplotlib.pylab as plt
 import warnings
 import matplotlib.cbook
 # warnings.filterwarnings("ignore",category=matplotlib.cbook.mplDeprecation)
-from gym import spaces
 
 
 class GridEnv(gym.Env):
     metadata = {'render.modes': ['human']}
 
-    def __init__(self, map_name='example', nagents=2, padding=False, debug=False, norender=True):
+    def __init__(self, map_name='example', nagents=2, padding=False, debug=False, norender=True, method = 'baseline'):
         # read map + initialize
         self.gw = GridWorld(map_name, nagents, padding)
+        self.trajectory = list()
+        self.method = method
+        self.step_max =500
         self.nrows = self.gw.map.shape[0]
         self.ncols = self.gw.map.shape[1]
         self.nagents = nagents
         self.pos = self.gw.init[:nagents]
         self.targets = self.gw.targets[:nagents]
-        self.action_space = [spaces.Discrete(6) for _ in range(nagents)]  # 0- 5
-        self.observation_space = spaces.MultiDiscrete([self.nrows, self.ncols])
+        self.action_space = spaces.MultiDiscrete([5]*nagents)   # 0- 5
+        self.observation_space = spaces.MultiDiscrete([self.nrows, self.ncols, self.nrows, self.ncols])
         # update init positions based on padding
         if padding:
             self.pos = np.add(self.pos, self.gw.pads).astype(int)
@@ -76,6 +78,8 @@ class GridEnv(gym.Env):
         self.start_pos = deepcopy(self.pos)
 
     def step(self, actions, noop=True, distance=False, share=False, random_priority=True, collision_cost = 10):
+
+        
 
         # random priority
         priority = np.arange(self.nagents)
@@ -194,9 +198,31 @@ class GridEnv(gym.Env):
                 rewards[i] = 100
                 self.goal_flag[i] = 1
 
-        done = np.all(self.goal_flag)
+        done = np.all(self.goal_flag) 
 
-        return self.pos, rewards, coll, self.goal_flag, wall, oob
+
+
+        obs    = self.pos.flatten()
+        reward = float(np.sum(rewards))
+        info   = {
+            "done": done,
+            "agent_rewards": rewards.copy(),
+            "collisions":    coll,
+            "goal_flag":     self.goal_flag.copy(),
+            "wall":          wall,
+            "oob":           oob
+        }
+        self.trajectory.append([[obs[0],obs[1]],[obs[2],obs[3]]])
+
+        if self.method == "hypRL":
+            reward = self.reward()
+        treminate = False
+        if done or len(self.trajectory)>self.step_max:
+            treminate = True
+
+
+        return obs, reward, treminate, False, info
+    
 
     def get_next_state(self, pos, action, goal_flag):
         new_p = pos.astype(int)
@@ -232,7 +258,8 @@ class GridEnv(gym.Env):
 
         return new_p, oob, obs
 
-    def reset(self, debug=False):
+    def reset(self, *, seed=None, options=None, debug=False):
+        super().reset(seed=seed)
         # reset to start.
         if debug:
             print('starting at :', self.start_pos)
@@ -240,8 +267,10 @@ class GridEnv(gym.Env):
         self.goal_flag = np.zeros(self.nagents, dtype=int)
         if not self.norender:
             self.ax.clear()
+        obs = self.pos.flatten()
+        self.trajectory.append([[obs[0],obs[1]],[obs[2],obs[3]]])
 
-        return [np.array(self.pos[i]) for i in range(self.nagents)]
+        return obs, {}
 
     def render(self, episode=-1, mode='human', speed=1):
         # print("Rendering...")
@@ -319,6 +348,35 @@ class GridEnv(gym.Env):
 
         # If we exhaust the queue without finding the target
         return -1
+    
+
+    def reward(self):
+        target1 = tuple(self.targets[0])
+        target2 = tuple(self.targets[1])
+
+        phi3_list = list()
+
+        phi1_list = list()
+
+        phi2_list = list()
+
+
+        for index in range(len(self.trajectory)):
+            phi3_list.append(-1 + self.calculate_distance(tuple(self.trajectory[index][0]), tuple(self.trajectory[index][1])))
+            phi1_list.append(1 - self.calculate_distance(tuple(self.trajectory[index][0]), target1))
+            phi2_list.append(1 - self.calculate_distance(tuple(self.trajectory[index][1]), target2))
+
+
+
+        reward = min(min(phi3_list), max(phi1_list), max(phi2_list))
+
+        # print("Reward: ", reward)
+        # print("Phi1: ", phi1_list)
+        # print("Phi2: ", phi2_list)
+        # print("Phi3: ", phi3_list)
+
+        return reward 
+
 
 
 if __name__ == "__main__":

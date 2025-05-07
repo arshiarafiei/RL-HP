@@ -1,6 +1,6 @@
 import numpy as np
 import math
-from env0 import SimpleMDPEnv
+from otherfiles.env0 import SimpleMDPEnv
 
 
 def reward_env0(tr, tr1, env, env1, step):

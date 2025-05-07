@@ -1,6 +1,6 @@
 import numpy as np
-from env0 import SimpleMDPEnv
-from reward import reward_env0, reward_pcp, reward_pcp_new
+from otherfiles.env0 import SimpleMDPEnv
+from otherfiles.reward import reward_env0, reward_pcp, reward_pcp_new
 from model import MultiAgentDQN
 from pcpenv import PCPMDPEnv
 from model import MultiAgentRQN, MultiAgentRQN_NEW
