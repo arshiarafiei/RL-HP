@@ -65,28 +65,28 @@ def train_hypRL(map = 'SUNY'):
     if not os.path.exists(logdir):
         os.makedirs(logdir)
 
-    env = GridEnv(map_name=map, nagents=2, norender=False, padding=True, method="hypRL")
+    env = GridEnv(map_name=map, nagents=2, norender=False, padding=True, method="baseline")
 
-
+    log_name = f"PPO_{map}_hyprl"
 
     model = PPO(
         "MlpPolicy",
         env,
         gamma=0.995,
-        n_steps=128,
+        n_steps=64,
         gae_lambda=0.95,
         ent_coef=0.001,
         learning_rate=0.0003,
         vf_coef=0.5,
-        batch_size=128,
+        batch_size=64,
         clip_range=0.2,
         max_grad_norm=0.5,
         verbose=1,
         tensorboard_log=logdir,
     )
-    TIMESTEPS = 500000
-    for i in range(1):
-        model.learn(total_timesteps=TIMESTEPS, reset_num_timesteps=False, tb_log_name="PPO_hyprl", log_interval=1)
+    TIMESTEPS = 10000
+    for i in range(50):
+        model.learn(total_timesteps=TIMESTEPS, reset_num_timesteps=False, tb_log_name=log_name, log_interval=1)
         # model.save(f"{models_dir}/{TIMESTEPS*i}_steps")
         model.save(f"{models_dir}/PPO_{i}")
 

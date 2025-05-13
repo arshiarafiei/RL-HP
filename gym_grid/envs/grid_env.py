@@ -24,7 +24,7 @@ import matplotlib.cbook
 class GridEnv(gym.Env):
     metadata = {'render.modes': ['human']}
 
-    def __init__(self, map_name='example', nagents=2, padding=False, debug=False, norender=True, method = 'baseline'):
+    def __init__(self, map_name='example', nagents=2, padding=False, debug=False, norender=True, method = 'baseline', mode = 'train'):
         # read map + initialize
         self.gw = GridWorld(map_name, nagents, padding)
         self.trajectory = list()
@@ -35,6 +35,7 @@ class GridEnv(gym.Env):
         self.nagents = nagents
         self.pos = self.gw.init[:nagents]
         self.targets = self.gw.targets[:nagents]
+        self.mode = mode
         self.action_space = spaces.MultiDiscrete([5]*nagents)   # 0- 5
         self.observation_space = spaces.MultiDiscrete([self.nrows, self.ncols, self.nrows, self.ncols])
         # update init positions based on padding
@@ -58,12 +59,12 @@ class GridEnv(gym.Env):
         # self.norm = colors.BoundaryNorm([0, 0, 1, 1], self.map_colors.N)
 
         # plt.ion()
-        if not norender:
-            self.fig = plt.figure(num=0)
-            self.ax = self.fig.add_subplot(111)
+        # if not norender:
+            # self.fig = plt.figure(num=0)
+            # self.ax = self.fig.add_subplot(111)
             # self.render()
             # plt.show(block=False)
-            plt.ion()
+            # plt.ion()
         self.norender = norender
 
         if self.debug:
@@ -78,6 +79,13 @@ class GridEnv(gym.Env):
         self.start_pos = deepcopy(self.pos)
 
     def step(self, actions, noop=True, distance=False, share=False, random_priority=True, collision_cost = 10):
+
+        # print("Actions: ", actions)
+        # print("Pos: ", self.pos)
+
+        if self.mode == 'inference':
+            temp = actions[0]
+            actions = temp.copy()
 
         
 
@@ -265,49 +273,52 @@ class GridEnv(gym.Env):
             print('starting at :', self.start_pos)
         self.pos = deepcopy(self.start_pos)
         self.goal_flag = np.zeros(self.nagents, dtype=int)
-        if not self.norender:
-            self.ax.clear()
+        # if not self.norender:
+        #     self.ax.clear()
         obs = self.pos.flatten()
+        self.trajectory = list()
         self.trajectory.append([[obs[0],obs[1]],[obs[2],obs[3]]])
 
         return obs, {}
 
     def render(self, episode=-1, mode='human', speed=1):
+        if True:
+            pass
         # print("Rendering...")
-        plt.ion()
-        if speed != 0:
-            self.ax.clear()
-            # plot map
-            self.ax.imshow(self.gw.map, cmap=self.map_colors)
+        # plt.ion()
+        # if speed != 0:
+        #     self.ax.clear()
+        #     # plot map
+        #     self.ax.imshow(self.gw.map, cmap=self.map_colors)
 
-            # plot agents
-            # 3 = purple, 10 = yellow
-            p_colors = [3, 10, 5, 8, 15]
-            self.ax.scatter(self.pos[:, 1], self.pos[:, 0], c=p_colors[:self.nagents], s=110)
+        #     # plot agents
+        #     # 3 = purple, 10 = yellow
+        #     p_colors = [3, 10, 5, 8, 15]
+        #     self.ax.scatter(self.pos[:, 1], self.pos[:, 0], c=p_colors[:self.nagents], s=110)
 
-            # plot format
-            if episode == -1:
-                self.ax.set_title('Map')
-            else:
-                self.ax.set_title('Map - episode:' + str(episode))
-            self.ax.xaxis.set_ticks(np.arange(0, self.ncols, 1.0))
-            self.ax.yaxis.set_ticks(np.arange(0, self.nrows, 1.0))
-            self.ax.xaxis.tick_top()
+        #     # plot format
+        #     if episode == -1:
+        #         self.ax.set_title('Map')
+        #     else:
+        #         self.ax.set_title('Map - episode:' + str(episode))
+        #     self.ax.xaxis.set_ticks(np.arange(0, self.ncols, 1.0))
+        #     self.ax.yaxis.set_ticks(np.arange(0, self.nrows, 1.0))
+        #     self.ax.xaxis.tick_top()
 
-            self.ax.relim()
-            self.ax.autoscale_view(True, True, True)
-            # self.fig.subplots_adjust(top=0.85)
-            self.fig.canvas.draw()
-            plt.show(block=False)
-            # self.fig.show()
+        #     self.ax.relim()
+        #     self.ax.autoscale_view(True, True, True)
+        #     # self.fig.subplots_adjust(top=0.85)
+        #     self.fig.canvas.draw()
+        #     plt.show(block=False)
+        #     # self.fig.show()
 
-            # self.fig.canvas.draw_idle()
-            if speed == 1:
-                plt.pause(0.05)
-            elif speed == 2:
-                plt.pause(0.02)
-            else:
-                plt.pause(0.1)
+        #     # self.fig.canvas.draw_idle()
+        #     if speed == 1:
+        #         plt.pause(0.05)
+        #     elif speed == 2:
+        #         plt.pause(0.02)
+        #     else:
+        #         plt.pause(0.1)
 
     def final_render(self):
         plt.ioff()
@@ -354,6 +365,11 @@ class GridEnv(gym.Env):
         target1 = tuple(self.targets[0])
         target2 = tuple(self.targets[1])
 
+        print("Target1: ", target1)
+        print("Target2: ", target2)
+
+
+
         phi3_list = list()
 
         phi1_list = list()
@@ -366,9 +382,13 @@ class GridEnv(gym.Env):
             phi1_list.append(1 - self.calculate_distance(tuple(self.trajectory[index][0]), target1))
             phi2_list.append(1 - self.calculate_distance(tuple(self.trajectory[index][1]), target2))
 
+        print(phi3_list)
+        print(phi1_list)
+        print(phi2_list)
 
 
-        reward = min(min(phi3_list), max(phi1_list), max(phi2_list))
+
+        reward = min(min(phi3_list), min(phi1_list), min(phi2_list))
 
         # print("Reward: ", reward)
         # print("Phi1: ", phi1_list)
