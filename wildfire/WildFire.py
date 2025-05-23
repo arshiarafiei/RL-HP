@@ -204,11 +204,13 @@ class WildFireEnv(gym.Env):
         if self.method == "baseline":
             reward = 0
             if self.FF in self.fire:
-                reward += 10 
+                # reward += 10
+                reward += 50
             if self.med in self.fire:
                 reward += -100 
             if self.med in self.victims:
-                reward += 50
+                # reward += 50
+                reward += 10
             # if self.calculate_distance_med_FF() > 2:
             #     reward += -100
             # if self.calculate_distance_med_FF() <= 2:

@@ -12,8 +12,8 @@ import os
 
 
 hyprl = list()
-env   = WildFireEnv(method="hypRL",n_grid=5, mode='inference')
-for i in range(10):
+env   = WildFireEnv(method="baseline",n_grid=5, mode='inference')
+for i in range(1):
     state, info = env.reset()
 
     model = PPO.load("models/PPO_5_hyprl/PPO_0")
@@ -43,10 +43,10 @@ for i in range(10):
 
         
 baseline = list()
-for i in range(10):
+for i in range(100):
     state, info = env.reset()
 
-    model = PPO.load("models/PPO_5_orginal/PPO_0")
+    model = PPO.load("models/PPO_5_orginal_1/PPO_0")
     done = False
     stepi1 = 0
     flag1 = 0
@@ -75,15 +75,23 @@ for i in range(10):
     
     baseline.append([fire, victim, stepi1, dist/stepi1])
 
-baseline_1 = sum(item[0] for item in baseline)/len(baseline)
-baseline_2 = sum(item[1] for item in baseline)/len(baseline)
-baseline_3 = sum(item[2] for item in baseline)/len(baseline)
-baseline_4 = sum(item[3] for item in baseline)/len(baseline)
 
-hyprl_1 = sum(item[0] for item in hyprl)/len(hyprl)
-hyprl_2 = sum(item[1] for item in hyprl)/len(hyprl) 
-hyprl_3 = sum(item[2] for item in hyprl)/len(hyprl)
-hyprl_4 = sum(item[3] for item in hyprl)/len(hyprl)
 
-print("baseline fire victime step dist: ", baseline_1, baseline_2, baseline_3, baseline_4)
-print("hyprl fire victim step dist: ", hyprl_1, hyprl_2, hyprl_3, hyprl_4)
+baseline = np.array(baseline)
+hyprl = np.array(hyprl)
+
+# Compute mean and standard error for each column
+baseline_mean = np.mean(baseline, axis=0)
+baseline_se = np.std(baseline, axis=0, ddof=1) / np.sqrt(len(baseline))
+
+hyprl_mean = np.mean(hyprl, axis=0)
+hyprl_se = np.std(hyprl, axis=0, ddof=1) / np.sqrt(len(hyprl))
+
+# Print results
+print("baseline fire victim step dist (mean ± SE):")
+for i in range(4):
+    print(f"  Metric {i+1}: {baseline_mean[i]:.3f} ± {baseline_se[i]:.3f}")
+
+print("hyprl fire victim step dist (mean ± SE):")
+for i in range(4):
+    print(f"  Metric {i+1}: {hyprl_mean[i]:.3f} ± {hyprl_se[i]:.3f}")

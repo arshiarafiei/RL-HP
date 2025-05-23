@@ -13,7 +13,7 @@ from multiprocessing import Process
 
 def train_original():
 
-    models_dir = "models/PPO_5_orginal"
+    models_dir = "models/PPO_5_orginal_1"
     logdir = "logs"
 
     if not os.path.exists(models_dir):
@@ -23,6 +23,7 @@ def train_original():
         os.makedirs(logdir)
 
     env = WildFireEnv(method="baseline",n_grid=5)
+    env.reset()
 
     model = PPO(
         "MlpPolicy",
@@ -41,7 +42,7 @@ def train_original():
     )
     TIMESTEPS = 5000
     for i in range(10):
-        model.learn(total_timesteps=TIMESTEPS, reset_num_timesteps=False, tb_log_name="PPO_5_orginal", log_interval=10)
+        model.learn(total_timesteps=TIMESTEPS, reset_num_timesteps=False, tb_log_name="PPO_5_orginal_1", log_interval=10)
         # model.save(f"{models_dir}/{TIMESTEPS*i}_steps")
         model.save(f"{models_dir}/PPO_{i}")
 
@@ -51,7 +52,7 @@ def train_original():
 
 def train_hypRL():
 
-    models_dir = "models/PPO_5_hyprl"
+    models_dir = "models/PPO_8_hyprl"
     logdir = "logs"
 
     if not os.path.exists(models_dir):
@@ -60,7 +61,8 @@ def train_hypRL():
     if not os.path.exists(logdir):
         os.makedirs(logdir)
 
-    env = WildFireEnv(method="hypRL",n_grid=5)
+    env = WildFireEnv(method="hypRL",n_grid=8)
+    env.reset()
 
 
 
@@ -81,18 +83,20 @@ def train_hypRL():
     )
     TIMESTEPS = 5000
     for i in range(10):
-        model.learn(total_timesteps=TIMESTEPS, reset_num_timesteps=False, tb_log_name="PPO_5_hyprl", log_interval=10)
+        model.learn(total_timesteps=TIMESTEPS, reset_num_timesteps=False, tb_log_name="PPO_8_hyprl", log_interval=10)
         # model.save(f"{models_dir}/{TIMESTEPS*i}_steps")
         model.save(f"{models_dir}/PPO_{i}")
 
 
 if __name__ == "__main__":
-    p1 = Process(target=train_hypRL)
-    p2 = Process(target=train_original)
+    # p1 = Process(target=train_hypRL)
+    # p2 = Process(target=train_original)
 
-    p1.start()
-    p2.start()
+    train_original()
 
-    p1.join()
-    p2.join()
+    # p1.start()
+    # p2.start()
+
+    # p1.join()
+    # p2.join()
 
