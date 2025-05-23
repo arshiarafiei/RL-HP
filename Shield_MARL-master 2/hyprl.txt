@@ -1,0 +1,125 @@
+Map: ISR
+---- Step :7.36
+---- Coll :  2.52
+Map: ISR
+---- Step :7.0
+---- Coll :  0.0
+Map: ISR
+---- Step :8.0
+---- Coll :  0.0
+Map: ISR
+---- Step :8.0
+---- Coll :  0.0
+Map: ISR
+---- Step :10.0
+---- Coll :  0.0
+Map: ISR
+---- Step :7.0
+---- Coll :  0.0
+Map: ISR
+---- Step :7.5
+---- Coll :  0.0
+Map: ISR
+---- Step :6.0
+---- Coll :  0.0
+Map: ISR
+---- Step :7.0
+---- Coll :  0.0
+Map: ISR
+---- Step :8.0
+---- Coll :  0.0
+
+
+Map: Pentagon
+---- Step :8.0
+---- Coll :  0.0
+Map: Pentagon
+---- Step :8
+---- Coll :  5.2
+Map: Pentagon
+---- Step :8.0
+---- Coll :  0.0
+Map: Pentagon
+---- Step :54.1
+---- Coll :  0.1
+Map: Pentagon
+---- Step :7.0
+---- Coll :  0.0
+Map: Pentagon
+---- Step :7.0
+---- Coll :  0.0
+Map: Pentagon
+---- Step :6.0
+---- Coll :  0
+Map: Pentagon
+---- Step :7.0
+---- Coll :  0.0
+Map: Pentagon
+---- Step :7.0
+---- Coll :  0.0
+Map: Pentagon
+---- Step :7.0
+---- Coll :  0.0
+
+Map: SUNY
+---- Step :12.0
+---- Coll :  0.0
+Map: SUNY
+---- Step :14.8
+---- Coll :  0.0
+Map: SUNY
+---- Step :12.0
+---- Coll :  0.0
+Map: SUNY
+---- Step :11.0
+---- Coll :  0.0
+Map: SUNY
+---- Step :12.0
+---- Coll :  0.0
+Map: SUNY
+---- Step :17.02
+---- Coll :  0.0
+Map: SUNY
+---- Step :14.0
+---- Coll :  0.0
+Map: SUNY
+---- Step :10.0
+---- Coll :  0.0
+Map: SUNY
+---- Step :11.0
+---- Coll :  0.0
+Map: SUNY
+---- Step :11.0
+---- Coll :  0.0
+
+
+Map: MIT
+---- Step :25.0
+---- Coll :  0.0
+Map: MIT
+---- Step :22.0
+---- Coll :  0.0
+Map: MIT
+---- Step :24.0
+---- Coll :  0.0
+Map: MIT
+---- Step :22.0
+---- Coll :  0.0
+Map: MIT
+---- Step :23.0
+---- Coll :  0.0
+Map: MIT
+---- Step :24.0
+---- Coll :  0.0
+Map: MIT
+---- Step :22.0
+---- Coll :  0.0
+Map: MIT
+---- Step :22.0
+---- Coll :  0.0
+Map: MIT
+---- Step :27.0
+---- Coll :  0.0
+Map: MIT
+---- Step :21.0
+---- Coll :  0.0

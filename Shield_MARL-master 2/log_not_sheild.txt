@@ -1,0 +1,12 @@
+Map: ISR
+---- Step :34.03
+---- Coll :  0.82
+Map: Pentagon
+---- Step :103.89
+---- Coll :  1.04
+Map: MIT
+---- Step :59.28
+---- Coll :  0.47
+Map: SUNY
+---- Step :11.2
+---- Coll :  0.03

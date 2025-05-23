@@ -1,0 +1,126 @@
+Map: ISR
+---- Step :90.8
+---- Coll :  0.1
+Map: ISR
+---- Step :100.0
+---- Coll :  0.0
+Map: ISR
+---- Step :58.9
+---- Coll :  0.1
+Map: ISR
+---- Step :90.8
+---- Coll :  0.1
+Map: ISR
+---- Step :91.6
+---- Coll :  0.1
+Map: ISR
+---- Step :100.0
+---- Coll :  0.0
+Map: ISR
+---- Step :96.3
+---- Coll :  0.0
+Map: ISR
+---- Step :96.2
+---- Coll :  0.3
+Map: ISR
+---- Step :82.5
+---- Coll :  0.2
+Map: ISR
+---- Step :90.9
+---- Coll :  9.1
+
+
+Map: Pentagon
+---- Step :100.0
+---- Coll :  0.1
+Map: Pentagon
+---- Step :100.0
+---- Coll :  0.3
+Map: Pentagon
+---- Step :100.0
+---- Coll :  0.8
+Map: Pentagon
+---- Step :100.0
+---- Coll :  0.0
+Map: Pentagon
+---- Step :91.5 18
+---- Coll :  0.1
+Map: Pentagon
+---- Step :100.0
+---- Coll :  0.3
+Map: Pentagon
+---- Step :100.0
+---- Coll :  0.2
+Map: Pentagon
+---- Step :91.9 19
+---- Coll :  0.5
+Map: Pentagon
+---- Step :100.0
+---- Coll :  0.8
+Map: Pentagon
+---- Step :79.8 15
+---- Coll :  0.9
+
+
+Map: MIT
+---- Step :39.1
+---- Coll :  0.0
+Map: MIT
+---- Step :50.7
+---- Coll :  0.0
+Map: MIT
+---- Step :38.0
+---- Coll :  0.0
+Map: MIT
+---- Step :21.1
+---- Coll :  0.0
+Map: MIT
+---- Step :40.3
+---- Coll :  0.0
+Map: MIT
+---- Step :36.5
+---- Coll :  0.0
+Map: MIT
+---- Step :21.2
+---- Coll :  0.0
+Map: MIT
+---- Step :21.6
+---- Coll :  0.0
+Map: MIT
+---- Step :44.1
+---- Coll :  0.0
+Map: MIT
+---- Step :22.0
+---- Coll :  0.0
+
+
+Map: SUNY
+---- Step :12.2
+---- Coll :  0.0
+Map: SUNY
+---- Step :11.8
+---- Coll :  0.0
+Map: SUNY
+---- Step :11.6
+---- Coll :  0.0
+Map: SUNY
+---- Step :11.3
+---- Coll :  0.0
+Map: SUNY
+---- Step :13.8
+---- Coll :  0.0
+Map: SUNY
+---- Step :11.2
+---- Coll :  0.0
+Map: SUNY
+---- Step :10.4
+---- Coll :  0.0
+Map: SUNY
+---- Step :11.1
+---- Coll :  0.0
+Map: SUNY
+---- Step :10.6
+---- Coll :  0.0
+Map: SUNY
+---- Step :11.0
+---- Coll :  0.0
