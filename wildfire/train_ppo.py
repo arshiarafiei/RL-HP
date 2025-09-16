@@ -13,7 +13,7 @@ from multiprocessing import Process
 
 def train_original():
 
-    models_dir = "models/PPO_5_orginal_1"
+    models_dir = "models/PPO_10_orginal"
     logdir = "logs"
 
     if not os.path.exists(models_dir):
@@ -22,7 +22,7 @@ def train_original():
     if not os.path.exists(logdir):
         os.makedirs(logdir)
 
-    env = WildFireEnv(method="baseline",n_grid=5)
+    env = WildFireEnv(method="baseline",n_grid=10)
     env.reset()
 
     model = PPO(
@@ -42,7 +42,7 @@ def train_original():
     )
     TIMESTEPS = 5000
     for i in range(10):
-        model.learn(total_timesteps=TIMESTEPS, reset_num_timesteps=False, tb_log_name="PPO_5_orginal_1", log_interval=10)
+        model.learn(total_timesteps=TIMESTEPS, reset_num_timesteps=False, tb_log_name="PPO_10_orginal", log_interval=10)
         # model.save(f"{models_dir}/{TIMESTEPS*i}_steps")
         model.save(f"{models_dir}/PPO_{i}")
 
@@ -52,7 +52,7 @@ def train_original():
 
 def train_hypRL():
 
-    models_dir = "models/PPO_8_hyprl"
+    models_dir = "models/PPO_10_hyprl"
     logdir = "logs"
 
     if not os.path.exists(models_dir):
@@ -61,7 +61,7 @@ def train_hypRL():
     if not os.path.exists(logdir):
         os.makedirs(logdir)
 
-    env = WildFireEnv(method="hypRL",n_grid=8)
+    env = WildFireEnv(method="hypRL",n_grid=10)
     env.reset()
 
 
@@ -83,20 +83,19 @@ def train_hypRL():
     )
     TIMESTEPS = 5000
     for i in range(10):
-        model.learn(total_timesteps=TIMESTEPS, reset_num_timesteps=False, tb_log_name="PPO_8_hyprl", log_interval=10)
+        model.learn(total_timesteps=TIMESTEPS, reset_num_timesteps=False, tb_log_name="PPO_10_hyprl", log_interval=10)
         # model.save(f"{models_dir}/{TIMESTEPS*i}_steps")
         model.save(f"{models_dir}/PPO_{i}")
 
 
 if __name__ == "__main__":
-    # p1 = Process(target=train_hypRL)
-    # p2 = Process(target=train_original)
+    p1 = Process(target=train_hypRL)
+    p2 = Process(target=train_original)
 
-    train_original()
 
-    # p1.start()
-    # p2.start()
+    p1.start()
+    p2.start()
 
-    # p1.join()
-    # p2.join()
+    p1.join()
+    p2.join()
 

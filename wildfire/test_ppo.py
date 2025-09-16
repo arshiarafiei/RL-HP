@@ -12,11 +12,11 @@ import os
 
 
 hyprl = list()
-env   = WildFireEnv(method="baseline",n_grid=5, mode='inference')
-for i in range(1):
+env   = WildFireEnv(method="baseline",n_grid=10, mode='inference')
+for i in range(10):
     state, info = env.reset()
 
-    model = PPO.load("models/PPO_5_hyprl/PPO_0")
+    model = PPO.load("models/PPO_10_hyprl/PPO_0")
     done = False
     stepi = 0
     flag1 = 0
@@ -43,10 +43,10 @@ for i in range(1):
 
         
 baseline = list()
-for i in range(100):
+for i in range(10):
     state, info = env.reset()
 
-    model = PPO.load("models/PPO_5_orginal_1/PPO_0")
+    model = PPO.load("models/PPO_10_orginal/PPO_0")
     done = False
     stepi1 = 0
     flag1 = 0

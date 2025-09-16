@@ -21,7 +21,7 @@ class WildFireEnv(gym.Env):
         if mode == 'train':
             self.max_step = 1000
         else:
-            self.max_step = 10000
+            self.max_step = 30000
 
         self.mode = mode
         self.trunct = False
@@ -279,8 +279,8 @@ class WildFireEnv(gym.Env):
     def reset(self, seed=None, options=None):
         self.FF = [self.n_grid -1, 0]  
         self.med = [self.n_grid -1, 0] 
-        self.fire = [[0, self.n_grid -1], [1, self.n_grid -1], [2, self.n_grid -1]]  
-        self.victims = [[0, 0], [1, self.n_grid -1]]
+        self.fire = [[0, self.n_grid -1], [5, self.n_grid -1], [9, self.n_grid -1]]  
+        self.victims = [[0, 0], [0, self.n_grid -1]]
         self.victim_saved = 0
         self.fire_ex = 0 
         self.trunct = False
