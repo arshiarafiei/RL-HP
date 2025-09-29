@@ -4,16 +4,19 @@ import numpy as np
 import math
 
 class WildFireEnv(gym.Env):
-    def __init__(self, n_grid = 3, method = "baseline", mode = 'train'):
+    def __init__(self, n_grid = 3, method = "baseline", mode = 'train', FF_coords = [2, 0], med_coords = [2, 0]):
         super(WildFireEnv, self).__init__()
 
         self.n_grid = n_grid
         self.method = method
 
         self.grid_size = (self.n_grid, self.n_grid) 
-        self.FF = [2, 0]  
-        self.med = [2, 0]  
-        self.fire = [[0, 2], [1, 2], [2, 1]]  
+        self.FF = FF_coords
+        self.med = med_coords
+        self.number_of_FF = len(self.FF)
+        self.number_of_med = len(self.med)
+        self.agents = [self.FF, self.med]
+        self.fire = [[0, 1], [1, 2], [2, 1]]
         self.victims = [[0, 0], [1, 2]]
         self.victim_saved = 0
         self.fire_ex = 0
@@ -30,7 +33,9 @@ class WildFireEnv(gym.Env):
         # self.observation_space = spaces.Box(low=0, high=13, shape=(self.n_grid*self.n_grid,), dtype=np.int32)  
 
         # 14 possible values (0‒13) for each grid cell
-        self.observation_space = spaces.MultiDiscrete(np.full(self.n_grid * self.n_grid, 14, dtype=np.int32))
+        self.observation_space = spaces.Dict({"FF" : spaces.MultiDiscrete(np.full(self.n_grid * self.n_grid, 14, dtype=np.int32)),
+                                               "MD" : spaces.MultiDiscrete(np.full(self.n_grid * self.n_grid, 14, dtype=np.int32))})
+
 
 
     # def get_observation(self):
@@ -79,45 +84,145 @@ class WildFireEnv(gym.Env):
     # 
     #  
 
+    def update_beliefs(self):
+        return 0
+
+    def crop_observation(self, agent_pos, obs):
+        px, py = agent_pos
+
+        if (px == 0):
+            obs = np.delete(obs, 0, axis = 0)
+        
+        if (px == self.n_grid - 1):
+            obs = np.delete(obs, 2, axis = 0)
+        
+        if (py == 0):
+            obs = np.delete(obs, 0, axis = 1)
+
+        if (py == self.n_grid - 1):
+            obs = np.delete(obs, 2, axis = 1)
+
+        return obs
 
     def get_observation(self):
-        grid = np.zeros((self.n_grid, self.n_grid), dtype=np.int8)
+        FFgrid = np.zeros((3, 3), dtype=np.int8)
+        MDgrid = np.zeros((3, 3), dtype=np.int8)
 
+
+        full_grid = np.zeros((self.n_grid, self.n_grid), dtype = np.int8)
+
+        # how local coords work
+        # the first coordinate is the grid spot being observed in terms of the second coord.
+        # EX: x1 - x2 : x2 is the observer and x1 is what is being obsreved
+
+       
         # Base positions
         if self.FF == self.med:
-            grid[tuple(self.FF)] = 3
+            full_grid[tuple(self.FF)] = 3
+            MDgrid[(1, 1)] = 3
+            FFgrid[(1, 1)] = 3
+
         else:
-            grid[tuple(self.FF)] = 1
-            grid[tuple(self.med)] = 2
+            full_grid[tuple(self.FF)] = 1
+            full_grid[tuple(self.med)] = 2
+
+            if (self._chebyshev_distance(self.FF, self.med) <= 1):
+                fx, fy = self.FF
+                mx, my = self.med
+
+                local_x_med = (fx - mx) + 1
+                local_y_med = (fy - my) + 1
+
+                local_x_FF = (mx - fx) + 1
+                local_y_FF = (my - fy) + 1
+
+                FFgrid[(local_x_FF, local_y_FF)] = 2
+                MDgrid[(local_x_med, local_y_med)] = 1
+
+            MDgrid[(1, 1)] = 2
+            FFgrid[(1, 1)] = 1
 
         # Fires
         for f in self.fire:
-            grid[tuple(f)] = 4
+            full_grid[tuple(f)] = 4
+
+            if (self._chebyshev_distance(f, self.FF) <= 1):
+                fx, fy = f
+                FFx, FFy = self.FF
+
+                local_x = (fx - FFx) + 1
+                local_y = (fy - FFy) + 1
+
+                FFgrid[(local_x, local_y)] = 4
+
+            if (self._chebyshev_distance(f, self.med) <= 1):
+                fx, fy = f
+                medx, medy = self.med
+
+                local_x = (fx - medx) + 1
+                local_y = (fy - medy) + 1
+
+                MDgrid[(local_x, local_y)] = 4
 
         # Victims
         for v in self.victims:
-            grid[tuple(v)] = 8 if v in self.fire else 5
+            full_grid[tuple(v)] = 8 if v in self.fire else 5
+
+            if (self._chebyshev_distance(v, self.FF) <= 1):
+                vx, vy = f
+                FFx, FFy = self.FF
+
+                local_x = (vx - FFx) + 1
+                local_y = (vy - FFy) + 1
+
+                FFgrid[(local_x, local_y)] = 8 if v in self.fire else 5
+
+            if (self._chebyshev_distance(v, self.med) <= 1):
+                vx, vy = f
+                medx, medy = self.med
+
+                local_x = (vx - medx) + 1
+                local_y = (vy - medy) + 1
+
+                MDgrid[(local_x, local_y)] = 8 if v in self.fire else 5
+
+            #grid[tuple(v)] = 8 if v in self.fire else 5
 
         # Pairwise overlaps
         if self.FF in self.fire:
-            grid[tuple(self.FF)] = 6
+            full_grid[tuple(self.FF)] = 6
+            FFgrid[(1, 1)] = 6
+
         if self.FF in self.victims:
-            grid[tuple(self.FF)] = 7
+            full_grid[tuple(self.FF)] = 7
+            FFgrid[(1, 1)] = 7
+
         if self.med in self.fire:
-            grid[tuple(self.med)] = 9            # fixed
+            full_grid[tuple(self.med)] = 9            # fixed
+            MDgrid[(1, 1)] = 9
+
         if self.med in self.victims:
-            grid[tuple(self.med)] = 10           # fixed
+            full_grid[tuple(self.med)] = 10           # fixed
+            MDgrid[(1, 1)] = 10
 
         # Triple overlaps (FF and med share a cell)
         if self.FF == self.med:
             if self.FF in self.fire:
-                grid[tuple(self.FF)] = 12
+                full_grid[tuple(self.FF)] = 12
+                FFgrid[(1, 1)] = 12
+                MDgrid[(1, 1)] = 12
+
             elif self.FF in self.victims:
-                grid[tuple(self.FF)] = 11
+                full_grid[tuple(self.FF)] = 11
+                FFgrid[(1, 1)] = 11
+                MDgrid[(1, 1)] = 11
+        
+        FFgrid = self.crop_observation(self.FF, FFgrid)
+        MDgrid = self.crop_observation(self.med, MDgrid)
 
-        return grid.flatten()
 
-    
+
+        return [FFgrid, MDgrid], full_grid
 
     def step(self, action):
 
@@ -156,7 +261,7 @@ class WildFireEnv(gym.Env):
 
         reward = self.reward() 
 
-        state = self.get_observation()
+        local_states, states = self.get_observation()
 
 
         vistm_copy = self.victims.copy()
@@ -192,7 +297,7 @@ class WildFireEnv(gym.Env):
         # print(self.get_observation())
 
 
-        return state, reward, terminated, self.trunct, info
+        return local_states, states, reward, terminated, self.trunct, info
     
     def calculate_distance_med_FF(self):
         return abs(self.FF[0] - self.med[0]) + abs(self.FF[1] - self.med[1])
@@ -279,7 +384,7 @@ class WildFireEnv(gym.Env):
     def reset(self, seed=None, options=None):
         self.FF = [self.n_grid -1, 0]  
         self.med = [self.n_grid -1, 0] 
-        self.fire = [[0, self.n_grid -1], [5, self.n_grid -1], [9, self.n_grid -1]]  
+        self.fire = [[0, self.n_grid -1], [3, self.n_grid -1], [4, self.n_grid -1]]  
         self.victims = [[0, 0], [0, self.n_grid -1]]
         self.victim_saved = 0
         self.fire_ex = 0 
@@ -295,8 +400,6 @@ class WildFireEnv(gym.Env):
 
         temp_victim = self.victims.copy()
 
-
-
         for v in self.victims:
             grid[tuple(v)] = 'V'
 
@@ -306,7 +409,8 @@ class WildFireEnv(gym.Env):
                 grid[tuple(f)] = 'V🔥'
                 temp_victim.remove(f)
 
-        grid[tuple(self.FF)] = "FF"  # Firefighter
+        grid[tuple(self.FF)] = "FF"
+        #grid[tuple(self.FF)] = "FF"  # Firefighter
         grid[tuple(self.med)] = 'MD'  # Medic
    
    
@@ -335,28 +439,87 @@ class WildFireEnv(gym.Env):
 
     def _manhattan_distance(self, p1, p2):
         return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])
+    
+    def _chebyshev_distance(self, p1, p2):
+        return max(abs(p1[0] - p2[0]), abs(p1[1] - p2[1]))
 
+    def render_obs(self, obs):
+        grid = np.full(obs.shape, ' . ', dtype=object)
+        temp_victim = self.victims.copy()
 
+        for i in range (obs.shape[0]):
+            for j in range (obs.shape[1]):
+                if obs[i][j] == 4:
+                    grid[tuple([i, j])] = '🔥'
+
+                if obs[i][j] == 5:
+                    grid[tuple([i, j])] = 'V'
+
+                if obs[i][j] == 1:
+                    grid[tuple([i, j])] = 'FF'
+
+                if obs[i][j] == 2:
+                    grid[tuple([i, j])] = 'MD'
+
+                if obs[i][j] == 10:
+                    grid[tuple([i, j])] = 'MDV'
+
+                if obs[i][j] == 7:
+                    grid[tuple([i, j])] = 'FFV'
+
+                if obs[i][j] == 6:
+                    grid[tuple([i, j])] = 'FF🔥'
+
+                if obs[i][j] == 8:
+                    grid[tuple([i, j])] = 'V🔥'
+
+                if obs[i][j] == 9:
+                    grid[tuple([i, j])] = 'MD🔥'
+
+                if obs[i][j] == 3:
+                    grid[tuple([i, j])] = 'FM'
+                
+                if obs[i][j] == 11:
+                    grid[tuple([i, j])] = 'FMV'
+                
+                if obs[i][j] == 12:
+                    grid[tuple([i, j])] = 'FM🔥'
+            
+        formatted_grid = "\n".join(["  ".join(f"{cell:3}" for cell in row) for row in grid])
+        print('###################\n\n\n###################')
+        print(formatted_grid)
 
 if __name__ == "__main__":
 
+    number_of_FF = 4
+    number_of_MD = 4
+    FF_coords = [[2, 0], [2, 1], [3, 1], [3, 2]]
+    MD_coords = [[0, 0], [1, 0], [0, 1], [1, 1]]
+
     env = WildFireEnv(method="hypRL", n_grid=5)
     env.reset()
-    print(env.observation_space)
+    print("observation space ", env.observation_space)
     env.render()
+
 
     done = False
     step = 0
 
     print(env.observation_space.sample())
     print(env.observation_space)
-    for i in range(10):
-        
+    for i in range(10):        
         action = env.action_space.sample()
         
-        obs, reward, done, trunct, info = env.step(action)
-        step += 1 
+        obs, state, reward, done, trunct, info = env.step(action)
         env.render()
+
+        print("firefighter observation")
+        env.render_obs(obs[0])
+
+        print("medic observation")
+        env.render_obs(obs[1])
+
+        step += 1 
         print("reward", reward)
 
 
