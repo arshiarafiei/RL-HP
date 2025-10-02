@@ -1,0 +1,599 @@
+import gymnasium as gym
+from gymnasium import spaces 
+import numpy as np
+import math
+from operator import attrgetter
+from collections import namedtuple
+import random
+
+Agent = namedtuple("Agent", ["x", "y", "type_id"])
+
+
+class WildFireEnv(gym.Env):
+    def __init__(self, n_grid = 3, method = "baseline", mode = 'train', FF_coords = [[2, 0]], med_coords = [[2, 0]]):
+        super(WildFireEnv, self).__init__()
+
+        self.n_grid = n_grid
+        self.method = method
+
+        self.grid_size = (self.n_grid, self.n_grid) 
+        self.FF = FF_coords
+        self.med = med_coords
+        self.original_FF = FF_coords
+        self.original_med = med_coords
+        self.number_of_FF = len(self.FF)
+        self.number_of_med = len(self.med)
+        self.agents = {}
+        self.n_agents = 0
+        self.fire = [[0, 1], [1, 2], [2, 1]]
+        self.victims = [[0, 0], [1, 2]]
+        self.victim_saved = 0
+        self.fire_ex = 0
+        self.trajectory = list()
+        if mode == 'train':
+            self.max_step = 1000
+        else:
+            self.max_step = 30000
+
+        self.mode = mode
+        self.trunct = False
+
+        self.action_space = spaces.MultiDiscrete([5] * self.n_agents) 
+        # self.observation_space = spaces.Box(low=0, high=13, shape=(self.n_grid*self.n_grid,), dtype=np.int32)  
+
+        # 14 possible values (0‒13) for each grid cell
+        self.observation_space = spaces.Dict({"FF" : spaces.MultiDiscrete(np.full(self.n_grid * self.n_grid, 14, dtype=np.int32)),
+                                               "MD" : spaces.MultiDiscrete(np.full(self.n_grid * self.n_grid, 14, dtype=np.int32))})
+
+
+
+    # def get_observation(self):
+    #     grid = np.zeros((self.n_grid, self.n_grid), dtype=np.int32)
+
+    #     if self.FF == self.med:
+    #         grid[tuple(self.FF)] = 3  
+    #     else:
+    #         grid[tuple(self.FF)] = 1  
+    #         grid[tuple(self.med)] = 2
+
+    #     for f in self.fire:
+    #         grid[tuple(f)] = 4  
+
+    #     for v in self.victims:
+    #         if v in self.fire:
+    #             grid[tuple(v)] = 8 # Victim in Fire
+    #         else:
+    #             grid[tuple(v)] = 5
+    
+
+
+    #     if self.FF in self.fire:
+    #         grid[tuple(self.FF)] = 6 #FF and Fire
+    #     if self.FF in self.victims:
+    #         grid[tuple(self.FF)] =  7 # FF and victim
+        
+
+    #     if self.med in self.fire:
+    #         grid[tuple(self.FF)] = 9 #med in Fire
+    #     if self.med in self.victims:
+    #         grid[tuple(self.FF)] =  10 # med and victim
+
+
+    #     if self.FF == self.med and self.FF in self.victims:
+    #         grid[tuple(self.FF)] = 11 
+    #     if self.FF == self.med and self.FF in self.fire:
+    #         grid[tuple(self.FF)] = 12
+    #     if self.FF == self.med and self.FF in self.fire and self.FF in self.victims:
+    #         grid[tuple(self.FF)] = 13
+        
+
+        
+    #     return grid.flatten() 
+    # 
+    # 
+    #  
+
+    def update_beliefs(self):
+        return 0
+
+    def crop_observation(self, agent_pos, obs):
+        px, py = agent_pos
+
+        if (px == 0):
+            obs[:, 0] = -10
+            #obs = np.delete(obs, 0, axis = 0)
+        
+        if (px == self.n_grid - 1):
+            obs[2, :] = -10
+            #obs = np.delete(obs, 2, axis = 0)
+        
+        if (py == 0):
+            obs[:, 0] = -10
+            #obs = np.delete(obs, 0, axis = 1)
+
+        if (py == self.n_grid - 1):
+            obs[:, 2] = -10
+            #obs = np.delete(obs, 2, axis = 1)
+
+        return obs
+
+    #def get_ally_feat_dim():
+
+    def init_agents(self):
+        ally_agents = []
+        self.FF
+
+        for ff in self.FF:
+            ally_agents.append(Agent(ff[0], ff[1], 1000)) 
+        
+        for med in self.med:
+            ally_agents.append(Agent(med[0], med[1], 1001))
+
+        sorted_ally_agents = sorted(
+            ally_agents, 
+            key=attrgetter("x", "y", "type_id"),
+            reverse = False           
+            )
+        
+        for i in range(len(sorted_ally_agents)):
+            self.agents[i] = sorted_ally_agents[i]
+        
+        self.n_agents = len(sorted_ally_agents)
+        self.action_space = spaces.MultiDiscrete([5] * self.n_agents)
+
+    def get_unit_by_id(self, agent_id):
+        return self.agents[agent_id]
+
+    def get_agent_obs(self, agent_id = None):
+        if agent_id == None:
+            return 0
+
+        #ally_feats_dim = self.get_ally_feat_dim()
+        #enemy_feats_dim = self.get_enemy_feat_dim()
+        #own_feats_dim = self.get_own_feats()
+
+        unit = self.get_unit_by_id(agent_id)
+
+        ally_feats = np.zeros((len(self.FF) + len(self.med), 5), dtype = np.float32)
+        enemy_feats = np.zeros((len(self.fire) + len(self.victims), 5), dtype = np.float32)
+        own_feats = np.zeros(3, dtype = np.float32)
+
+        # how local coords work
+        # the first coordinate is the grid spot being observed in terms of the second coord.
+        # EX: x1 - x2 : x2 is the observer and x1 is what is being obsreved
+
+        x = unit.x
+        y = unit.y
+
+        #enemy features
+        i = 0
+        for f in self.fire:
+            fx, fy = f
+            dist = self._manhattan_distance(f, (x, y))
+
+            if (dist <= 1):
+                enemy_feats[i, 0] = 1 # visible
+                relative_x = (fx - x)
+                relative_y = (fy - y)
+
+                enemy_feats[i, 1] = relative_x # relative x
+                enemy_feats[i, 2] = relative_y # relative y
+                enemy_feats[i, 3] = dist # distance
+                enemy_feats[i, 4] = 2000.0 # id for fire
+            i += 1
+        
+        for v in self.victims:
+            vx, vy = v
+            dist = self._manhattan_distance(v, (x, y))
+
+            if (dist <= 1):
+                enemy_feats[i, 0] = 1 # visible
+                relative_x = (vx - x)
+                relative_y = (vy - y)
+
+                enemy_feats[i, 1] = relative_x # relative x
+                enemy_feats[i, 2] = relative_y # relative y
+                enemy_feats[i, 3] = dist # distance
+                enemy_feats[i, 4] = 2001.0 # id for victim
+            i += 1
+        
+        #ally features
+        ally_ids = [id for id in range(self.n_agents) if id != agent_id]
+
+        for i, ally_id in enumerate(ally_ids):
+            ally_unit = self.get_unit_by_id(ally_id)
+            ax = ally_unit.x
+            ay = ally_unit.y
+            dist = self._manhattan_distance((ax, ay), (x, y))
+
+            if (dist <= 1):
+                ally_feats[i, 0] = 1 # visible
+                relative_x = (ax - x)
+                relative_y = (ay - y)
+
+                ally_feats[i, 1] = relative_x
+                ally_feats[i, 2] = relative_y
+                ally_feats[i, 3] = dist
+
+                # something
+                ally_feats[i, 4] = ally_unit.type_id
+
+
+        #own feats
+        own_feats[0] = unit.x
+        own_feats[1] = unit.y
+        own_feats[2] = unit.type_id
+
+
+        agent_obs = np.concatenate((
+            own_feats.flatten(), 
+            ally_feats.flatten(),
+            enemy_feats.flatten()
+            )
+        )
+
+        np.round(agent_obs, decimals=0, out=None)
+
+        return agent_obs
+    
+    def get_state(self):
+        grid = np.zeros((self.n_grid, self.n_grid), dtype = np.int8)
+
+        cells = {}
+
+
+        # Fires
+        for f in self.fire:
+            cells.setdefault(tuple(f), set()).add("f")
+
+
+        # Victims
+        for v in self.victims:
+            cells.setdefault(tuple(v), set()).add("v")
+        
+        for agent in self.agents.values():
+            a_coords = (agent.x, agent.y)
+            type = "FF" if agent.type_id == 1000 else "med"
+            cells.setdefault(a_coords, set()).add(type)
+
+            #grid[tuple(v)] = 8 if v in self.fire else 5
+
+        for coords, content in cells.items():
+            if content == {'FF'}:
+                grid[coords] = 1
+            elif content == {'med'}:
+                grid[coords] = 2
+            elif content == {'med', 'FF'}:
+                grid[coords] = 3
+            elif content == {'f'}:
+                grid[coords] = 4
+            elif content == {'v'}:
+                grid[coords] = 5
+            elif content == {'FF', 'f'}:
+                grid[coords] = 6
+            elif content == {'FF', 'v'}:
+                grid[coords] = 7
+            elif content == {'v', 'f'}:
+                grid[coords] = 8
+            elif content == {'med', 'f'}:
+                grid[coords] = 9
+            elif content == {'med', 'v'}:
+                grid[coords] = 10
+            elif content == {'med', 'FF', 'v'}:
+                grid[coords] = 11
+            elif content == {'med', 'FF', 'f'}:
+                grid[coords] = 12
+
+        return grid
+
+    def step(self, actions):
+
+        print("ACTIONS", actions)
+
+        # print('action',action)
+
+        moves = [(-1, 0), (1, 0), (0, -1), (0, 1), (0, 0)]  # (dy, dx) - Up, Down, Left, Right, Stay
+
+        # print("FF", self.FF)
+        # print("med", self.med)
+
+        if self.mode == 'inference':
+            for agent_id, action in enumerate(actions):
+                act = action[i]
+                agent = self.agents[agent_id]
+
+                new_agent = Agent(agent.x + moves[int(act[0])][0], agent.y + moves[int(act[0])][1], agent.type_id)
+                self.agents[agent_id] = new_agent
+            #new_FF = [self.FF[0] + moves[int(act[0])][0], self.FF[1] + moves[int(act[0])][1]]
+            #new_med = [self.med[0] + moves[int(act[1])][0], self.med[1] + moves[int(act[1])][1]]
+        else:
+            for agent_id, action in enumerate(actions):
+                agent = self.agents[agent_id]
+
+                new_agent = Agent(agent.x + moves[int(action)][0], agent.y + moves[int(action)][1], agent.type_id)
+                self.agents[agent_id] = new_agent
+            
+            #new_FF = [self.FF[0] + moves[int(action[0])][0], self.FF[1] + moves[int(action[0])][1]]
+            #new_med = [self.med[0] + moves[int(action[1])][0], self.med[1] + moves[int(action[1])][1]]
+
+
+        # Move agents
+        
+
+        # print("new_FF", new_FF)
+        # print("new_med", new_med)
+
+        for agent_id, agent in self.agents.items():
+            x = np.clip(agent.x, 0, self.n_grid - 1)
+            y = np.clip(agent.y, 0, self.n_grid - 1)
+            self.agents[agent_id] = Agent(x, y, agent[2])
+
+
+        # print("new_FF1", self.FF)
+        # print("new_med1", self.med)
+        self.trajectory.append((self.FF, self.med, self.calculate_distance_med_FF()))
+
+        reward = self.reward() 
+
+        agent_obs = [self.get_agent_obs(i) for i in range(self.n_agents)]
+        state = self.get_state()
+
+        vistm_copy = self.victims.copy()
+
+        if self.med in self.victims:
+            self.victim_saved += 1
+            vistm_copy.remove(self.med)
+        self.victims = vistm_copy.copy()
+
+        fire_copy = self.fire.copy()
+        if self.FF in self.fire:
+            self.fire_ex += 1
+            fire_copy.remove(self.FF)  # Extinguish fire
+        self.fire = fire_copy.copy()
+            
+
+        terminated = len(self.fire) == 0 and len(self.victims) == 0
+        sub_goals = [len(self.fire) == 0 , len(self.victims) == 0]
+
+        info = {
+        "fires_extinguished": self.fire_ex,
+        "victims_saved": self.victim_saved,
+        "sub_goals": sub_goals}
+
+        
+        if len(self.trajectory) > self.max_step:
+            terminated = True
+            self.trunct =True
+
+        # print(self.get_observation())
+
+        print(agent_obs)
+
+
+        return agent_obs, state, reward, terminated, self.trunct, info
+    
+    def calculate_distance_med_FF(self):
+        return 0
+        return abs(self.FF[0] - self.med[0]) + abs(self.FF[1] - self.med[1])
+
+    def calculate_distance(self, start, target):
+        return abs(start[0] - target[0]) + abs(start[1] - target[1])
+    
+    def reward(self):
+
+        return 1
+    
+        if self.method == "baseline":
+            reward = 0
+
+            for agent_id in self.agents:
+                agent = self.agents[agent_id]
+                a_coords = [agent.x, agent.y]
+                is_FF = False
+                is_med = False
+
+                if agent.type_id == 1000:
+                    is_FF = True
+                else:
+                    is_med = True
+                
+            if is_FF and a_coords in self.fire:
+                # reward += 10
+                reward += 50
+            if is_med and a_coords in self.fire:
+                reward += -100 
+            if is_med and a_coords in self.victims:
+                # reward += 50
+                reward += 10
+            # if self.calculate_distance_med_FF() > 2:
+            #     reward += -100
+            # if self.calculate_distance_med_FF() <= 2:
+            #     reward += 10
+            return reward/10
+        
+        if self.method == 'hypRL':
+
+
+            dist = list()
+            # for tr in self.trajectory:
+            #     dist.append(3 - tr[2])
+            fire_list = list()
+            victim_list = list()
+
+            # dist_term = min(dist)
+
+            if len(self.fire) > 0:
+                fire_list = list()
+                for fire in self.fire:
+                    temp = list()
+                    temp1 = list()
+                    temp2 = list()
+                    for index in range(1,len(self.trajectory)):
+
+                        for tr in self.trajectory[:index]:
+                            temp1.append(-1 * (1 - self.calculate_distance(fire, tr[0][0])))
+                        for tr in self.trajectory[index:]:
+                            temp2.append(1 - self.calculate_distance(fire, tr[1][0]))
+                        temp2.append(min(temp1))
+                        temp.append(min(temp2))
+                    fire_list.append(max(temp))
+                fire_term = min(fire_list)
+            else:
+                fire_term = math.inf
+
+            # print('victime len',len(self.victims))
+            # print('fire len',len(self.fire))
+
+            if len(self.victims) > 0:
+
+                for victim in self.victims:
+                    Victim_temp = list()
+                    for tr in self.trajectory:
+                        Victim_temp.append(1 - self.calculate_distance(victim, tr[0][0]))
+                    victim_list.append(max(Victim_temp))
+
+                victim_term = min(victim_list)
+            else:
+                victim_term = math.inf
+            
+            # reward = min(dist_term, fire_term, victim_term)
+            reward = min(fire_term, victim_term)
+
+            # print("reward",reward)
+            # print("dist",dist_term)
+            # print("fire",fire_term)
+            # print("vict",victim_term)
+
+            return reward
+        
+    def seed(self, seed=None):
+        np.random.seed(seed)
+        return [seed]
+
+    def reset(self, seed=None, options=None):
+        self.FF = self.original_FF
+        self.med = self.original_med
+
+        print("MED NOW", self.med)
+        self.fire = [[0, self.n_grid -1], [3, self.n_grid -1], [4, self.n_grid -1]]  
+        self.victims = [[0, 0], [0, self.n_grid -1]]
+        self.victim_saved = 0
+        self.fire_ex = 0 
+        self.trunct = False
+        self.trajectory = list()
+        self.trajectory.append((self.FF, self.med, self.calculate_distance_med_FF()))
+        agent_obs = [self.get_agent_obs(i) for i in range(self.n_agents)]
+        state = self.get_state()
+        self.init_agents()
+        self.action_space = spaces.MultiDiscrete([5] * self.n_agents) 
+
+        return agent_obs, state, {}
+
+    def render(self):
+        grid = np.full((self.n_grid, self.n_grid), ' . ', dtype=object)  
+
+        cells = {}
+
+
+        # Fires
+        for f in self.fire:
+            cells.setdefault(tuple(f), set()).add("f")
+
+
+        # Victims
+        for v in self.victims:
+            cells.setdefault(tuple(v), set()).add("v")
+        
+        for agent in self.agents.values():
+            a_coords = (agent.x, agent.y)
+            type = "FF" if agent.type_id == 1000 else "med"
+            cells.setdefault(a_coords, set()).add(type)
+
+            #grid[tuple(v)] = 8 if v in self.fire else 5
+
+        for coords, content in cells.items():
+            print("CONTENT", content)
+            if content == {'FF'}:
+                grid[coords] = 'FF'
+            elif content == {'med'}:
+                grid[coords] = 'MD'
+            elif content == {'med', 'FF'}:
+                grid[coords] = 'FM'
+            elif content == {'f'}:
+                grid[coords] = '🔥'
+            elif content == {'v'}:
+                grid[coords] = 'V'
+            elif content == {'FF', 'f'}:
+                grid[coords] = 'FF🔥'
+            elif content == {'FF', 'v'}:
+                grid[coords] = 'FFV'
+            elif content == {'v', 'f'}:
+                grid[coords] = 'V🔥'
+            elif content == {'med', 'f'}:
+                grid[coords] = 'MD🔥'
+            elif content == {'med', 'v'}:
+                grid[coords] = 'MDV'
+            elif content == {'med', 'FF', 'v'}:
+                grid[coords] = 'FMV'
+            elif content == {'med', 'FF', 'f'}:
+                grid[coords] = 'FM🔥'
+            elif content == {'med', 'FF', 'f', 'v'}:
+                grid[coords] = 'FMV🔥'
+
+        temp_victim = self.victims.copy()
+
+        formatted_grid = "\n".join(["  ".join(f"{cell:3}" for cell in row) for row in grid])
+        print('###################\n\n\n###################')
+        print(formatted_grid)
+
+    def _manhattan_distance(self, p1, p2):
+        return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])
+
+if __name__ == "__main__":
+
+    number_of_FF = random.randint(1, 3)
+    number_of_MD = random.randint(1, 3)
+
+    coords_FF = []
+    coords_med = []
+
+    for i in range(number_of_FF):
+        x = random.randint(0, 4)
+        y = random.randint(0, 4)
+
+        coords_FF.append([x, y])
+
+    for i in range(number_of_MD):
+        x = random.randint(0, 4)
+        y = random.randint(0, 4)
+
+        coords_med.append([x, y])
+
+    np.set_printoptions(suppress=True)
+
+    env = WildFireEnv(method="hypRL", n_grid=5, FF_coords = coords_FF, med_coords = coords_med)
+    env.init_agents()
+
+    print(env.agents)
+    env.reset()
+    print(env.agents)
+    print("observation space ", env.observation_space)
+    env.render()
+
+    done = False
+    step = 0
+
+    print(env.observation_space.sample())
+    print(env.observation_space)
+    for i in range(10):        
+        action = env.action_space.sample()
+        print("ACTION SPACE", action)
+        
+        obs, state, reward, done, trunct, info = env.step(action)
+        env.render()
+
+        step += 1 
+        print("reward", reward)
+
+
+
