@@ -42,8 +42,7 @@ class WildFireEnv(gym.Env):
         # self.observation_space = spaces.Box(low=0, high=13, shape=(self.n_grid*self.n_grid,), dtype=np.int32)  
 
         # 14 possible values (0‒13) for each grid cell
-        self.observation_space = spaces.Dict({"FF" : spaces.MultiDiscrete(np.full(self.n_grid * self.n_grid, 14, dtype=np.int32)),
-                                               "MD" : spaces.MultiDiscrete(np.full(self.n_grid * self.n_grid, 14, dtype=np.int32))})
+        self.observation_space = spaces.MultiDiscrete(np.full(self.n_grid * self.n_grid, 14, dtype=np.int32))
 
 
 
@@ -286,6 +285,25 @@ class WildFireEnv(gym.Env):
 
         return grid
 
+    def transition(self, action):
+        moves = [(-1, 0), (1, 0), (0, -1), (0, 1), (0, 0)]  # (dy, dx) - Up, Down, Left, Right, Stay
+        transition_probabilities = {
+            0: (0.6, 0.1, 0.1, 0.1, 0.1),  # up
+            1: (0.1, 0.6, 0.1, 0.1, 0.1),  # down
+            2: (0.1, 0.1, 0.6, 0.1, 0.1),  # left
+            3: (0.1, 0.1, 0.1, 0.6, 0.1),  # right
+            4: (0.1, 0.1, 0.1, 0.1, 0.6)   # stay
+        }
+
+        probablities = transition_probabilities[action]
+        
+
+        #print("CHOICE", random.choices(moves, weights = probablities, k = 1)[0])
+
+        dy, dx = random.choices(moves, weights = probablities, k = 1)[0]
+
+        return dy, dx
+
     def step(self, actions):
 
         print("ACTIONS", actions)
@@ -293,24 +311,27 @@ class WildFireEnv(gym.Env):
         # print('action',action)
 
         moves = [(-1, 0), (1, 0), (0, -1), (0, 1), (0, 0)]  # (dy, dx) - Up, Down, Left, Right, Stay
-
+        
         # print("FF", self.FF)
         # print("med", self.med)
 
         if self.mode == 'inference':
             for agent_id, action in enumerate(actions):
-                act = action[i]
                 agent = self.agents[agent_id]
+                
+                dy, dx = self.transition(action)
 
-                new_agent = Agent(agent.x + moves[int(act[0])][0], agent.y + moves[int(act[0])][1], agent.type_id)
+                new_agent = Agent(agent.x + dx, agent.y + dy, agent.type_id)
                 self.agents[agent_id] = new_agent
             #new_FF = [self.FF[0] + moves[int(act[0])][0], self.FF[1] + moves[int(act[0])][1]]
             #new_med = [self.med[0] + moves[int(act[1])][0], self.med[1] + moves[int(act[1])][1]]
         else:
             for agent_id, action in enumerate(actions):
                 agent = self.agents[agent_id]
+                
+                dy, dx = self.transition(action)
 
-                new_agent = Agent(agent.x + moves[int(action)][0], agent.y + moves[int(action)][1], agent.type_id)
+                new_agent = Agent(agent.x + dx, agent.y + dy, agent.type_id)
                 self.agents[agent_id] = new_agent
             
             #new_FF = [self.FF[0] + moves[int(action[0])][0], self.FF[1] + moves[int(action[0])][1]]
@@ -326,7 +347,7 @@ class WildFireEnv(gym.Env):
         for agent_id, agent in self.agents.items():
             x = np.clip(agent.x, 0, self.n_grid - 1)
             y = np.clip(agent.y, 0, self.n_grid - 1)
-            self.agents[agent_id] = Agent(x, y, agent[2])
+            self.agents[agent_id] = Agent(x, y, agent.type_id)
 
 
         # print("new_FF1", self.FF)
@@ -494,10 +515,15 @@ class WildFireEnv(gym.Env):
 
         cells = {}
 
+        print(self.fire)
+        print(self.victims)
+
 
         # Fires
         for f in self.fire:
             cells.setdefault(tuple(f), set()).add("f")
+
+        
 
 
         # Victims
@@ -512,7 +538,7 @@ class WildFireEnv(gym.Env):
             #grid[tuple(v)] = 8 if v in self.fire else 5
 
         for coords, content in cells.items():
-            print("CONTENT", content)
+            print(content)
             if content == {'FF'}:
                 grid[coords] = 'FF'
             elif content == {'med'}:
@@ -537,7 +563,11 @@ class WildFireEnv(gym.Env):
                 grid[coords] = 'FMV'
             elif content == {'med', 'FF', 'f'}:
                 grid[coords] = 'FM🔥'
-            elif content == {'med', 'FF', 'f', 'v'}:
+            elif content == {'med', 'f', 'v'}:# must add corresponding number value in get_state
+                grid[coords] = 'MV🔥'
+            elif content == {'FF', 'f', 'v'}: # must add corresponding number value in get_state
+                grid[coords] = 'FV🔥'
+            elif content == {'med', 'FF', 'f', 'v'}: # must add corresponding number value in get_state
                 grid[coords] = 'FMV🔥'
 
         temp_victim = self.victims.copy()
@@ -574,10 +604,7 @@ if __name__ == "__main__":
     env = WildFireEnv(method="hypRL", n_grid=5, FF_coords = coords_FF, med_coords = coords_med)
     env.init_agents()
 
-    print(env.agents)
     env.reset()
-    print(env.agents)
-    print("observation space ", env.observation_space)
     env.render()
 
     done = False
