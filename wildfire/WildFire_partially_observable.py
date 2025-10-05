@@ -282,6 +282,10 @@ class WildFireEnv(gym.Env):
                 grid[coords] = 11
             elif content == {'med', 'FF', 'f'}:
                 grid[coords] = 12
+            elif content == {'med', 'f', 'v'}:
+                grid[coords] = 13;
+            elif content == {'FF', 'f', 'v'}:
+                grid[coords] = 14;
 
         return grid
 
@@ -621,6 +625,7 @@ if __name__ == "__main__":
 
         step += 1 
         print("reward", reward)
+
 
 
 
