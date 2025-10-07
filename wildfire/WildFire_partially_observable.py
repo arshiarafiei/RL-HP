@@ -8,7 +8,6 @@ import random
 
 Agent = namedtuple("Agent", ["y", "x", "type_id"])
 
-
 class WildFireEnv(gym.Env):
     def __init__(self, n_grid = 3, method = "baseline", mode = 'train'):
         super(WildFireEnv, self).__init__()
@@ -17,8 +16,8 @@ class WildFireEnv(gym.Env):
         self.method = method
 
         self.grid_size = (self.n_grid, self.n_grid) 
-        self.FF = [[2, 0], [3, 0]]
-        self.med = [[2, 0], [1, 0]]
+        self.FF = [[2, 4], [3, 0]]
+        self.med = [[1, 4], [1, 0]]
         self.original_FF = self.FF
         self.original_med = self.med
         self.number_of_FF = len(self.FF)
@@ -150,12 +149,12 @@ class WildFireEnv(gym.Env):
         i = 0
         for f in self.fire:
             fy, fx = f
-            dist = self._manhattan_distance(f, (x, y))
+            dist = self._manhattan_distance(f, (y, x))
 
             if (dist <= 1):
                 object_feats[i, 0] = 1 # visible
                 relative_x = (fx - x)
-                relative_y = (y - fy)
+                relative_y = (fy - y)
 
                 object_feats[i, 1] = relative_x # relative x
                 object_feats[i, 2] = relative_y # relative y
@@ -165,12 +164,12 @@ class WildFireEnv(gym.Env):
         
         for v in self.victims:
             vy, vx = v
-            dist = self._manhattan_distance(v, (x, y))
+            dist = self._manhattan_distance(v, (y, x))
 
             if (dist <= 1):
                 object_feats[i, 0] = 1 # visible
                 relative_x = (vx - x)
-                relative_y = (y - vy)
+                relative_y = (vy - y)
 
                 object_feats[i, 1] = relative_x # relative x
                 object_feats[i, 2] = relative_y # relative y
@@ -190,7 +189,7 @@ class WildFireEnv(gym.Env):
             if (dist <= 1):
                 agent_feats[i, 0] = 1 # visible
                 relative_x = (ax - x)
-                relative_y = (y - ay)
+                relative_y = (ay - y)
 
                 agent_feats[i, 1] = relative_x
                 agent_feats[i, 2] = relative_y
