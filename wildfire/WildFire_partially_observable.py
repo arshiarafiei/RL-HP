@@ -6,23 +6,27 @@ from operator import attrgetter
 from collections import namedtuple
 import random
 
-Agent = namedtuple("Agent", ["x", "y", "type_id"])
+Agent = namedtuple("Agent", ["y", "x", "type_id"])
 
 
 class WildFireEnv(gym.Env):
-    def __init__(self, n_grid = 3, method = "baseline", mode = 'train', FF_coords = [[2, 0]], med_coords = [[2, 0]]):
+    def __init__(self, n_grid = 3, method = "baseline", mode = 'train'):
         super(WildFireEnv, self).__init__()
 
         self.n_grid = n_grid
         self.method = method
 
         self.grid_size = (self.n_grid, self.n_grid) 
-        self.FF = FF_coords
-        self.med = med_coords
-        self.original_FF = FF_coords
-        self.original_med = med_coords
+        self.FF = [[2, 0], [3, 0]]
+        self.med = [[2, 0], [1, 0]]
+        self.original_FF = self.FF
+        self.original_med = self.med
         self.number_of_FF = len(self.FF)
         self.number_of_med = len(self.med)
+        self.FF_id = 1000
+        self.med_id = 2000
+        self.fire_id = 3000
+        self.victim_id = 4000
         self.agents = {}
         self.n_agents = 0
         self.fire = [[0, 1], [1, 2], [2, 1]]
@@ -42,7 +46,7 @@ class WildFireEnv(gym.Env):
         # self.observation_space = spaces.Box(low=0, high=13, shape=(self.n_grid*self.n_grid,), dtype=np.int32)  
 
         # 14 possible values (0‒13) for each grid cell
-        self.observation_space = spaces.MultiDiscrete(np.full(self.n_grid * self.n_grid, 14, dtype=np.int32))
+        self.observation_space = spaces.MultiDiscrete(np.full(self.n_grid * self.n_grid, 15, dtype=np.int32))
 
 
 
@@ -95,38 +99,16 @@ class WildFireEnv(gym.Env):
     def update_beliefs(self):
         return 0
 
-    def crop_observation(self, agent_pos, obs):
-        px, py = agent_pos
-
-        if (px == 0):
-            obs[:, 0] = -10
-            #obs = np.delete(obs, 0, axis = 0)
-        
-        if (px == self.n_grid - 1):
-            obs[2, :] = -10
-            #obs = np.delete(obs, 2, axis = 0)
-        
-        if (py == 0):
-            obs[:, 0] = -10
-            #obs = np.delete(obs, 0, axis = 1)
-
-        if (py == self.n_grid - 1):
-            obs[:, 2] = -10
-            #obs = np.delete(obs, 2, axis = 1)
-
-        return obs
-
     #def get_ally_feat_dim():
 
     def init_agents(self):
         ally_agents = []
-        self.FF
 
         for ff in self.FF:
-            ally_agents.append(Agent(ff[0], ff[1], 1000)) 
+            ally_agents.append(Agent(ff[0], ff[1], self.FF_id)) 
         
         for med in self.med:
-            ally_agents.append(Agent(med[0], med[1], 1001))
+            ally_agents.append(Agent(med[0], med[1], self.med_id))
 
         sorted_ally_agents = sorted(
             ally_agents, 
@@ -153,8 +135,8 @@ class WildFireEnv(gym.Env):
 
         unit = self.get_unit_by_id(agent_id)
 
-        ally_feats = np.zeros((len(self.FF) + len(self.med), 5), dtype = np.float32)
-        enemy_feats = np.zeros((len(self.fire) + len(self.victims), 5), dtype = np.float32)
+        agent_feats = np.zeros((len(self.FF) + len(self.med), 5), dtype = np.float32)
+        object_feats = np.zeros((len(self.fire) + len(self.victims), 5), dtype = np.float32)
         own_feats = np.zeros(3, dtype = np.float32)
 
         # how local coords work
@@ -164,39 +146,39 @@ class WildFireEnv(gym.Env):
         x = unit.x
         y = unit.y
 
-        #enemy features
+        # object features
         i = 0
         for f in self.fire:
-            fx, fy = f
+            fy, fx = f
             dist = self._manhattan_distance(f, (x, y))
 
             if (dist <= 1):
-                enemy_feats[i, 0] = 1 # visible
+                object_feats[i, 0] = 1 # visible
                 relative_x = (fx - x)
-                relative_y = (fy - y)
+                relative_y = (y - fy)
 
-                enemy_feats[i, 1] = relative_x # relative x
-                enemy_feats[i, 2] = relative_y # relative y
-                enemy_feats[i, 3] = dist # distance
-                enemy_feats[i, 4] = 2000.0 # id for fire
+                object_feats[i, 1] = relative_x # relative x
+                object_feats[i, 2] = relative_y # relative y
+                object_feats[i, 3] = dist # distance
+                object_feats[i, 4] = self.fire_id # id for fire
             i += 1
         
         for v in self.victims:
-            vx, vy = v
+            vy, vx = v
             dist = self._manhattan_distance(v, (x, y))
 
             if (dist <= 1):
-                enemy_feats[i, 0] = 1 # visible
+                object_feats[i, 0] = 1 # visible
                 relative_x = (vx - x)
-                relative_y = (vy - y)
+                relative_y = (y - vy)
 
-                enemy_feats[i, 1] = relative_x # relative x
-                enemy_feats[i, 2] = relative_y # relative y
-                enemy_feats[i, 3] = dist # distance
-                enemy_feats[i, 4] = 2001.0 # id for victim
+                object_feats[i, 1] = relative_x # relative x
+                object_feats[i, 2] = relative_y # relative y
+                object_feats[i, 3] = dist # distance
+                object_feats[i, 4] = self.victim_id # id for victim
             i += 1
         
-        #ally features
+        # agent features
         ally_ids = [id for id in range(self.n_agents) if id != agent_id]
 
         for i, ally_id in enumerate(ally_ids):
@@ -206,16 +188,16 @@ class WildFireEnv(gym.Env):
             dist = self._manhattan_distance((ax, ay), (x, y))
 
             if (dist <= 1):
-                ally_feats[i, 0] = 1 # visible
+                agent_feats[i, 0] = 1 # visible
                 relative_x = (ax - x)
-                relative_y = (ay - y)
+                relative_y = (y - ay)
 
-                ally_feats[i, 1] = relative_x
-                ally_feats[i, 2] = relative_y
-                ally_feats[i, 3] = dist
+                agent_feats[i, 1] = relative_x
+                agent_feats[i, 2] = relative_y
+                agent_feats[i, 3] = dist
 
                 # something
-                ally_feats[i, 4] = ally_unit.type_id
+                agent_feats[i, 4] = ally_unit.type_id
 
 
         #own feats
@@ -226,8 +208,8 @@ class WildFireEnv(gym.Env):
 
         agent_obs = np.concatenate((
             own_feats.flatten(), 
-            ally_feats.flatten(),
-            enemy_feats.flatten()
+            agent_feats.flatten(),
+            object_feats.flatten()
             )
         )
 
@@ -240,11 +222,9 @@ class WildFireEnv(gym.Env):
 
         cells = {}
 
-
         # Fires
         for f in self.fire:
             cells.setdefault(tuple(f), set()).add("f")
-
 
         # Victims
         for v in self.victims:
@@ -254,8 +234,6 @@ class WildFireEnv(gym.Env):
             a_coords = (agent.x, agent.y)
             type = "FF" if agent.type_id == 1000 else "med"
             cells.setdefault(a_coords, set()).add(type)
-
-            #grid[tuple(v)] = 8 if v in self.fire else 5
 
         for coords, content in cells.items():
             if content == {'FF'}:
@@ -283,9 +261,11 @@ class WildFireEnv(gym.Env):
             elif content == {'med', 'FF', 'f'}:
                 grid[coords] = 12
             elif content == {'med', 'f', 'v'}:
-                grid[coords] = 13;
+                grid[coords] = 13
             elif content == {'FF', 'f', 'v'}:
-                grid[coords] = 14;
+                grid[coords] = 14
+            elif content == {'FF', 'f', 'v', 'med'}:
+                grid[coords] = 15
 
         return grid
 
@@ -391,9 +371,6 @@ class WildFireEnv(gym.Env):
             self.trunct =True
 
         # print(self.get_observation())
-
-        print(agent_obs)
-
 
         return agent_obs, state, reward, terminated, self.trunct, info
     
@@ -527,15 +504,12 @@ class WildFireEnv(gym.Env):
         for f in self.fire:
             cells.setdefault(tuple(f), set()).add("f")
 
-        
-
-
         # Victims
         for v in self.victims:
             cells.setdefault(tuple(v), set()).add("v")
         
         for agent in self.agents.values():
-            a_coords = (agent.x, agent.y)
+            a_coords = (agent.y, agent.x)
             type = "FF" if agent.type_id == 1000 else "med"
             cells.setdefault(a_coords, set()).add(type)
 
@@ -585,27 +559,9 @@ class WildFireEnv(gym.Env):
 
 if __name__ == "__main__":
 
-    number_of_FF = random.randint(1, 3)
-    number_of_MD = random.randint(1, 3)
-
-    coords_FF = []
-    coords_med = []
-
-    for i in range(number_of_FF):
-        x = random.randint(0, 4)
-        y = random.randint(0, 4)
-
-        coords_FF.append([x, y])
-
-    for i in range(number_of_MD):
-        x = random.randint(0, 4)
-        y = random.randint(0, 4)
-
-        coords_med.append([x, y])
-
     np.set_printoptions(suppress=True)
 
-    env = WildFireEnv(method="hypRL", n_grid=5, FF_coords = coords_FF, med_coords = coords_med)
+    env = WildFireEnv(method="hypRL", n_grid=5)
     env.init_agents()
 
     env.reset()
@@ -622,10 +578,10 @@ if __name__ == "__main__":
         
         obs, state, reward, done, trunct, info = env.step(action)
         env.render()
+        print(obs)
 
         step += 1 
         print("reward", reward)
-
 
 
 
