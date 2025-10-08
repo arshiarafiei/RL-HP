@@ -30,6 +30,8 @@ class WildFireEnv(gym.Env):
         self.n_agents = 0
         self.fire = [[0, 1], [1, 2], [2, 1]]
         self.victims = [[0, 0], [1, 2]]
+        self.original_fire = self.fire
+        self.original_victims = self.victims
         self.victim_saved = 0
         self.fire_ex = 0
         self.trajectory = list()
@@ -135,7 +137,7 @@ class WildFireEnv(gym.Env):
         unit = self.get_unit_by_id(agent_id)
 
         agent_feats = np.zeros((len(self.FF) + len(self.med), 5), dtype = np.float32)
-        object_feats = np.zeros((len(self.fire) + len(self.victims), 5), dtype = np.float32)
+        object_feats = np.zeros((len(self.original_fire) + len(self.original_victims), 5), dtype = np.float32)
         own_feats = np.zeros(3, dtype = np.float32)
 
         # how local coords work
@@ -273,9 +275,9 @@ class WildFireEnv(gym.Env):
         transition_probabilities = {
             0: (0.9, 0.025, 0.025, 0.025, 0.025),  # up
             1: (0.025, 0.9, 0.025, 0.025, 0.025),  # down
-            2: (0.1, 0.1, 0.9, 0.1, 0.1),  # left
-            3: (0.1, 0.1, 0.1, 0.9, 0.1),  # right
-            4: (0.1, 0.1, 0.1, 0.1, 0.9)   # stay
+            2: (0.025, 0.025, 0.9, 0.025, 0.025),  # left
+            3: (0.025, 0.025, 0.025, 0.9, 0.025),  # right
+            4: (0.025, 0.025, 0.025, 0.025, 0.9)   # stay
         }
 
         probablities = transition_probabilities[action]
@@ -484,6 +486,8 @@ class WildFireEnv(gym.Env):
         print("MED NOW", self.med)
         self.fire = [[0, self.n_grid -1], [3, self.n_grid -1], [4, self.n_grid -1]]  
         self.victims = [[0, 0], [0, self.n_grid -1]]
+        self.original_fire = self.fire
+        self.original_victims = self.victims
         self.victim_saved = 0
         self.fire_ex = 0 
         self.trunct = False
@@ -577,7 +581,7 @@ if __name__ == "__main__":
 
     print(env.observation_space.sample())
     print(env.observation_space)
-    for i in range(10):        
+    for i in range(100):        
         action = env.action_space.sample()
         print("ACTION SPACE", action)
         
