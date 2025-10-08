@@ -16,8 +16,8 @@ class WildFireEnv(gym.Env):
         self.method = method
 
         self.grid_size = (self.n_grid, self.n_grid) 
-        self.FF = [[2, 4], [3, 0]]
-        self.med = [[1, 4], [1, 0]]
+        self.FF = [[2, 0], [3, 0]]
+        self.med = [[1, 0], [1, 0]]
         self.original_FF = self.FF
         self.original_med = self.med
         self.number_of_FF = len(self.FF)
@@ -271,11 +271,11 @@ class WildFireEnv(gym.Env):
     def transition(self, action):
         moves = [(-1, 0), (1, 0), (0, -1), (0, 1), (0, 0)]  # (dy, dx) - Up, Down, Left, Right, Stay
         transition_probabilities = {
-            0: (0.6, 0.1, 0.1, 0.1, 0.1),  # up
-            1: (0.1, 0.6, 0.1, 0.1, 0.1),  # down
-            2: (0.1, 0.1, 0.6, 0.1, 0.1),  # left
-            3: (0.1, 0.1, 0.1, 0.6, 0.1),  # right
-            4: (0.1, 0.1, 0.1, 0.1, 0.6)   # stay
+            0: (0.9, 0.025, 0.025, 0.025, 0.025),  # up
+            1: (0.025, 0.9, 0.025, 0.025, 0.025),  # down
+            2: (0.1, 0.1, 0.9, 0.1, 0.1),  # left
+            3: (0.1, 0.1, 0.1, 0.9, 0.1),  # right
+            4: (0.1, 0.1, 0.1, 0.1, 0.9)   # stay
         }
 
         probablities = transition_probabilities[action]
@@ -343,18 +343,24 @@ class WildFireEnv(gym.Env):
         state = self.get_state()
 
         vistm_copy = self.victims.copy()
-
-        if self.med in self.victims:
-            self.victim_saved += 1
-            vistm_copy.remove(self.med)
-        self.victims = vistm_copy.copy()
-
         fire_copy = self.fire.copy()
-        if self.FF in self.fire:
-            self.fire_ex += 1
-            fire_copy.remove(self.FF)  # Extinguish fire
-        self.fire = fire_copy.copy()
+
+        for id in enumerate(self.agents):
+            agent = self.agents[id[0]]
+            print("AGENT", agent)
+            a_coords = [agent.y, agent.x]
+
+            if (a_coords in fire_copy) and (agent.type_id == self.FF_id):
+                self.fire_ex += 1
+                fire_copy.remove(a_coords)# Extinguish fire
             
+            if a_coords in vistm_copy and (agent.type_id == self.med_id):
+                self.victim_saved += 1
+                print(a_coords)
+                vistm_copy.remove(a_coords) #save victim
+
+        self.victims = vistm_copy.copy()
+        self.fire = fire_copy.copy()
 
         terminated = len(self.fire) == 0 and len(self.victims) == 0
         sub_goals = [len(self.fire) == 0 , len(self.victims) == 0]
